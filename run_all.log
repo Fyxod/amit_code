@@ -1200,3 +1200,181 @@ Saved 8x enhanced difference image → output_save/image_3/instruct_output/bspli
 Done!
 === Completed: image_3/bspline_10 ===
 Committing results...
+[main 5f57059] Add results for image_3 bspline_10 iterations - VAE: bspline warp with 10 iterations - FLUX: Add sunglasses, Make hair color green - InstructPix2Pix: Add sunglasses, Make hair color green
+ 18 files changed, 188 insertions(+)
+ create mode 100644 output_save/image_3/flux_output/bspline_10/difference.png
+ create mode 100644 output_save/image_3/flux_output/bspline_10/difference_8.png
+ create mode 100644 output_save/image_3/flux_output/bspline_10/output_green_hair.png
+ create mode 100644 output_save/image_3/flux_output/bspline_10/output_sunglasses.png
+ create mode 100644 output_save/image_3/instruct_output/bspline_10/difference.png
+ create mode 100644 output_save/image_3/instruct_output/bspline_10/difference_8.png
+ create mode 100644 output_save/image_3/instruct_output/bspline_10/output_green_hair.png
+ create mode 100644 output_save/image_3/instruct_output/bspline_10/output_sunglasses.png
+ create mode 100644 output_save/image_3/results/bspline_10/raw_difference.png
+ create mode 100644 output_save/image_3/results/bspline_10/unenhanced_difference.png
+ create mode 100644 output_save/image_3/results/bspline_10/vae_latent_iterations/iter_0000.png
+ create mode 100644 output_save/image_3/results/bspline_10/vae_latent_iterations/iter_0000_original.png
+ create mode 100644 output_save/image_3/results/bspline_10/vae_latent_iterations/iter_0000_warped.png
+ create mode 100644 output_save/image_3/results/bspline_10/vae_latent_iterations/iter_0009_final.png
+ create mode 100644 output_save/image_3/results/bspline_10/vae_latent_iterations/iter_0009_warped_final.png
+ create mode 100644 output_save/image_3/results/bspline_10/vae_latent_out.png
+ create mode 100644 output_save/image_3/vae_latent_out.png
+=== Committed: image_3/bspline_10 ===
+
+=== Iterations: 15 ===
+Processing: image_3/bspline_15
+Running VAE latent optimization...
+/home/interns/.local/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py:205: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+Loading image: new_images/image_3.png
+  Image shape: torch.Size([1, 3, 512, 512])
+
+Initialising VAE ...
+Loading InstructPix2Pix VAE from 'timbrooks/instruct-pix2pix' ...
+  ✓ InstructPix2Pix VAE loaded.
+Initialising bspline warp (learnable, imperceptible) ...
+  Imperceptibility thresholds: {'max_displacement': 3.0}
+Loading identity model: facenet
+facenet-pytorch not available, using fallback model
+Initialising MediaPipe landmark detector ...
+MediaPipe Tasks API failed: No module named 'mediapipe', trying legacy API ...
+MediaPipe legacy API not available: No module named 'mediapipe', using default landmarks
+Encoding original image to VAE latent space ...
+  Latent shape: torch.Size([1, 4, 64, 64])
+Detecting landmarks on original image ...
+  Learnable parameters: 1 (Δz) + 1 (warp θ)
+
+Running joint VAE latent + warp optimisation for 15 iterations ...
+  lr=0.01  λ_lm=0.1  λ_reg=0.001  λ_ssim=5.0  λ_pix=1.0
+  ε=10.0px  (imperceptibility thresholds enforced via tanh bounds)
+  Warp: bspline
+  Saving images every 50 iterations → output_save/image_3/results/bspline_15/vae_latent_iterations
+
+Joint VAE+warp optimisation:   0%|          | 0/15 [00:00<?, ?it/s]Joint VAE+warp optimisation:   0%|          | 0/15 [00:01<?, ?it/s, L_total=1.4880, L_id=1.0000, L_ssim=0.0975, warp=bspline]Joint VAE+warp optimisation:   7%|▋         | 1/15 [00:01<00:25,  1.85s/it, L_total=1.4880, L_id=1.0000, L_ssim=0.0975, warp=bspline]Joint VAE+warp optimisation:   7%|▋         | 1/15 [00:02<00:25,  1.85s/it, L_total=1.4590, L_id=1.0000, L_ssim=0.0917, warp=bspline]Joint VAE+warp optimisation:  13%|█▎        | 2/15 [00:02<00:13,  1.04s/it, L_total=1.4590, L_id=1.0000, L_ssim=0.0917, warp=bspline]Joint VAE+warp optimisation:  13%|█▎        | 2/15 [00:02<00:13,  1.04s/it, L_total=1.4374, L_id=1.0000, L_ssim=0.0874, warp=bspline]Joint VAE+warp optimisation:  20%|██        | 3/15 [00:02<00:09,  1.29it/s, L_total=1.4374, L_id=1.0000, L_ssim=0.0874, warp=bspline]Joint VAE+warp optimisation:  20%|██        | 3/15 [00:03<00:09,  1.29it/s, L_total=1.4209, L_id=1.0000, L_ssim=0.0841, warp=bspline]Joint VAE+warp optimisation:  27%|██▋       | 4/15 [00:03<00:07,  1.53it/s, L_total=1.4209, L_id=1.0000, L_ssim=0.0841, warp=bspline]Joint VAE+warp optimisation:  27%|██▋       | 4/15 [00:03<00:07,  1.53it/s, L_total=1.4079, L_id=1.0000, L_ssim=0.0815, warp=bspline]Joint VAE+warp optimisation:  33%|███▎      | 5/15 [00:03<00:05,  1.69it/s, L_total=1.4079, L_id=1.0000, L_ssim=0.0815, warp=bspline]Joint VAE+warp optimisation:  33%|███▎      | 5/15 [00:04<00:05,  1.69it/s, L_total=1.3974, L_id=1.0000, L_ssim=0.0794, warp=bspline]Joint VAE+warp optimisation:  40%|████      | 6/15 [00:04<00:04,  1.83it/s, L_total=1.3974, L_id=1.0000, L_ssim=0.0794, warp=bspline]Joint VAE+warp optimisation:  40%|████      | 6/15 [00:04<00:04,  1.83it/s, L_total=1.3885, L_id=1.0000, L_ssim=0.0776, warp=bspline]Joint VAE+warp optimisation:  47%|████▋     | 7/15 [00:04<00:04,  1.92it/s, L_total=1.3885, L_id=1.0000, L_ssim=0.0776, warp=bspline]Joint VAE+warp optimisation:  47%|████▋     | 7/15 [00:05<00:04,  1.92it/s, L_total=1.3810, L_id=1.0000, L_ssim=0.0761, warp=bspline]Joint VAE+warp optimisation:  53%|█████▎    | 8/15 [00:05<00:03,  1.98it/s, L_total=1.3810, L_id=1.0000, L_ssim=0.0761, warp=bspline]Joint VAE+warp optimisation:  53%|█████▎    | 8/15 [00:05<00:03,  1.98it/s, L_total=1.3744, L_id=1.0000, L_ssim=0.0748, warp=bspline]Joint VAE+warp optimisation:  60%|██████    | 9/15 [00:05<00:02,  2.05it/s, L_total=1.3744, L_id=1.0000, L_ssim=0.0748, warp=bspline]Joint VAE+warp optimisation:  60%|██████    | 9/15 [00:06<00:02,  2.05it/s, L_total=1.3685, L_id=1.0000, L_ssim=0.0736, warp=bspline]Joint VAE+warp optimisation:  67%|██████▋   | 10/15 [00:06<00:02,  2.08it/s, L_total=1.3685, L_id=1.0000, L_ssim=0.0736, warp=bspline]Joint VAE+warp optimisation:  67%|██████▋   | 10/15 [00:06<00:02,  2.08it/s, L_total=1.3632, L_id=1.0000, L_ssim=0.0726, warp=bspline]Joint VAE+warp optimisation:  73%|███████▎  | 11/15 [00:06<00:01,  2.08it/s, L_total=1.3632, L_id=1.0000, L_ssim=0.0726, warp=bspline]Joint VAE+warp optimisation:  73%|███████▎  | 11/15 [00:06<00:01,  2.08it/s, L_total=1.3584, L_id=1.0000, L_ssim=0.0716, warp=bspline]Joint VAE+warp optimisation:  80%|████████  | 12/15 [00:06<00:01,  2.10it/s, L_total=1.3584, L_id=1.0000, L_ssim=0.0716, warp=bspline]Joint VAE+warp optimisation:  80%|████████  | 12/15 [00:07<00:01,  2.10it/s, L_total=1.3540, L_id=1.0000, L_ssim=0.0707, warp=bspline]Joint VAE+warp optimisation:  87%|████████▋ | 13/15 [00:07<00:00,  2.11it/s, L_total=1.3540, L_id=1.0000, L_ssim=0.0707, warp=bspline]Joint VAE+warp optimisation:  87%|████████▋ | 13/15 [00:07<00:00,  2.11it/s, L_total=1.3498, L_id=1.0000, L_ssim=0.0699, warp=bspline]Joint VAE+warp optimisation:  93%|█████████▎| 14/15 [00:07<00:00,  2.12it/s, L_total=1.3498, L_id=1.0000, L_ssim=0.0699, warp=bspline]Joint VAE+warp optimisation:  93%|█████████▎| 14/15 [00:08<00:00,  2.12it/s, L_total=1.3460, L_id=1.0000, L_ssim=0.0691, warp=bspline]Joint VAE+warp optimisation: 100%|██████████| 15/15 [00:08<00:00,  2.13it/s, L_total=1.3460, L_id=1.0000, L_ssim=0.0691, warp=bspline]Joint VAE+warp optimisation: 100%|██████████| 15/15 [00:08<00:00,  1.79it/s, L_total=1.3460, L_id=1.0000, L_ssim=0.0691, warp=bspline]
+  Iter    0 [bspline   ] | L_total=1.488005  L_id=0.999996  L_ssim=0.097501  L_pix=0.000504  L_lm=0.000000  |warp|=0.0098
+  Iter   10 [bspline   ] | L_total=1.363220  L_id=0.999997  L_ssim=0.072567  L_pix=0.000383  L_lm=0.000000  |warp|=0.0129
+
+Saved perturbed image → output_save/image_3/results/bspline_15/vae_latent_out.png
+Saved unenhanced difference image → output_save/image_3/results/bspline_15/unenhanced_difference.png
+Saved raw difference image (8x enhanced) → output_save/image_3/results/bspline_15/raw_difference.png
+
+============================================================
+VAE Latent Optimisation — Final Results
+  VAE type: pix2pix
+  Warp type: bspline
+============================================================
+  Identity similarity (cos):  0.999998
+  Landmark drift (px):        0.000000
+  ε threshold:                10.0 px
+  Landmarks preserved:        ✓
+  Identity disrupted:         ✗
+  Iterations run:             15
+============================================================
+
+Done!
+Running FLUX with 'Add sunglasses'...
+2026-07-13 21:39:27.064795: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-07-13 21:39:27.117251: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1783958967.159151  402748 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1783958967.171839  402748 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-07-13 21:39:27.212486: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Loading image: output_save/image_3/results/bspline_15/vae_latent_out.png
+  Image size: (512, 512)
+
+Initialising FLUX backend...
+  Model: black-forest-labs/FLUX.2-klein-4B
+  Steps: 10
+  Guidance: 1.0
+  Dtype: bfloat16
+  Max seq len: 512
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][A
+Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 16.81it/s][ALoading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 16.74it/s]
+Loading pipeline components...:  20%|██        | 1/5 [00:00<00:01,  3.77it/s]Loading pipeline components...:  40%|████      | 2/5 [00:00<00:00,  5.81it/s]Loading pipeline components...:  60%|██████    | 3/5 [00:01<00:00,  2.12it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:01<00:00,  3.89it/s]
+
+Running image edit with prompt: 'Add sunglasses'
+
+Saved edited image → output_save/image_3/flux_output/bspline_15/output_sunglasses.png
+Saved raw difference image → output_save/image_3/flux_output/bspline_15/difference.png
+Saved 8x enhanced difference image → output_save/image_3/flux_output/bspline_15/difference_8.png
+
+Done!
+Running FLUX with 'Make hair color green'...
+2026-07-13 21:40:04.756020: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-07-13 21:40:04.791362: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1783959004.832944  404061 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1783959004.845267  404061 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-07-13 21:40:04.894610: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Loading image: output_save/image_3/results/bspline_15/vae_latent_out.png
+  Image size: (512, 512)
+
+Initialising FLUX backend...
+  Model: black-forest-labs/FLUX.2-klein-4B
+  Steps: 10
+  Guidance: 1.0
+  Dtype: bfloat16
+  Max seq len: 512
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:  40%|████      | 2/5 [00:00<00:00, 12.05it/s]Loading pipeline components...:  80%|████████  | 4/5 [00:00<00:00,  3.63it/s]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][A
+Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 18.76it/s][ALoading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 18.67it/s]
+Loading pipeline components...: 100%|██████████| 5/5 [00:01<00:00,  3.80it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:01<00:00,  4.10it/s]
+
+Running image edit with prompt: 'Make hair color green'
+
+Saved edited image → output_save/image_3/flux_output/bspline_15/output_green_hair.png
+Saved raw difference image → output_save/image_3/flux_output/bspline_15/difference.png
+Saved 8x enhanced difference image → output_save/image_3/flux_output/bspline_15/difference_8.png
+
+Done!
+Running InstructPix2Pix with 'Add sunglasses'...
+Loading image: output_save/image_3/results/bspline_15/vae_latent_out.png
+  Image size: (512, 512)
+
+Initialising InstructPix2Pix backend...
+  Model: timbrooks/instruct-pix2pix
+  Steps: 20
+  Guidance: 7.5
+  Image Guidance: 1.5
+  Dtype: float16
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s][0;93m2026-07-13 21:40:46.446039019 [W:onnxruntime:Default, device_discovery.cc:164 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:89 ReadFileContents Failed to open file: "/sys/class/drm/card0/device/vendor"[m
+
+Loading weights:   0%|          | 0/196 [00:00<?, ?it/s][A
+Loading weights:  95%|█████████▍| 186/196 [00:00<00:00, 1843.34it/s][ALoading weights: 100%|██████████| 196/196 [00:00<00:00, 1897.12it/s]
+Loading pipeline components...:  33%|███▎      | 2/6 [00:00<00:00,  4.38it/s]Loading pipeline components...:  50%|█████     | 3/6 [00:03<00:04,  1.55s/it]Loading pipeline components...:  83%|████████▎ | 5/6 [00:04<00:00,  1.09it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:04<00:00,  1.39it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:04<00:00,  1.24it/s]
+
+Running image edit with prompt: 'Add sunglasses'
+
+Saved edited image → output_save/image_3/instruct_output/bspline_15/output_sunglasses.png
+Saved raw difference image → output_save/image_3/instruct_output/bspline_15/difference.png
+Saved 8x enhanced difference image → output_save/image_3/instruct_output/bspline_15/difference_8.png
+
+Done!
+Running InstructPix2Pix with 'Make hair color green'...
+Loading image: output_save/image_3/results/bspline_15/vae_latent_out.png
+  Image size: (512, 512)
+
+Initialising InstructPix2Pix backend...
+  Model: timbrooks/instruct-pix2pix
+  Steps: 20
+  Guidance: 7.5
+  Image Guidance: 1.5
+  Dtype: float16
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s][0;93m2026-07-13 21:41:14.989782324 [W:onnxruntime:Default, device_discovery.cc:164 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:89 ReadFileContents Failed to open file: "/sys/class/drm/card0/device/vendor"[m
+
+Loading weights:   0%|          | 0/196 [00:00<?, ?it/s][A
+Loading weights:  90%|████████▉ | 176/196 [00:00<00:00, 1759.30it/s][ALoading weights: 100%|██████████| 196/196 [00:00<00:00, 1882.27it/s]
+Loading pipeline components...:  33%|███▎      | 2/6 [00:00<00:00,  4.16it/s]Loading pipeline components...:  50%|█████     | 3/6 [00:03<00:04,  1.50s/it]Loading pipeline components...:  67%|██████▋   | 4/6 [00:04<00:02,  1.30s/it]Loading pipeline components...: 100%|██████████| 6/6 [00:04<00:00,  1.49it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:04<00:00,  1.23it/s]
+
+Running image edit with prompt: 'Make hair color green'
+
+Saved edited image → output_save/image_3/instruct_output/bspline_15/output_green_hair.png
+Saved raw difference image → output_save/image_3/instruct_output/bspline_15/difference.png
+Saved 8x enhanced difference image → output_save/image_3/instruct_output/bspline_15/difference_8.png
+
+Done!
+=== Completed: image_3/bspline_15 ===
+Committing results...
