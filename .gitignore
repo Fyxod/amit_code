@@ -9,7 +9,7 @@ parthenv
 env/
 .env
 .DS_Store
-
+node_modules
 # Model weights and local caches
 models/arcface/*
 !models/arcface/.gitkeep
