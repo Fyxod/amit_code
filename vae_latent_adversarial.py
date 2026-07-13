@@ -464,14 +464,16 @@ def run_vae_latent_optimisation(
     learning_rate=0.01,
     landmark_weight=0.1,
     latent_reg_weight=0.001,
-    ssim_weight=5.0,
-    pixel_weight=1.0,
+    ssim_weight=0.5,
+    pixel_weight=0.1,
+    identity_weight=10.0,
     epsilon=10.0,
     device="cuda",
     save_dir="results/vae_latent_iterations",
     save_interval=50,
     verbose=True,
     whole_image=False,
+    grad_clip=1.0,
 ):
     """
     Run joint VAE latent + warp parameter optimisation.
@@ -616,7 +618,7 @@ def run_vae_latent_optimisation(
         L_pix_warp = pixel_l2_loss(warped, perturbed)       # differentiable → Δz + θ_warp
         L_pix = L_pix_pert + L_pix_warp
 
-        L_total = (L_id
+        L_total = (identity_weight * L_id
                    + ssim_weight * L_ssim
                    + pixel_weight * L_pix
                    + landmark_weight * L_lm
@@ -744,8 +746,12 @@ def parse_args():
                         help="λ_reg — weight of latent regularisation ||Δz||²")
     parser.add_argument("--ssim-weight", type=float, default=5.0,
                         help="λ_ssim — weight of differentiable SSIM preservation loss")
-    parser.add_argument("--pixel-weight", type=float, default=1.0,
+    parser.add_argument("--pixel-weight", type=float, default=0.1,
                         help="λ_pix — weight of differentiable pixel L2 preservation loss")
+    parser.add_argument("--identity-weight", type=float, default=10.0,
+                        help="λ_id — weight of identity disruption loss (higher = more aggressive)")
+    parser.add_argument("--grad-clip", type=float, default=1.0,
+                        help="Gradient clipping value for stability")
     parser.add_argument("--epsilon", type=float, default=10.0,
                         help="Max allowed landmark displacement (pixels)")
     parser.add_argument("--grid-size", type=int, nargs=2, default=[8, 8],
