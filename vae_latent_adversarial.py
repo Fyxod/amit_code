@@ -761,8 +761,8 @@ def parse_args():
                         choices=["cuda", "cpu"], help="Device")
     parser.add_argument("--seed", type=int, default=42, help="Random seed")
     parser.add_argument("--save-dir", type=str,
-                        default="results/vae_latent_iterations",
-                        help="Directory for per-iteration images")
+                        default="results/bspline",
+                        help="Directory for all outputs. Iterations saved in {save_dir}/vae_latent_iterations/, final outputs in {save_dir}/")
     parser.add_argument("--save-interval", type=int, default=50,
                         help="Save image every N iterations")
     parser.add_argument("--visualize", action="store_true",
@@ -784,6 +784,16 @@ def main():
 
     device = args.device if torch.cuda.is_available() else "cpu"
     image_size = tuple(args.image_size)
+
+    # Setup output directories:
+    # - Iteration images: {save_dir}/vae_latent_iterations/
+    # - Final outputs: {save_dir}/
+    iterations_dir = os.path.join(args.save_dir, "vae_latent_iterations")
+    os.makedirs(iterations_dir, exist_ok=True)
+    os.makedirs(args.save_dir, exist_ok=True)
+    
+    # Override output path to be in save_dir
+    args.output = os.path.join(args.save_dir, "vae_latent_out.png")
 
     # ── Load original image ────────────────────────────────────
     print(f"Loading image: {args.input}")
@@ -846,7 +856,7 @@ def main():
         pixel_weight=args.pixel_weight,
         epsilon=args.epsilon,
         device=device,
-        save_dir=args.save_dir,
+        save_dir=iterations_dir,  # Save iterations in subfolder
         save_interval=args.save_interval,
         verbose=args.verbose,
         whole_image=args.whole_image,
@@ -854,7 +864,6 @@ def main():
 
 
     # ── Save final perturbed image ─────────────────────────────
-    os.makedirs(os.path.dirname(args.output) or ".", exist_ok=True)
     save_image(perturbed[0], args.output)
     print(f"\nSaved perturbed image → {args.output}")
 
@@ -866,8 +875,8 @@ def main():
         # Shift to [0, 1] range for visualization (0.5 = no difference)
         diff_vis = (diff + 1.0) / 2.0
         diff_vis = diff_vis.clamp(0, 1)
-        # Save unenhanced difference image
-        diff_output = os.path.join(os.path.dirname(args.output), "unenhanced_difference.png")
+        # Save unenhanced difference image in save_dir root
+        diff_output = os.path.join(args.save_dir, "unenhanced_difference.png")
         save_image(diff_vis, diff_output)
         print(f"Saved unenhanced difference image → {diff_output}")
 
@@ -880,8 +889,8 @@ def main():
         # Shift to [0, 1] range for visualization (0.5 = no difference)
         diff_vis = (diff_enhanced + 1.0) / 2.0
         diff_vis = diff_vis.clamp(0, 1)
-        # Save enhanced difference image
-        diff_output = os.path.join(os.path.dirname(args.output), "raw_difference.png")
+        # Save enhanced difference image in save_dir root
+        diff_output = os.path.join(args.save_dir, "raw_difference.png")
         save_image(diff_vis, diff_output)
         print(f"Saved raw difference image (8x enhanced) → {diff_output}")
 
