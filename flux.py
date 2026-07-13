@@ -2,16 +2,22 @@
 """
 FLUX White-Box Backend Script.
 
-This script provides a CLI interface to the FLUX white-box backend
-from the GLASS project. It allows running image edits using the FLUX.2
-Klein model with configurable parameters.
+This script uses the FLUX.2-klein pipeline from the clean/whitebox repository.
+It must be run with the clean/whitebox virtual environment.
 
 Usage:
-    python flux.py -i input.jpg -o output.jpg -p "Make him smile"
-    python flux.py -i input.jpg -o output.jpg -p "Add glasses" --steps 10 --guidance 2.0
+    /home/interns/Desktop/clean/.venv-linux-gpu/bin/python flux.py -i input.jpg -o output.jpg -p "Add sunglasses"
 """
 
 import argparse
+import sys
+import os
+
+# Add clean/whitebox to path for any shared modules
+CLEAN_PATH = "/home/interns/Desktop/clean"
+if CLEAN_PATH not in sys.path:
+    sys.path.insert(0, CLEAN_PATH)
+
 import torch
 import numpy as np
 from PIL import Image
@@ -23,7 +29,7 @@ from typing import Any
 class FluxSettings:
     model_id: str = "black-forest-labs/FLUX.2-klein-4B"
     torch_dtype: str = "bfloat16"
-    diffusion_steps: int = 4
+    diffusion_steps: int = 10
     guidance_scale: float = 1.0
     max_sequence_length: int = 512
     text_encoder_out_layers: tuple[int, ...] = (9, 18, 27)
@@ -58,8 +64,9 @@ class FluxBackend:
             from diffusers import Flux2KleinPipeline
         except Exception as error:
             raise RuntimeError(
-                "Could not import diffusers.Flux2KleinPipeline. This backend follows the clean/whitebox "
-                "FLUX.2 Klein implementation; install the same diffusers version used there."
+                "Could not import Flux2KleinPipeline. "
+                "This script requires the clean/whitebox environment with PyTorch 2.7+ and compatible diffusers. "
+                f"Run with: /home/interns/Desktop/clean/.venv-linux-gpu/bin/python flux.py ..."
             ) from error
         pipe = Flux2KleinPipeline.from_pretrained(
             self.settings.model_id,
@@ -192,20 +199,20 @@ class FluxBackend:
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description="FLUX white-box backend for image editing"
+        description="FLUX white-box backend for image editing (uses clean/whitebox env)"
     )
     parser.add_argument("--input", "-i", type=str, required=True,
                         help="Path to input image")
     parser.add_argument("--output", "-o", type=str, required=True,
                         help="Path to save output image")
-    parser.add_argument("--prompt", "-p", type=str, default="Make him smile",
+    parser.add_argument("--prompt", "-p", type=str, default="Add sunglasses",
                         help="Text prompt for the edit")
     parser.add_argument("--model-id", type=str, default="black-forest-labs/FLUX.2-klein-4B",
                         help="HuggingFace model ID")
     parser.add_argument("--dtype", type=str, default="bfloat16",
                         choices=["float16", "float32", "bfloat16"],
                         help="Torch dtype for model")
-    parser.add_argument("--steps", type=int, default=4,
+    parser.add_argument("--steps", type=int, default=10,
                         help="Number of diffusion steps")
     parser.add_argument("--guidance-scale", type=float, default=1.0,
                         help="Guidance scale")
@@ -267,6 +274,7 @@ def main():
         # Standard image editing
         print(f"\nRunning image edit with prompt: '{args.prompt}'")
         result = backend.generate_edit(image, args.prompt, args.seed)
+        os.makedirs(os.path.dirname(args.output) or ".", exist_ok=True)
         result.save(args.output)
         print(f"\nSaved edited image → {args.output}")
     else:

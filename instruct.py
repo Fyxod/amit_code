@@ -218,6 +218,7 @@ def main():
         # Standard image editing
         print(f"\nRunning image edit with prompt: '{args.prompt}'")
         result = backend.generate_edit(image, args.prompt, args.seed)
+        os.makedirs(os.path.dirname(args.output) or ".", exist_ok=True)
         result.save(args.output)
         print(f"\nSaved edited image → {args.output}")
     else:

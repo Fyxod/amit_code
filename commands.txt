@@ -1,0 +1,8 @@
+# flux run
+/home/interns/Desktop/clean/.venv-linux-gpu/bin/python /home/interns/Desktop/amit_code/flux.py -i input.jpg -o output.jpg -p "Add sunglasses"
+
+# instruct run
+python instruct.py -i /home/interns/Desktop/amit_code/results/all_100/vae_latent_out.png -o instruct_output/all_100/output.png -p "Add sunglasses"
+
+# main command
+python vae_latent_adversarial.py -i original.jpg --warp-type all --iterations 100 --verbose --device cuda --save-dir results/all_100
