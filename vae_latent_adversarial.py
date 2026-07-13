@@ -628,6 +628,11 @@ def run_vae_latent_optimisation(
         # ── Step 7: Backprop & update Δz + θ_warp ─────────────
         optimizer.zero_grad()
         L_total.backward()
+        
+        # Gradient clipping for stability
+        if grad_clip > 0:
+            torch.nn.utils.clip_grad_value_(all_params, grad_clip)
+        
         optimizer.step()
 
         # Track best (save both Δz and warp parameter states)
@@ -867,12 +872,14 @@ def main():
         latent_reg_weight=args.latent_reg_weight,
         ssim_weight=args.ssim_weight,
         pixel_weight=args.pixel_weight,
+        identity_weight=args.identity_weight,
         epsilon=args.epsilon,
         device=device,
         save_dir=iterations_dir,  # Save iterations in subfolder
         save_interval=args.save_interval,
         verbose=args.verbose,
         whole_image=args.whole_image,
+        grad_clip=args.grad_clip,
     )
 
 
