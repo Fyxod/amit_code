@@ -13,6 +13,7 @@ Usage:
 import os
 import argparse
 import torch
+import numpy as np
 from PIL import Image
 from dataclasses import dataclass
 from typing import Any
@@ -230,10 +231,10 @@ def main():
         print(f"\nSaved edited image → {args.output}")
 
         # ── Save difference images ─────
-        import torch.nn.functional as F
         from torchvision.transforms.functional import resize
-        result_tensor = torch.from_numpy(result).permute(2, 0, 1).float() / 255.0
-        image_tensor = torch.from_numpy(image).permute(2, 0, 1).float() / 255.0
+        result_np = np.array(result)
+        result_tensor = torch.from_numpy(result_np).permute(2, 0, 1).float() / 255.0
+        image_tensor = torch.from_numpy(np.array(image)).permute(2, 0, 1).float() / 255.0
         
         # Resize result to match original if needed
         if result_tensor.shape[1:] != image_tensor.shape[1:]:
@@ -257,7 +258,7 @@ def main():
     else:
         # White-box objective computation
         print(f"\nComputing white-box objective: {args.objective}")
-        image_tensor = torch.from_numpy(image).permute(2, 0, 1).float() / 255.0
+        image_tensor = torch.from_numpy(np.array(image)).permute(2, 0, 1).float() / 255.0
         image_tensor = image_tensor.unsqueeze(0).to(device)
         
         reference = backend.prepare_reference(image_tensor, args.prompt, args.objective)
