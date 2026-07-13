@@ -858,8 +858,20 @@ def main():
     save_image(perturbed[0], args.output)
     print(f"\nSaved perturbed image → {args.output}")
 
-    # ── Save raw difference image (8x brightness enhanced) ─────
-    # Compute difference: perturbed - original, then enhance by 8x
+    # ── Save unenhanced raw difference image ─────
+    # Compute difference: perturbed - original (no enhancement)
+    with torch.no_grad():
+        # Both images are in [0, 1] range
+        diff = perturbed[0] - image[0]  # Difference in [-1, 1]
+        # Shift to [0, 1] range for visualization (0.5 = no difference)
+        diff_vis = (diff + 1.0) / 2.0
+        diff_vis = diff_vis.clamp(0, 1)
+        # Save unenhanced difference image
+        diff_output = os.path.join(os.path.dirname(args.output), "unenhanced_difference.png")
+        save_image(diff_vis, diff_output)
+        print(f"Saved unenhanced difference image → {diff_output}")
+
+    # ── Save 8x enhanced raw difference image ─────
     with torch.no_grad():
         # Both images are in [0, 1] range
         diff = perturbed[0] - image[0]  # Difference in [-1, 1]
@@ -868,7 +880,7 @@ def main():
         # Shift to [0, 1] range for visualization (0.5 = no difference)
         diff_vis = (diff_enhanced + 1.0) / 2.0
         diff_vis = diff_vis.clamp(0, 1)
-        # Save difference image
+        # Save enhanced difference image
         diff_output = os.path.join(os.path.dirname(args.output), "raw_difference.png")
         save_image(diff_vis, diff_output)
         print(f"Saved raw difference image (8x enhanced) → {diff_output}")
