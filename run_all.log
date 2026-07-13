@@ -604,3 +604,205 @@ Saved 8x enhanced difference image → output_save/image_2/instruct_output/all_5
 Done!
 === Completed: image_2/all_50 ===
 Committing results...
+[main 2fdf231] Add results for image_2 all_50 iterations - VAE: all warp with 50 iterations - FLUX: Add sunglasses, Make hair color green - InstructPix2Pix: Add sunglasses, Make hair color green
+ 18 files changed, 199 insertions(+)
+ create mode 100644 output_save/image_2/flux_output/all_50/difference.png
+ create mode 100644 output_save/image_2/flux_output/all_50/difference_8.png
+ create mode 100644 output_save/image_2/flux_output/all_50/output_green_hair.png
+ create mode 100644 output_save/image_2/flux_output/all_50/output_sunglasses.png
+ create mode 100644 output_save/image_2/instruct_output/all_50/difference.png
+ create mode 100644 output_save/image_2/instruct_output/all_50/difference_8.png
+ create mode 100644 output_save/image_2/instruct_output/all_50/output_green_hair.png
+ create mode 100644 output_save/image_2/instruct_output/all_50/output_sunglasses.png
+ create mode 100644 output_save/image_2/results/all_50/raw_difference.png
+ create mode 100644 output_save/image_2/results/all_50/unenhanced_difference.png
+ create mode 100644 output_save/image_2/results/all_50/vae_latent_iterations/iter_0000.png
+ create mode 100644 output_save/image_2/results/all_50/vae_latent_iterations/iter_0000_original.png
+ create mode 100644 output_save/image_2/results/all_50/vae_latent_iterations/iter_0000_warped.png
+ create mode 100644 output_save/image_2/results/all_50/vae_latent_iterations/iter_0049_final.png
+ create mode 100644 output_save/image_2/results/all_50/vae_latent_iterations/iter_0049_warped_final.png
+ create mode 100644 output_save/image_2/results/all_50/vae_latent_out.png
+ rewrite output_save/image_2/vae_latent_out.png (95%)
+=== Committed: image_2/all_50 ===
+
+=== Iterations: 75 ===
+Processing: image_2/all_75
+Running VAE latent optimization...
+/home/interns/.local/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py:205: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+Loading image: new_images/image_2.png
+  Image shape: torch.Size([1, 3, 512, 512])
+
+Initialising VAE ...
+Loading InstructPix2Pix VAE from 'timbrooks/instruct-pix2pix' ...
+  ✓ InstructPix2Pix VAE loaded.
+Initialising all 13 warp types (learnable, imperceptible) ...
+  Imperceptibility thresholds: {}
+Loading identity model: facenet
+facenet-pytorch not available, using fallback model
+Initialising MediaPipe landmark detector ...
+MediaPipe Tasks API failed: No module named 'mediapipe', trying legacy API ...
+MediaPipe legacy API not available: No module named 'mediapipe', using default landmarks
+Encoding original image to VAE latent space ...
+  Latent shape: torch.Size([1, 4, 64, 64])
+Detecting landmarks on original image ...
+Cycling through 13 warp types per iteration.
+  Learnable parameters: 1 (Δz) + 37 (warp θ)
+
+Running joint VAE latent + warp optimisation for 75 iterations ...
+  lr=0.01  λ_lm=0.1  λ_reg=0.001  λ_ssim=5.0  λ_pix=1.0
+  ε=10.0px  (imperceptibility thresholds enforced via tanh bounds)
+  Warp: all
+  Saving images every 50 iterations → output_save/image_2/results/all_75/vae_latent_iterations
+
+Joint VAE+warp optimisation:   0%|          | 0/75 [00:00<?, ?it/s]Joint VAE+warp optimisation:   0%|          | 0/75 [00:01<?, ?it/s, L_total=1.8585, L_id=1.0000, L_ssim=0.1715, warp=bspline]Joint VAE+warp optimisation:   1%|▏         | 1/75 [00:02<02:44,  2.23s/it, L_total=1.8585, L_id=1.0000, L_ssim=0.1715, warp=bspline]Joint VAE+warp optimisation:   1%|▏         | 1/75 [00:02<02:44,  2.23s/it, L_total=1.8289, L_id=1.0000, L_ssim=0.1656, warp=polar]  Joint VAE+warp optimisation:   3%|▎         | 2/75 [00:02<01:25,  1.18s/it, L_total=1.8289, L_id=1.0000, L_ssim=0.1656, warp=polar]Joint VAE+warp optimisation:   3%|▎         | 2/75 [00:03<01:25,  1.18s/it, L_total=1.7748, L_id=1.0000, L_ssim=0.1548, warp=bezier]Joint VAE+warp optimisation:   4%|▍         | 3/75 [00:03<01:00,  1.20it/s, L_total=1.7748, L_id=1.0000, L_ssim=0.1548, warp=bezier]Joint VAE+warp optimisation:   4%|▍         | 3/75 [00:03<01:00,  1.20it/s, L_total=1.7453, L_id=1.0000, L_ssim=0.1489, warp=lens]  Joint VAE+warp optimisation:   5%|▌         | 4/75 [00:03<00:47,  1.48it/s, L_total=1.7453, L_id=1.0000, L_ssim=0.1489, warp=lens]Joint VAE+warp optimisation:   5%|▌         | 4/75 [00:03<00:47,  1.48it/s, L_total=1.7211, L_id=1.0000, L_ssim=0.1441, warp=mobius]Joint VAE+warp optimisation:   7%|▋         | 5/75 [00:03<00:40,  1.72it/s, L_total=1.7211, L_id=1.0000, L_ssim=0.1441, warp=mobius]Joint VAE+warp optimisation:   7%|▋         | 5/75 [00:04<00:40,  1.72it/s, L_total=1.7011, L_id=1.0000, L_ssim=0.1401, warp=laplacian]Joint VAE+warp optimisation:   8%|▊         | 6/75 [00:04<00:38,  1.81it/s, L_total=1.7011, L_id=1.0000, L_ssim=0.1401, warp=laplacian]Joint VAE+warp optimisation:   8%|▊         | 6/75 [00:04<00:38,  1.81it/s, L_total=1.6842, L_id=1.0000, L_ssim=0.1367, warp=geodesic] Joint VAE+warp optimisation:   9%|▉         | 7/75 [00:04<00:34,  1.97it/s, L_total=1.6842, L_id=1.0000, L_ssim=0.1367, warp=geodesic]Joint VAE+warp optimisation:   9%|▉         | 7/75 [00:05<00:34,  1.97it/s, L_total=1.6696, L_id=1.0000, L_ssim=0.1338, warp=diffgeom]Joint VAE+warp optimisation:  11%|█         | 8/75 [00:05<00:32,  2.06it/s, L_total=1.6696, L_id=1.0000, L_ssim=0.1338, warp=diffgeom]Joint VAE+warp optimisation:  11%|█         | 8/75 [00:05<00:32,  2.06it/s, L_total=1.6569, L_id=1.0000, L_ssim=0.1312, warp=delaunay]Joint VAE+warp optimisation:  12%|█▏        | 9/75 [00:05<00:30,  2.14it/s, L_total=1.6569, L_id=1.0000, L_ssim=0.1312, warp=delaunay]Joint VAE+warp optimisation:  12%|█▏        | 9/75 [00:06<00:30,  2.14it/s, L_total=4.3306, L_id=0.9999, L_ssim=0.6578, warp=tps]     Joint VAE+warp optimisation:  13%|█▎        | 10/75 [00:06<00:29,  2.21it/s, L_total=4.3306, L_id=0.9999, L_ssim=0.6578, warp=tps]Joint VAE+warp optimisation:  13%|█▎        | 10/75 [00:06<00:29,  2.21it/s, L_total=1.6379, L_id=1.0000, L_ssim=0.1274, warp=rolling]Joint VAE+warp optimisation:  15%|█▍        | 11/75 [00:06<00:28,  2.24it/s, L_total=1.6379, L_id=1.0000, L_ssim=0.1274, warp=rolling]Joint VAE+warp optimisation:  15%|█▍        | 11/75 [00:07<00:28,  2.24it/s, L_total=1.6312, L_id=1.0000, L_ssim=0.1261, warp=fft]    Joint VAE+warp optimisation:  16%|█▌        | 12/75 [00:07<00:28,  2.19it/s, L_total=1.6312, L_id=1.0000, L_ssim=0.1261, warp=fft]Joint VAE+warp optimisation:  16%|█▌        | 12/75 [00:07<00:28,  2.19it/s, L_total=1.6249, L_id=1.0000, L_ssim=0.1248, warp=homography]Joint VAE+warp optimisation:  17%|█▋        | 13/75 [00:07<00:28,  2.20it/s, L_total=1.6249, L_id=1.0000, L_ssim=0.1248, warp=homography]Joint VAE+warp optimisation:  17%|█▋        | 13/75 [00:07<00:28,  2.20it/s, L_total=1.6187, L_id=1.0000, L_ssim=0.1236, warp=bspline]   Joint VAE+warp optimisation:  19%|█▊        | 14/75 [00:07<00:28,  2.18it/s, L_total=1.6187, L_id=1.0000, L_ssim=0.1236, warp=bspline]Joint VAE+warp optimisation:  19%|█▊        | 14/75 [00:08<00:28,  2.18it/s, L_total=1.6247, L_id=1.0000, L_ssim=0.1248, warp=polar]  Joint VAE+warp optimisation:  20%|██        | 15/75 [00:08<00:26,  2.23it/s, L_total=1.6247, L_id=1.0000, L_ssim=0.1248, warp=polar]Joint VAE+warp optimisation:  20%|██        | 15/75 [00:08<00:26,  2.23it/s, L_total=1.6067, L_id=1.0000, L_ssim=0.1212, warp=bezier]Joint VAE+warp optimisation:  21%|██▏       | 16/75 [00:08<00:26,  2.25it/s, L_total=1.6067, L_id=1.0000, L_ssim=0.1212, warp=bezier]Joint VAE+warp optimisation:  21%|██▏       | 16/75 [00:09<00:26,  2.25it/s, L_total=1.6200, L_id=1.0000, L_ssim=0.1239, warp=lens]  Joint VAE+warp optimisation:  23%|██▎       | 17/75 [00:09<00:25,  2.31it/s, L_total=1.6200, L_id=1.0000, L_ssim=0.1239, warp=lens]Joint VAE+warp optimisation:  23%|██▎       | 17/75 [00:09<00:25,  2.31it/s, L_total=1.6161, L_id=1.0000, L_ssim=0.1231, warp=mobius]Joint VAE+warp optimisation:  24%|██▍       | 18/75 [00:09<00:24,  2.34it/s, L_total=1.6161, L_id=1.0000, L_ssim=0.1231, warp=mobius]Joint VAE+warp optimisation:  24%|██▍       | 18/75 [00:10<00:24,  2.34it/s, L_total=1.5895, L_id=1.0000, L_ssim=0.1178, warp=laplacian]Joint VAE+warp optimisation:  25%|██▌       | 19/75 [00:10<00:24,  2.33it/s, L_total=1.5895, L_id=1.0000, L_ssim=0.1178, warp=laplacian]Joint VAE+warp optimisation:  25%|██▌       | 19/75 [00:10<00:24,  2.33it/s, L_total=1.5843, L_id=1.0000, L_ssim=0.1167, warp=geodesic] Joint VAE+warp optimisation:  27%|██▋       | 20/75 [00:10<00:23,  2.31it/s, L_total=1.5843, L_id=1.0000, L_ssim=0.1167, warp=geodesic]Joint VAE+warp optimisation:  27%|██▋       | 20/75 [00:10<00:23,  2.31it/s, L_total=1.6099, L_id=1.0000, L_ssim=0.1218, warp=diffgeom]Joint VAE+warp optimisation:  28%|██▊       | 21/75 [00:10<00:22,  2.37it/s, L_total=1.6099, L_id=1.0000, L_ssim=0.1218, warp=diffgeom]Joint VAE+warp optimisation:  28%|██▊       | 21/75 [00:11<00:22,  2.37it/s, L_total=1.5754, L_id=1.0000, L_ssim=0.1150, warp=delaunay]Joint VAE+warp optimisation:  29%|██▉       | 22/75 [00:11<00:22,  2.36it/s, L_total=1.5754, L_id=1.0000, L_ssim=0.1150, warp=delaunay]Joint VAE+warp optimisation:  29%|██▉       | 22/75 [00:11<00:22,  2.36it/s, L_total=4.1905, L_id=0.9999, L_ssim=0.6296, warp=tps]     Joint VAE+warp optimisation:  31%|███       | 23/75 [00:11<00:21,  2.38it/s, L_total=4.1905, L_id=0.9999, L_ssim=0.6296, warp=tps]Joint VAE+warp optimisation:  31%|███       | 23/75 [00:12<00:21,  2.38it/s, L_total=1.5678, L_id=1.0000, L_ssim=0.1134, warp=rolling]Joint VAE+warp optimisation:  32%|███▏      | 24/75 [00:12<00:21,  2.38it/s, L_total=1.5678, L_id=1.0000, L_ssim=0.1134, warp=rolling]Joint VAE+warp optimisation:  32%|███▏      | 24/75 [00:12<00:21,  2.38it/s, L_total=1.5653, L_id=1.0000, L_ssim=0.1129, warp=fft]    Joint VAE+warp optimisation:  33%|███▎      | 25/75 [00:12<00:21,  2.37it/s, L_total=1.5653, L_id=1.0000, L_ssim=0.1129, warp=fft]Joint VAE+warp optimisation:  33%|███▎      | 25/75 [00:13<00:21,  2.37it/s, L_total=1.5769, L_id=1.0000, L_ssim=0.1153, warp=homography]Joint VAE+warp optimisation:  35%|███▍      | 26/75 [00:13<00:20,  2.38it/s, L_total=1.5769, L_id=1.0000, L_ssim=0.1153, warp=homography]Joint VAE+warp optimisation:  35%|███▍      | 26/75 [00:13<00:20,  2.38it/s, L_total=1.5602, L_id=1.0000, L_ssim=0.1119, warp=bspline]   Joint VAE+warp optimisation:  36%|███▌      | 27/75 [00:13<00:21,  2.28it/s, L_total=1.5602, L_id=1.0000, L_ssim=0.1119, warp=bspline]Joint VAE+warp optimisation:  36%|███▌      | 27/75 [00:13<00:21,  2.28it/s, L_total=1.5666, L_id=1.0000, L_ssim=0.1132, warp=polar]  Joint VAE+warp optimisation:  37%|███▋      | 28/75 [00:13<00:20,  2.31it/s, L_total=1.5666, L_id=1.0000, L_ssim=0.1132, warp=polar]Joint VAE+warp optimisation:  37%|███▋      | 28/75 [00:14<00:20,  2.31it/s, L_total=1.5542, L_id=1.0000, L_ssim=0.1107, warp=bezier]Joint VAE+warp optimisation:  39%|███▊      | 29/75 [00:14<00:19,  2.30it/s, L_total=1.5542, L_id=1.0000, L_ssim=0.1107, warp=bezier]Joint VAE+warp optimisation:  39%|███▊      | 29/75 [00:14<00:19,  2.30it/s, L_total=1.5536, L_id=1.0000, L_ssim=0.1106, warp=lens]  Joint VAE+warp optimisation:  40%|████      | 30/75 [00:14<00:19,  2.31it/s, L_total=1.5536, L_id=1.0000, L_ssim=0.1106, warp=lens]Joint VAE+warp optimisation:  40%|████      | 30/75 [00:15<00:19,  2.31it/s, L_total=1.5495, L_id=1.0000, L_ssim=0.1098, warp=mobius]Joint VAE+warp optimisation:  41%|████▏     | 31/75 [00:15<00:18,  2.34it/s, L_total=1.5495, L_id=1.0000, L_ssim=0.1098, warp=mobius]Joint VAE+warp optimisation:  41%|████▏     | 31/75 [00:15<00:18,  2.34it/s, L_total=1.5448, L_id=1.0000, L_ssim=0.1088, warp=laplacian]Joint VAE+warp optimisation:  43%|████▎     | 32/75 [00:15<00:18,  2.31it/s, L_total=1.5448, L_id=1.0000, L_ssim=0.1088, warp=laplacian]Joint VAE+warp optimisation:  43%|████▎     | 32/75 [00:16<00:18,  2.31it/s, L_total=1.5417, L_id=1.0000, L_ssim=0.1082, warp=geodesic] Joint VAE+warp optimisation:  44%|████▍     | 33/75 [00:16<00:18,  2.32it/s, L_total=1.5417, L_id=1.0000, L_ssim=0.1082, warp=geodesic]Joint VAE+warp optimisation:  44%|████▍     | 33/75 [00:16<00:18,  2.32it/s, L_total=1.5417, L_id=1.0000, L_ssim=0.1082, warp=diffgeom]Joint VAE+warp optimisation:  45%|████▌     | 34/75 [00:16<00:17,  2.35it/s, L_total=1.5417, L_id=1.0000, L_ssim=0.1082, warp=diffgeom]Joint VAE+warp optimisation:  45%|████▌     | 34/75 [00:16<00:17,  2.35it/s, L_total=1.5359, L_id=1.0000, L_ssim=0.1071, warp=delaunay]Joint VAE+warp optimisation:  47%|████▋     | 35/75 [00:16<00:17,  2.35it/s, L_total=1.5359, L_id=1.0000, L_ssim=0.1071, warp=delaunay]Joint VAE+warp optimisation:  47%|████▋     | 35/75 [00:17<00:17,  2.35it/s, L_total=4.1085, L_id=0.9999, L_ssim=0.6134, warp=tps]     Joint VAE+warp optimisation:  48%|████▊     | 36/75 [00:17<00:16,  2.35it/s, L_total=4.1085, L_id=0.9999, L_ssim=0.6134, warp=tps]Joint VAE+warp optimisation:  48%|████▊     | 36/75 [00:17<00:16,  2.35it/s, L_total=1.5321, L_id=1.0000, L_ssim=0.1063, warp=rolling]Joint VAE+warp optimisation:  49%|████▉     | 37/75 [00:17<00:15,  2.38it/s, L_total=1.5321, L_id=1.0000, L_ssim=0.1063, warp=rolling]Joint VAE+warp optimisation:  49%|████▉     | 37/75 [00:18<00:15,  2.38it/s, L_total=1.5311, L_id=1.0000, L_ssim=0.1061, warp=fft]    Joint VAE+warp optimisation:  51%|█████     | 38/75 [00:18<00:15,  2.37it/s, L_total=1.5311, L_id=1.0000, L_ssim=0.1061, warp=fft]Joint VAE+warp optimisation:  51%|█████     | 38/75 [00:18<00:15,  2.37it/s, L_total=1.5340, L_id=1.0000, L_ssim=0.1067, warp=homography]Joint VAE+warp optimisation:  52%|█████▏    | 39/75 [00:18<00:15,  2.37it/s, L_total=1.5340, L_id=1.0000, L_ssim=0.1067, warp=homography]Joint VAE+warp optimisation:  52%|█████▏    | 39/75 [00:19<00:15,  2.37it/s, L_total=1.5285, L_id=1.0000, L_ssim=0.1056, warp=bspline]   Joint VAE+warp optimisation:  53%|█████▎    | 40/75 [00:19<00:15,  2.28it/s, L_total=1.5285, L_id=1.0000, L_ssim=0.1056, warp=bspline]Joint VAE+warp optimisation:  53%|█████▎    | 40/75 [00:19<00:15,  2.28it/s, L_total=1.5347, L_id=1.0000, L_ssim=0.1068, warp=polar]  Joint VAE+warp optimisation:  55%|█████▍    | 41/75 [00:19<00:14,  2.28it/s, L_total=1.5347, L_id=1.0000, L_ssim=0.1068, warp=polar]Joint VAE+warp optimisation:  55%|█████▍    | 41/75 [00:19<00:14,  2.28it/s, L_total=1.5249, L_id=1.0000, L_ssim=0.1049, warp=bezier]Joint VAE+warp optimisation:  56%|█████▌    | 42/75 [00:19<00:14,  2.31it/s, L_total=1.5249, L_id=1.0000, L_ssim=0.1049, warp=bezier]Joint VAE+warp optimisation:  56%|█████▌    | 42/75 [00:20<00:14,  2.31it/s, L_total=1.5322, L_id=1.0000, L_ssim=0.1063, warp=lens]  Joint VAE+warp optimisation:  57%|█████▋    | 43/75 [00:20<00:13,  2.33it/s, L_total=1.5322, L_id=1.0000, L_ssim=0.1063, warp=lens]Joint VAE+warp optimisation:  57%|█████▋    | 43/75 [00:20<00:13,  2.33it/s, L_total=1.5256, L_id=1.0000, L_ssim=0.1050, warp=mobius]Joint VAE+warp optimisation:  59%|█████▊    | 44/75 [00:20<00:12,  2.39it/s, L_total=1.5256, L_id=1.0000, L_ssim=0.1050, warp=mobius]Joint VAE+warp optimisation:  59%|█████▊    | 44/75 [00:21<00:12,  2.39it/s, L_total=1.5184, L_id=1.0000, L_ssim=0.1036, warp=laplacian]Joint VAE+warp optimisation:  60%|██████    | 45/75 [00:21<00:12,  2.33it/s, L_total=1.5184, L_id=1.0000, L_ssim=0.1036, warp=laplacian]Joint VAE+warp optimisation:  60%|██████    | 45/75 [00:21<00:12,  2.33it/s, L_total=1.5163, L_id=1.0000, L_ssim=0.1031, warp=geodesic] Joint VAE+warp optimisation:  61%|██████▏   | 46/75 [00:21<00:12,  2.34it/s, L_total=1.5163, L_id=1.0000, L_ssim=0.1031, warp=geodesic]Joint VAE+warp optimisation:  61%|██████▏   | 46/75 [00:22<00:12,  2.34it/s, L_total=1.5236, L_id=1.0000, L_ssim=0.1046, warp=diffgeom]Joint VAE+warp optimisation:  63%|██████▎   | 47/75 [00:22<00:11,  2.37it/s, L_total=1.5236, L_id=1.0000, L_ssim=0.1046, warp=diffgeom]Joint VAE+warp optimisation:  63%|██████▎   | 47/75 [00:22<00:11,  2.37it/s, L_total=1.5124, L_id=1.0000, L_ssim=0.1024, warp=delaunay]Joint VAE+warp optimisation:  64%|██████▍   | 48/75 [00:22<00:11,  2.34it/s, L_total=1.5124, L_id=1.0000, L_ssim=0.1024, warp=delaunay]Joint VAE+warp optimisation:  64%|██████▍   | 48/75 [00:22<00:11,  2.34it/s, L_total=4.1397, L_id=0.9999, L_ssim=0.6190, warp=tps]     Joint VAE+warp optimisation:  65%|██████▌   | 49/75 [00:22<00:10,  2.38it/s, L_total=4.1397, L_id=0.9999, L_ssim=0.6190, warp=tps]Joint VAE+warp optimisation:  65%|██████▌   | 49/75 [00:23<00:10,  2.38it/s, L_total=1.5100, L_id=1.0000, L_ssim=0.1019, warp=rolling]Joint VAE+warp optimisation:  67%|██████▋   | 50/75 [00:23<00:10,  2.37it/s, L_total=1.5100, L_id=1.0000, L_ssim=0.1019, warp=rolling]Joint VAE+warp optimisation:  67%|██████▋   | 50/75 [00:23<00:10,  2.37it/s, L_total=1.5098, L_id=1.0000, L_ssim=0.1018, warp=fft]    Joint VAE+warp optimisation:  68%|██████▊   | 51/75 [00:24<00:13,  1.80it/s, L_total=1.5098, L_id=1.0000, L_ssim=0.1018, warp=fft]Joint VAE+warp optimisation:  68%|██████▊   | 51/75 [00:24<00:13,  1.80it/s, L_total=1.5135, L_id=1.0000, L_ssim=0.1026, warp=homography]Joint VAE+warp optimisation:  69%|██████▉   | 52/75 [00:24<00:11,  1.95it/s, L_total=1.5135, L_id=1.0000, L_ssim=0.1026, warp=homography]Joint VAE+warp optimisation:  69%|██████▉   | 52/75 [00:25<00:11,  1.95it/s, L_total=1.5087, L_id=1.0000, L_ssim=0.1016, warp=bspline]   Joint VAE+warp optimisation:  71%|███████   | 53/75 [00:25<00:11,  1.98it/s, L_total=1.5087, L_id=1.0000, L_ssim=0.1016, warp=bspline]Joint VAE+warp optimisation:  71%|███████   | 53/75 [00:25<00:11,  1.98it/s, L_total=1.5145, L_id=1.0000, L_ssim=0.1028, warp=polar]  Joint VAE+warp optimisation:  72%|███████▏  | 54/75 [00:25<00:10,  2.08it/s, L_total=1.5145, L_id=1.0000, L_ssim=0.1028, warp=polar]Joint VAE+warp optimisation:  72%|███████▏  | 54/75 [00:25<00:10,  2.08it/s, L_total=1.5064, L_id=1.0000, L_ssim=0.1012, warp=bezier]Joint VAE+warp optimisation:  73%|███████▎  | 55/75 [00:25<00:09,  2.14it/s, L_total=1.5064, L_id=1.0000, L_ssim=0.1012, warp=bezier]Joint VAE+warp optimisation:  73%|███████▎  | 55/75 [00:26<00:09,  2.14it/s, L_total=1.5171, L_id=1.0000, L_ssim=0.1033, warp=lens]  Joint VAE+warp optimisation:  75%|███████▍  | 56/75 [00:26<00:08,  2.25it/s, L_total=1.5171, L_id=1.0000, L_ssim=0.1033, warp=lens]Joint VAE+warp optimisation:  75%|███████▍  | 56/75 [00:26<00:08,  2.25it/s, L_total=1.5139, L_id=1.0000, L_ssim=0.1027, warp=mobius]Joint VAE+warp optimisation:  76%|███████▌  | 57/75 [00:26<00:07,  2.28it/s, L_total=1.5139, L_id=1.0000, L_ssim=0.1027, warp=mobius]Joint VAE+warp optimisation:  76%|███████▌  | 57/75 [00:27<00:07,  2.28it/s, L_total=1.5017, L_id=1.0000, L_ssim=0.1002, warp=laplacian]Joint VAE+warp optimisation:  77%|███████▋  | 58/75 [00:27<00:07,  2.28it/s, L_total=1.5017, L_id=1.0000, L_ssim=0.1002, warp=laplacian]Joint VAE+warp optimisation:  77%|███████▋  | 58/75 [00:27<00:07,  2.28it/s, L_total=1.5002, L_id=1.0000, L_ssim=0.0999, warp=geodesic] Joint VAE+warp optimisation:  79%|███████▊  | 59/75 [00:27<00:06,  2.31it/s, L_total=1.5002, L_id=1.0000, L_ssim=0.0999, warp=geodesic]Joint VAE+warp optimisation:  79%|███████▊  | 59/75 [00:28<00:06,  2.31it/s, L_total=1.5154, L_id=1.0000, L_ssim=0.1029, warp=diffgeom]Joint VAE+warp optimisation:  80%|████████  | 60/75 [00:28<00:06,  2.34it/s, L_total=1.5154, L_id=1.0000, L_ssim=0.1029, warp=diffgeom]Joint VAE+warp optimisation:  80%|████████  | 60/75 [00:28<00:06,  2.34it/s, L_total=1.4975, L_id=1.0000, L_ssim=0.0994, warp=delaunay]Joint VAE+warp optimisation:  81%|████████▏ | 61/75 [00:28<00:05,  2.34it/s, L_total=1.4975, L_id=1.0000, L_ssim=0.0994, warp=delaunay]Joint VAE+warp optimisation:  81%|████████▏ | 61/75 [00:28<00:05,  2.34it/s, L_total=4.1272, L_id=0.9999, L_ssim=0.6167, warp=tps]     Joint VAE+warp optimisation:  83%|████████▎ | 62/75 [00:28<00:05,  2.36it/s, L_total=4.1272, L_id=0.9999, L_ssim=0.6167, warp=tps]Joint VAE+warp optimisation:  83%|████████▎ | 62/75 [00:29<00:05,  2.36it/s, L_total=1.4963, L_id=1.0000, L_ssim=0.0991, warp=rolling]Joint VAE+warp optimisation:  84%|████████▍ | 63/75 [00:29<00:05,  2.37it/s, L_total=1.4963, L_id=1.0000, L_ssim=0.0991, warp=rolling]Joint VAE+warp optimisation:  84%|████████▍ | 63/75 [00:29<00:05,  2.37it/s, L_total=1.4970, L_id=1.0000, L_ssim=0.0993, warp=fft]    Joint VAE+warp optimisation:  85%|████████▌ | 64/75 [00:29<00:04,  2.37it/s, L_total=1.4970, L_id=1.0000, L_ssim=0.0993, warp=fft]Joint VAE+warp optimisation:  85%|████████▌ | 64/75 [00:30<00:04,  2.37it/s, L_total=1.5035, L_id=1.0000, L_ssim=0.1006, warp=homography]Joint VAE+warp optimisation:  87%|████████▋ | 65/75 [00:30<00:04,  2.40it/s, L_total=1.5035, L_id=1.0000, L_ssim=0.1006, warp=homography]Joint VAE+warp optimisation:  87%|████████▋ | 65/75 [00:30<00:04,  2.40it/s, L_total=1.4965, L_id=1.0000, L_ssim=0.0992, warp=bspline]   Joint VAE+warp optimisation:  88%|████████▊ | 66/75 [00:30<00:03,  2.31it/s, L_total=1.4965, L_id=1.0000, L_ssim=0.0992, warp=bspline]Joint VAE+warp optimisation:  88%|████████▊ | 66/75 [00:31<00:03,  2.31it/s, L_total=1.5016, L_id=1.0000, L_ssim=0.1002, warp=polar]  Joint VAE+warp optimisation:  89%|████████▉ | 67/75 [00:31<00:03,  2.31it/s, L_total=1.5016, L_id=1.0000, L_ssim=0.1002, warp=polar]Joint VAE+warp optimisation:  89%|████████▉ | 67/75 [00:31<00:03,  2.31it/s, L_total=1.4945, L_id=1.0000, L_ssim=0.0988, warp=bezier]Joint VAE+warp optimisation:  91%|█████████ | 68/75 [00:31<00:03,  2.33it/s, L_total=1.4945, L_id=1.0000, L_ssim=0.0988, warp=bezier]Joint VAE+warp optimisation:  91%|█████████ | 68/75 [00:31<00:03,  2.33it/s, L_total=1.5036, L_id=1.0000, L_ssim=0.1006, warp=lens]  Joint VAE+warp optimisation:  92%|█████████▏| 69/75 [00:31<00:02,  2.36it/s, L_total=1.5036, L_id=1.0000, L_ssim=0.1006, warp=lens]Joint VAE+warp optimisation:  92%|█████████▏| 69/75 [00:32<00:02,  2.36it/s, L_total=1.4998, L_id=1.0000, L_ssim=0.0998, warp=mobius]Joint VAE+warp optimisation:  93%|█████████▎| 70/75 [00:32<00:02,  2.40it/s, L_total=1.4998, L_id=1.0000, L_ssim=0.0998, warp=mobius]Joint VAE+warp optimisation:  93%|█████████▎| 70/75 [00:32<00:02,  2.40it/s, L_total=1.4908, L_id=1.0000, L_ssim=0.0980, warp=laplacian]Joint VAE+warp optimisation:  95%|█████████▍| 71/75 [00:32<00:01,  2.35it/s, L_total=1.4908, L_id=1.0000, L_ssim=0.0980, warp=laplacian]Joint VAE+warp optimisation:  95%|█████████▍| 71/75 [00:33<00:01,  2.35it/s, L_total=1.4895, L_id=1.0000, L_ssim=0.0978, warp=geodesic] Joint VAE+warp optimisation:  96%|█████████▌| 72/75 [00:33<00:01,  2.35it/s, L_total=1.4895, L_id=1.0000, L_ssim=0.0978, warp=geodesic]Joint VAE+warp optimisation:  96%|█████████▌| 72/75 [00:33<00:01,  2.35it/s, L_total=1.5006, L_id=1.0000, L_ssim=0.1000, warp=diffgeom]Joint VAE+warp optimisation:  97%|█████████▋| 73/75 [00:33<00:00,  2.36it/s, L_total=1.5006, L_id=1.0000, L_ssim=0.1000, warp=diffgeom]Joint VAE+warp optimisation:  97%|█████████▋| 73/75 [00:33<00:00,  2.36it/s, L_total=1.4872, L_id=1.0000, L_ssim=0.0973, warp=delaunay]Joint VAE+warp optimisation:  99%|█████████▊| 74/75 [00:33<00:00,  2.36it/s, L_total=1.4872, L_id=1.0000, L_ssim=0.0973, warp=delaunay]Joint VAE+warp optimisation:  99%|█████████▊| 74/75 [00:34<00:00,  2.36it/s, L_total=4.0081, L_id=0.9999, L_ssim=0.5941, warp=tps]     Joint VAE+warp optimisation: 100%|██████████| 75/75 [00:34<00:00,  2.37it/s, L_total=4.0081, L_id=0.9999, L_ssim=0.5941, warp=tps]Joint VAE+warp optimisation: 100%|██████████| 75/75 [00:34<00:00,  2.18it/s, L_total=4.0081, L_id=0.9999, L_ssim=0.5941, warp=tps]
+  Iter    0 [bspline   ] | L_total=1.858515  L_id=0.999992  L_ssim=0.171532  L_pix=0.000864  L_lm=0.000000  |warp|=0.0105
+  Iter   10 [rolling   ] | L_total=1.637918  L_id=0.999995  L_ssim=0.127449  L_pix=0.000675  L_lm=0.000000  |warp|=0.0000
+  Iter   20 [diffgeom  ] | L_total=1.609900  L_id=0.999995  L_ssim=0.121842  L_pix=0.000686  L_lm=0.000000  |warp|=0.0071
+  Iter   30 [mobius    ] | L_total=1.549483  L_id=0.999996  L_ssim=0.109773  L_pix=0.000612  L_lm=0.000000  |warp|=0.0048
+  Iter   40 [polar     ] | L_total=1.534665  L_id=0.999996  L_ssim=0.106809  L_pix=0.000610  L_lm=0.000000  |warp|=0.0625
+  Iter   50 [fft       ] | L_total=1.509835  L_id=0.999997  L_ssim=0.101847  L_pix=0.000584  L_lm=0.000000  |warp|=0.0004
+  Iter   60 [delaunay  ] | L_total=1.497487  L_id=0.999997  L_ssim=0.099379  L_pix=0.000577  L_lm=0.000000  |warp|=0.0311
+  Iter   70 [laplacian ] | L_total=1.490802  L_id=0.999996  L_ssim=0.098043  L_pix=0.000568  L_lm=0.000000  |warp|=0.0186
+
+Saved perturbed image → output_save/image_2/results/all_75/vae_latent_out.png
+Saved unenhanced difference image → output_save/image_2/results/all_75/unenhanced_difference.png
+Saved raw difference image (8x enhanced) → output_save/image_2/results/all_75/raw_difference.png
+
+============================================================
+VAE Latent Optimisation — Final Results
+  VAE type: pix2pix
+  Warp type: all
+============================================================
+  Identity similarity (cos):  0.999996
+  Landmark drift (px):        0.000000
+  ε threshold:                10.0 px
+  Landmarks preserved:        ✓
+  Identity disrupted:         ✗
+  Iterations run:             75
+============================================================
+
+── Per-Warp Summary (on optimised perturbed image) ──
+Warp           Identity Sim   Landmark Drift   Disrupted
+----------------------------------------------------------
+bspline        0.999996       0.000000         ✗
+polar          0.999996       0.000000         ✗
+bezier         0.999996       0.000000         ✗
+lens           0.999997       0.000000         ✗
+mobius         0.999997       0.000000         ✗
+laplacian      0.999996       0.000000         ✗
+geodesic       0.999997       0.000000         ✗
+diffgeom       0.999996       0.000000         ✗
+delaunay       0.999997       0.000000         ✗
+tps            0.999947       0.000000         ✗
+rolling        0.999996       0.000000         ✗
+fft            0.999997       0.000000         ✗
+homography     0.999997       0.000000         ✗
+
+Done!
+Running FLUX with 'Add sunglasses'...
+2026-07-13 21:30:24.994176: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-07-13 21:30:25.051673: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1783958425.102945  385694 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1783958425.116436  385694 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-07-13 21:30:25.166803: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Loading image: output_save/image_2/results/all_75/vae_latent_out.png
+  Image size: (512, 512)
+
+Initialising FLUX backend...
+  Model: black-forest-labs/FLUX.2-klein-4B
+  Steps: 10
+  Guidance: 1.0
+  Dtype: bfloat16
+  Max seq len: 512
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][A
+Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 19.12it/s][ALoading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 19.04it/s]
+Loading pipeline components...:  40%|████      | 2/5 [00:00<00:00,  8.28it/s]Loading pipeline components...:  80%|████████  | 4/5 [00:00<00:00, 10.62it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:01<00:00,  4.07it/s]
+
+Running image edit with prompt: 'Add sunglasses'
+
+Saved edited image → output_save/image_2/flux_output/all_75/output_sunglasses.png
+Saved raw difference image → output_save/image_2/flux_output/all_75/difference.png
+Saved 8x enhanced difference image → output_save/image_2/flux_output/all_75/difference_8.png
+
+Done!
+Running FLUX with 'Make hair color green'...
+2026-07-13 21:31:00.349790: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-07-13 21:31:00.385650: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1783958460.427292  387026 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1783958460.439907  387026 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-07-13 21:31:00.480174: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Loading image: output_save/image_2/results/all_75/vae_latent_out.png
+  Image size: (512, 512)
+
+Initialising FLUX backend...
+  Model: black-forest-labs/FLUX.2-klein-4B
+  Steps: 10
+  Guidance: 1.0
+  Dtype: bfloat16
+  Max seq len: 512
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][A
+Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 17.77it/s][ALoading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 17.66it/s]
+Loading pipeline components...:  20%|██        | 1/5 [00:00<00:00,  4.22it/s]Loading pipeline components...:  40%|████      | 2/5 [00:01<00:01,  1.77it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:01<00:00,  5.03it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:01<00:00,  4.20it/s]
+
+Running image edit with prompt: 'Make hair color green'
+
+Saved edited image → output_save/image_2/flux_output/all_75/output_green_hair.png
+Saved raw difference image → output_save/image_2/flux_output/all_75/difference.png
+Saved 8x enhanced difference image → output_save/image_2/flux_output/all_75/difference_8.png
+
+Done!
+Running InstructPix2Pix with 'Add sunglasses'...
+Loading image: output_save/image_2/results/all_75/vae_latent_out.png
+  Image size: (512, 512)
+
+Initialising InstructPix2Pix backend...
+  Model: timbrooks/instruct-pix2pix
+  Steps: 20
+  Guidance: 7.5
+  Image Guidance: 1.5
+  Dtype: float16
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s][0;93m2026-07-13 21:31:41.344761698 [W:onnxruntime:Default, device_discovery.cc:164 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:89 ReadFileContents Failed to open file: "/sys/class/drm/card0/device/vendor"[m
+Loading pipeline components...:  17%|█▋        | 1/6 [00:00<00:04,  1.09it/s]
+Loading weights:   0%|          | 0/196 [00:00<?, ?it/s][A
+Loading weights:  81%|████████  | 158/196 [00:00<00:00, 1557.70it/s][ALoading weights: 100%|██████████| 196/196 [00:00<00:00, 1581.77it/s]
+Loading pipeline components...:  50%|█████     | 3/6 [00:01<00:01,  2.68it/s]Loading pipeline components...:  67%|██████▋   | 4/6 [00:01<00:00,  3.43it/s]Loading pipeline components...:  83%|████████▎ | 5/6 [00:05<00:01,  1.46s/it]Loading pipeline components...: 100%|██████████| 6/6 [00:05<00:00,  1.14it/s]
+
+Running image edit with prompt: 'Add sunglasses'
+
+Saved edited image → output_save/image_2/instruct_output/all_75/output_sunglasses.png
+Saved raw difference image → output_save/image_2/instruct_output/all_75/difference.png
+Saved 8x enhanced difference image → output_save/image_2/instruct_output/all_75/difference_8.png
+
+Done!
+Running InstructPix2Pix with 'Make hair color green'...
+Loading image: output_save/image_2/results/all_75/vae_latent_out.png
+  Image size: (512, 512)
+
+Initialising InstructPix2Pix backend...
+  Model: timbrooks/instruct-pix2pix
+  Steps: 20
+  Guidance: 7.5
+  Image Guidance: 1.5
+  Dtype: float16
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s][0;93m2026-07-13 21:32:09.193206834 [W:onnxruntime:Default, device_discovery.cc:164 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:89 ReadFileContents Failed to open file: "/sys/class/drm/card0/device/vendor"[m
+Loading pipeline components...:  17%|█▋        | 1/6 [00:00<00:03,  1.31it/s]
+Loading weights:   0%|          | 0/196 [00:00<?, ?it/s][A
+Loading weights:  83%|████████▎ | 162/196 [00:00<00:00, 1618.60it/s][ALoading weights: 100%|██████████| 196/196 [00:00<00:00, 1718.24it/s]
+Loading pipeline components...:  33%|███▎      | 2/6 [00:01<00:02,  1.77it/s]Loading pipeline components...:  83%|████████▎ | 5/6 [00:01<00:00,  4.81it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:04<00:00,  1.02s/it]Loading pipeline components...: 100%|██████████| 6/6 [00:04<00:00,  1.25it/s]
+
+Running image edit with prompt: 'Make hair color green'
+
+Saved edited image → output_save/image_2/instruct_output/all_75/output_green_hair.png
+Saved raw difference image → output_save/image_2/instruct_output/all_75/difference.png
+Saved 8x enhanced difference image → output_save/image_2/instruct_output/all_75/difference_8.png
+
+Done!
+=== Completed: image_2/all_75 ===
+Committing results...
