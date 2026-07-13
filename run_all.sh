@@ -117,8 +117,8 @@ for IMAGE in "${IMAGES[@]}"; do
             
             echo "=== Completed: ${IMAGE_NAME}/${WARP}_${ITER} ==="
             
-            # Git commit and push
-            echo "Committing and pushing results..."
+            # Git commit only (no push)
+            echo "Committing results..."
             git add -A
             if git diff --cached --quiet; then
                 echo "No changes to commit"
@@ -126,10 +126,10 @@ for IMAGE in "${IMAGES[@]}"; do
                 git commit -m "Add results for ${IMAGE_NAME} ${WARP}_${ITER} iterations
 - VAE: ${WARP} warp with ${ITER} iterations
 - FLUX: Add sunglasses, Make hair color green
-- InstructPix2Pix: Add sunglasses, Make hair color green" && git push origin main
+- InstructPix2Pix: Add sunglasses, Make hair color green"
             fi
             
-            echo "=== Pushed: ${IMAGE_NAME}/${WARP}_${ITER} ==="
+            echo "=== Committed: ${IMAGE_NAME}/${WARP}_${ITER} ==="
         done
         
         echo "--- Completed warp: $WARP ---"
