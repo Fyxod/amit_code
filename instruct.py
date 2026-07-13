@@ -10,7 +10,7 @@ Usage:
     python instruct.py -i input.jpg -o output.jpg -p "Make him smile"
     python instruct.py -i input.jpg -o output.jpg -p "Add glasses" --steps 30 --guidance 8.0
 """
-
+import os
 import argparse
 import torch
 from PIL import Image
@@ -27,6 +27,12 @@ class InstructSettings:
     image_guidance_scale: float = 1.5
     objective_timestep_index: int = 6
     seed: int = 1234
+
+
+def save_image(tensor: torch.Tensor, path: str):
+    """Save a tensor (C, H, W) in [0, 1] range as PNG."""
+    from torchvision.utils import save_image as tv_save
+    tv_save(tensor.unsqueeze(0), path)
 
 
 def _dtype(name: str) -> torch.dtype:
@@ -218,9 +224,36 @@ def main():
         # Standard image editing
         print(f"\nRunning image edit with prompt: '{args.prompt}'")
         result = backend.generate_edit(image, args.prompt, args.seed)
-        os.makedirs(os.path.dirname(args.output) or ".", exist_ok=True)
+        output_dir = os.path.dirname(args.output) or "."
+        os.makedirs(output_dir, exist_ok=True)
         result.save(args.output)
         print(f"\nSaved edited image → {args.output}")
+
+        # ── Save difference images ─────
+        import torch.nn.functional as F
+        from torchvision.transforms.functional import resize
+        result_tensor = torch.from_numpy(result).permute(2, 0, 1).float() / 255.0
+        image_tensor = torch.from_numpy(image).permute(2, 0, 1).float() / 255.0
+        
+        # Resize result to match original if needed
+        if result_tensor.shape[1:] != image_tensor.shape[1:]:
+            result_tensor = resize(result_tensor, image_tensor.shape[1:])
+        
+        # Raw difference (result - original)
+        diff = result_tensor - image_tensor  # Difference in [-1, 1]
+        diff_vis = (diff + 1.0) / 2.0  # Shift to [0, 1] range (0.5 = no difference)
+        diff_vis = diff_vis.clamp(0, 1)
+        diff_output = os.path.join(output_dir, "difference.png")
+        save_image(diff_vis, diff_output)
+        print(f"Saved raw difference image → {diff_output}")
+
+        # 8x enhanced difference
+        diff_enhanced = diff * 8.0
+        diff_enhanced_vis = (diff_enhanced + 1.0) / 2.0
+        diff_enhanced_vis = diff_enhanced_vis.clamp(0, 1)
+        diff_enhanced_output = os.path.join(output_dir, "difference_8.png")
+        save_image(diff_enhanced_vis, diff_enhanced_output)
+        print(f"Saved 8x enhanced difference image → {diff_enhanced_output}")
     else:
         # White-box objective computation
         print(f"\nComputing white-box objective: {args.objective}")
