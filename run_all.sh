@@ -126,8 +126,7 @@ for IMAGE in "${IMAGES[@]}"; do
                 git commit -m "Add results for ${IMAGE_NAME} ${WARP}_${ITER} iterations
 - VAE: ${WARP} warp with ${ITER} iterations
 - FLUX: Add sunglasses, Make hair color green
-- InstructPix2Pix: Add sunglasses, Make hair color green
-Co-Authored-By: Cline SR" && git push origin HEAD
+- InstructPix2Pix: Add sunglasses, Make hair color green" && git push origin main
             fi
             
             echo "=== Pushed: ${IMAGE_NAME}/${WARP}_${ITER} ==="
