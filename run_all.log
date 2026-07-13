@@ -2496,3 +2496,322 @@ Saved 8x enhanced difference image → output_save/image_3/instruct_output/all_1
 Done!
 === Completed: image_3/all_15 ===
 Committing results...
+[main d817e58] Add results for image_3 all_15 iterations - VAE: all warp with 15 iterations - FLUX: Add sunglasses, Make hair color green - InstructPix2Pix: Add sunglasses, Make hair color green
+ 21 files changed, 197 insertions(+)
+ create mode 100644 output_save/image_3/flux_output/all_15/difference.png
+ create mode 100644 output_save/image_3/flux_output/all_15/difference_8.png
+ create mode 100644 output_save/image_3/flux_output/all_15/output_green_hair.png
+ create mode 100644 output_save/image_3/flux_output/all_15/output_sunglasses.png
+ create mode 100644 output_save/image_3/instruct_output/all_15/difference.png
+ create mode 100644 output_save/image_3/instruct_output/all_15/difference_8.png
+ create mode 100644 output_save/image_3/instruct_output/all_15/output_green_hair.png
+ create mode 100644 output_save/image_3/instruct_output/all_15/output_sunglasses.png
+ create mode 100644 output_save/image_3/results/all_15/raw_difference.png
+ create mode 100644 output_save/image_3/results/all_15/unenhanced_difference.png
+ create mode 100644 output_save/image_3/results/all_15/vae_latent_iterations/iter_0000.png
+ create mode 100644 output_save/image_3/results/all_15/vae_latent_iterations/iter_0000_original.png
+ create mode 100644 output_save/image_3/results/all_15/vae_latent_iterations/iter_0000_warped.png
+ create mode 100644 output_save/image_3/results/all_15/vae_latent_out.png
+ rewrite output_save/image_3/vae_latent_out.png (95%)
+ create mode 100644 results/bspline/raw_difference.png
+ create mode 100644 results/bspline/unenhanced_difference.png
+ create mode 100644 results/bspline/vae_latent_iterations/iter_0049_final.png
+ create mode 100644 results/bspline/vae_latent_iterations/iter_0049_warped_final.png
+ create mode 100644 results/bspline/vae_latent_out.png
+=== Committed: image_3/all_15 ===
+
+=== Iterations: 20 ===
+Processing: image_3/all_20
+Running VAE latent optimization...
+/home/interns/.local/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py:205: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+Loading image: new_images/image_3.png
+  Image shape: torch.Size([1, 3, 512, 512])
+
+Initialising VAE ...
+Loading InstructPix2Pix VAE from 'timbrooks/instruct-pix2pix' ...
+  ✓ InstructPix2Pix VAE loaded.
+Initialising all 13 warp types (learnable, imperceptible) ...
+  Imperceptibility thresholds: {}
+Loading identity model: facenet
+facenet-pytorch not available, using fallback model
+Initialising MediaPipe landmark detector ...
+MediaPipe Tasks API failed: No module named 'mediapipe', trying legacy API ...
+MediaPipe legacy API not available: No module named 'mediapipe', using default landmarks
+Encoding original image to VAE latent space ...
+  Latent shape: torch.Size([1, 4, 64, 64])
+Detecting landmarks on original image ...
+Cycling through 13 warp types per iteration.
+  Learnable parameters: 1 (Δz) + 37 (warp θ)
+
+Running joint VAE latent + warp optimisation for 20 iterations ...
+  lr=0.01  λ_lm=0.1  λ_reg=0.001  λ_ssim=5.0  λ_pix=0.1
+  ε=10.0px  (imperceptibility thresholds enforced via tanh bounds)
+  Warp: all
+  Saving images every 50 iterations → output_save/image_3/results/all_20/vae_latent_iterations
+
+Joint VAE+warp optimisation:   0%|          | 0/20 [00:00<?, ?it/s]Joint VAE+warp optimisation:   0%|          | 0/20 [00:01<?, ?it/s, L_total=0.4876, L_id=0.0000, L_ssim=0.0975, warp=bspline]Joint VAE+warp optimisation:   0%|          | 0/20 [00:01<?, ?it/s, L_total=0.4876, L_id=0.0000, L_ssim=0.0975, warp=bspline]
+  Iter    0 [bspline   ] | L_total=0.487593  L_id=0.000004  L_ssim=0.097501  L_pix=0.000504  L_lm=0.000000  |warp|=0.0149
+
+✓ Converged at iteration 0: identity_sim=0.0000  landmark_drift=0.0000
+
+Saved perturbed image → output_save/image_3/results/all_20/vae_latent_out.png
+Saved unenhanced difference image → output_save/image_3/results/all_20/unenhanced_difference.png
+Saved raw difference image (8x enhanced) → output_save/image_3/results/all_20/raw_difference.png
+
+============================================================
+VAE Latent Optimisation — Final Results
+  VAE type: pix2pix
+  Warp type: all
+============================================================
+  Identity similarity (cos):  0.999996
+  Landmark drift (px):        0.000000
+  ε threshold:                10.0 px
+  Landmarks preserved:        ✓
+  Identity disrupted:         ✗
+  Iterations run:             1
+============================================================
+
+── Per-Warp Summary (on optimised perturbed image) ──
+Warp           Identity Sim   Landmark Drift   Disrupted
+----------------------------------------------------------
+bspline        0.999996       0.000000         ✗
+polar          0.999996       0.000000         ✗
+bezier         0.999996       0.000000         ✗
+lens           0.999996       0.000000         ✗
+mobius         0.999996       0.000000         ✗
+laplacian      0.999996       0.000000         ✗
+geodesic       0.999996       0.000000         ✗
+diffgeom       0.999996       0.000000         ✗
+delaunay       0.999996       0.000000         ✗
+tps            0.999884       0.000000         ✗
+rolling        0.999996       0.000000         ✗
+fft            0.999996       0.000000         ✗
+homography     0.999996       0.000000         ✗
+
+Done!
+Running FLUX with 'Add sunglasses'...
+2026-07-13 22:00:43.974001: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-07-13 22:00:44.008048: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1783960244.053465  444949 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1783960244.066873  444949 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-07-13 22:00:44.108824: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Loading image: output_save/image_3/results/all_20/vae_latent_out.png
+  Image size: (512, 512)
+
+Initialising FLUX backend...
+  Model: black-forest-labs/FLUX.2-klein-4B
+  Steps: 10
+  Guidance: 1.0
+  Dtype: bfloat16
+  Max seq len: 512
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:  40%|████      | 2/5 [00:00<00:00, 13.74it/s]Loading pipeline components...:  80%|████████  | 4/5 [00:01<00:00,  2.91it/s]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][A
+Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  9.72it/s][ALoading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 13.33it/s]
+Loading pipeline components...: 100%|██████████| 5/5 [00:01<00:00,  2.93it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:01<00:00,  3.23it/s]
+Traceback (most recent call last):
+  File "/home/interns/Desktop/amit_code/flux.py", line 332, in <module>
+    main()
+  File "/home/interns/Desktop/amit_code/flux.py", line 276, in main
+    backend = FluxBackend(device, settings)
+  File "/home/interns/Desktop/amit_code/flux.py", line 64, in __init__
+    self.pipe = self._load()
+  File "/home/interns/Desktop/amit_code/flux.py", line 80, in _load
+    ).to(self.device)
+  File "/home/interns/Desktop/clean/.venv-linux-gpu/lib/python3.10/site-packages/diffusers/pipelines/pipeline_utils.py", line 569, in to
+    module.to(device, dtype)
+  File "/home/interns/Desktop/clean/.venv-linux-gpu/lib/python3.10/site-packages/diffusers/models/modeling_utils.py", line 1555, in to
+    return super().to(*args, **kwargs)
+  File "/home/interns/Desktop/clean/.venv-linux-gpu/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1355, in to
+    return self._apply(convert)
+  File "/home/interns/Desktop/clean/.venv-linux-gpu/lib/python3.10/site-packages/torch/nn/modules/module.py", line 915, in _apply
+    module._apply(fn)
+  File "/home/interns/Desktop/clean/.venv-linux-gpu/lib/python3.10/site-packages/torch/nn/modules/module.py", line 915, in _apply
+    module._apply(fn)
+  File "/home/interns/Desktop/clean/.venv-linux-gpu/lib/python3.10/site-packages/torch/nn/modules/module.py", line 915, in _apply
+    module._apply(fn)
+  [Previous line repeated 1 more time]
+  File "/home/interns/Desktop/clean/.venv-linux-gpu/lib/python3.10/site-packages/torch/nn/modules/module.py", line 942, in _apply
+    param_applied = fn(param)
+  File "/home/interns/Desktop/clean/.venv-linux-gpu/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1341, in convert
+    return t.to(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 72.00 MiB. GPU 0 has a total capacity of 47.53 GiB of which 47.56 MiB is free. Process 3638029 has 8.03 MiB memory in use. Process 3638034 has 7.91 MiB memory in use. Process 3638025 has 7.91 MiB memory in use. Process 3638039 has 8.03 MiB memory in use. Process 3861067 has 21.24 GiB memory in use. Process 442646 has 13.05 GiB memory in use. Including non-PyTorch memory, this process has 13.09 GiB memory in use. Of the allocated memory 12.83 GiB is allocated by PyTorch, and 856.50 KiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+ERROR: FLUX sunglasses failed for image_3/all_20
+Continuing to next combination...
+
+=== Iterations: 50 ===
+Processing: image_3/all_50
+Running VAE latent optimization...
+/home/interns/.local/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py:205: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+Loading image: new_images/image_3.png
+  Image shape: torch.Size([1, 3, 512, 512])
+
+Initialising VAE ...
+Loading InstructPix2Pix VAE from 'timbrooks/instruct-pix2pix' ...
+  ✓ InstructPix2Pix VAE loaded.
+Initialising all 13 warp types (learnable, imperceptible) ...
+  Imperceptibility thresholds: {}
+Loading identity model: facenet
+facenet-pytorch not available, using fallback model
+Initialising MediaPipe landmark detector ...
+MediaPipe Tasks API failed: No module named 'mediapipe', trying legacy API ...
+MediaPipe legacy API not available: No module named 'mediapipe', using default landmarks
+Encoding original image to VAE latent space ...
+  Latent shape: torch.Size([1, 4, 64, 64])
+Detecting landmarks on original image ...
+Cycling through 13 warp types per iteration.
+  Learnable parameters: 1 (Δz) + 37 (warp θ)
+
+Running joint VAE latent + warp optimisation for 50 iterations ...
+  lr=0.01  λ_lm=0.1  λ_reg=0.001  λ_ssim=5.0  λ_pix=0.1
+  ε=10.0px  (imperceptibility thresholds enforced via tanh bounds)
+  Warp: all
+  Saving images every 50 iterations → output_save/image_3/results/all_50/vae_latent_iterations
+
+Joint VAE+warp optimisation:   0%|          | 0/50 [00:00<?, ?it/s]Joint VAE+warp optimisation:   0%|          | 0/50 [00:01<?, ?it/s, L_total=0.4876, L_id=0.0000, L_ssim=0.0975, warp=bspline]Joint VAE+warp optimisation:   0%|          | 0/50 [00:02<?, ?it/s, L_total=0.4876, L_id=0.0000, L_ssim=0.0975, warp=bspline]
+  Iter    0 [bspline   ] | L_total=0.487593  L_id=0.000004  L_ssim=0.097501  L_pix=0.000504  L_lm=0.000000  |warp|=0.0149
+
+✓ Converged at iteration 0: identity_sim=0.0000  landmark_drift=0.0000
+
+Saved perturbed image → output_save/image_3/results/all_50/vae_latent_out.png
+Saved unenhanced difference image → output_save/image_3/results/all_50/unenhanced_difference.png
+Saved raw difference image (8x enhanced) → output_save/image_3/results/all_50/raw_difference.png
+
+============================================================
+VAE Latent Optimisation — Final Results
+  VAE type: pix2pix
+  Warp type: all
+============================================================
+  Identity similarity (cos):  0.999996
+  Landmark drift (px):        0.000000
+  ε threshold:                10.0 px
+  Landmarks preserved:        ✓
+  Identity disrupted:         ✗
+  Iterations run:             1
+============================================================
+
+── Per-Warp Summary (on optimised perturbed image) ──
+Warp           Identity Sim   Landmark Drift   Disrupted
+----------------------------------------------------------
+bspline        0.999996       0.000000         ✗
+polar          0.999996       0.000000         ✗
+bezier         0.999996       0.000000         ✗
+lens           0.999996       0.000000         ✗
+mobius         0.999996       0.000000         ✗
+laplacian      0.999996       0.000000         ✗
+geodesic       0.999996       0.000000         ✗
+diffgeom       0.999996       0.000000         ✗
+delaunay       0.999996       0.000000         ✗
+tps            0.999883       0.000000         ✗
+rolling        0.999996       0.000000         ✗
+fft            0.999996       0.000000         ✗
+homography     0.999996       0.000000         ✗
+
+Done!
+Running FLUX with 'Add sunglasses'...
+2026-07-13 22:02:12.676662: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-07-13 22:02:12.699665: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1783960332.725738  449339 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1783960332.737111  449339 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-07-13 22:02:12.774476: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Loading image: output_save/image_3/results/all_50/vae_latent_out.png
+  Image size: (512, 512)
+
+Initialising FLUX backend...
+  Model: black-forest-labs/FLUX.2-klein-4B
+  Steps: 10
+  Guidance: 1.0
+  Dtype: bfloat16
+  Max seq len: 512
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][A
+Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 19.13it/s][ALoading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 19.04it/s]
+Loading pipeline components...:  20%|██        | 1/5 [00:00<00:00,  4.31it/s]Loading pipeline components...:  60%|██████    | 3/5 [00:01<00:00,  2.55it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:01<00:00,  4.11it/s]
+
+Running image edit with prompt: 'Add sunglasses'
+
+Saved edited image → output_save/image_3/flux_output/all_50/output_sunglasses.png
+Saved raw difference image → output_save/image_3/flux_output/all_50/difference.png
+Saved 8x enhanced difference image → output_save/image_3/flux_output/all_50/difference_8.png
+
+Done!
+Running FLUX with 'Make hair color green'...
+2026-07-13 22:02:51.898380: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-07-13 22:02:51.934109: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1783960371.975983  450564 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1783960371.989040  450564 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-07-13 22:02:52.029454: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Loading image: output_save/image_3/results/all_50/vae_latent_out.png
+  Image size: (512, 512)
+
+Initialising FLUX backend...
+  Model: black-forest-labs/FLUX.2-klein-4B
+  Steps: 10
+  Guidance: 1.0
+  Dtype: bfloat16
+  Max seq len: 512
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:  20%|██        | 1/5 [00:00<00:00,  9.70it/s]Loading pipeline components...:  40%|████      | 2/5 [00:00<00:01,  1.94it/s]Loading pipeline components...:  60%|██████    | 3/5 [00:01<00:00,  2.90it/s]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][A
+Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 19.87it/s][ALoading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 19.77it/s]
+Loading pipeline components...: 100%|██████████| 5/5 [00:01<00:00,  4.68it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:01<00:00,  3.92it/s]
+
+Running image edit with prompt: 'Make hair color green'
+
+Saved edited image → output_save/image_3/flux_output/all_50/output_green_hair.png
+Saved raw difference image → output_save/image_3/flux_output/all_50/difference.png
+Saved 8x enhanced difference image → output_save/image_3/flux_output/all_50/difference_8.png
+
+Done!
+Running InstructPix2Pix with 'Add sunglasses'...
+Loading image: output_save/image_3/results/all_50/vae_latent_out.png
+  Image size: (512, 512)
+
+Initialising InstructPix2Pix backend...
+  Model: timbrooks/instruct-pix2pix
+  Steps: 20
+  Guidance: 7.5
+  Image Guidance: 1.5
+  Dtype: float16
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s][0;93m2026-07-13 22:03:34.791308311 [W:onnxruntime:Default, device_discovery.cc:164 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:89 ReadFileContents Failed to open file: "/sys/class/drm/card0/device/vendor"[m
+
+Loading weights:   0%|          | 0/196 [00:00<?, ?it/s][ALoading weights: 100%|██████████| 196/196 [00:00<00:00, 2010.51it/s]
+Loading pipeline components...:  17%|█▋        | 1/6 [00:00<00:02,  2.10it/s]Loading pipeline components...:  67%|██████▋   | 4/6 [00:04<00:02,  1.13s/it]Loading pipeline components...:  83%|████████▎ | 5/6 [00:04<00:00,  1.14it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:05<00:00,  1.07it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:05<00:00,  1.07it/s]
+
+Running image edit with prompt: 'Add sunglasses'
+
+Saved edited image → output_save/image_3/instruct_output/all_50/output_sunglasses.png
+Saved raw difference image → output_save/image_3/instruct_output/all_50/difference.png
+Saved 8x enhanced difference image → output_save/image_3/instruct_output/all_50/difference_8.png
+
+Done!
+Running InstructPix2Pix with 'Make hair color green'...
+Loading image: output_save/image_3/results/all_50/vae_latent_out.png
+  Image size: (512, 512)
+
+Initialising InstructPix2Pix backend...
+  Model: timbrooks/instruct-pix2pix
+  Steps: 20
+  Guidance: 7.5
+  Image Guidance: 1.5
+  Dtype: float16
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s][0;93m2026-07-13 22:04:03.310084770 [W:onnxruntime:Default, device_discovery.cc:164 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:89 ReadFileContents Failed to open file: "/sys/class/drm/card0/device/vendor"[m
+
+Loading weights:   0%|          | 0/196 [00:00<?, ?it/s][ALoading weights: 100%|██████████| 196/196 [00:00<00:00, 1970.62it/s]
+Loading pipeline components...:  17%|█▋        | 1/6 [00:00<00:02,  2.13it/s]Loading pipeline components...:  33%|███▎      | 2/6 [00:00<00:01,  3.31it/s]Loading pipeline components...:  83%|████████▎ | 5/6 [00:01<00:00,  3.78it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:04<00:00,  1.05s/it]Loading pipeline components...: 100%|██████████| 6/6 [00:04<00:00,  1.26it/s]
+
+Running image edit with prompt: 'Make hair color green'
+
+Saved edited image → output_save/image_3/instruct_output/all_50/output_green_hair.png
+Saved raw difference image → output_save/image_3/instruct_output/all_50/difference.png
+Saved 8x enhanced difference image → output_save/image_3/instruct_output/all_50/difference_8.png
+
+Done!
+=== Completed: image_3/all_50 ===
+Committing results...
