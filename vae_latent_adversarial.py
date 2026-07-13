@@ -374,8 +374,15 @@ def extract_embedding(identity_model, x):
 
 
 def identity_loss(E_orig, E_pert):
-    """L_identity = cos(E_orig, E_pert) — minimise to disrupt identity."""
-    return F.cosine_similarity(E_orig, E_pert, dim=1).mean()
+    """L_identity = 1 - cos(E_orig, E_pert) — maximise to disrupt identity.
+    
+    We want identities to be DIFFERENT, so we maximize the angular distance.
+    Using (1 - cosine_similarity) gives us a loss that:
+    - Is 0 when embeddings are identical (cos=1)
+    - Is 2 when embeddings are opposite (cos=-1)
+    - Gradient pushes embeddings apart
+    """
+    return 1.0 - F.cosine_similarity(E_orig, E_pert, dim=1).mean()
 
 
 def landmark_loss(P_orig, P_pert):
