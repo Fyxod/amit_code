@@ -1,0 +1,282 @@
+==========================================
+Starting image editing pipeline
+==========================================
+Input directory: new_images
+Output directory: edit_output
+Prompts: 'Add sunglasses', 'Change hair color to green'
+==========================================
+
+=== Processing: image_2 ===
+Running FLUX with 'Add sunglasses'...
+2026-07-14 11:49:37.230079: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-07-14 11:49:38.523600: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1784009978.923538 1886997 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1784009979.012235 1886997 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-07-14 11:49:40.280549: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Loading image: new_images/image_2.png
+  Image size: (512, 512)
+
+Initialising FLUX backend...
+  Model: black-forest-labs/FLUX.2-klein-4B
+  Steps: 10
+  Guidance: 1.0
+  Dtype: bfloat16
+  Max seq len: 512
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][A
+Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.01s/it][A
+Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.72s/it][ALoading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.76s/it]
+Loading pipeline components...:  40%|████      | 2/5 [00:04<00:06,  2.02s/it]Loading pipeline components...:  60%|██████    | 3/5 [00:05<00:03,  1.84s/it]Loading pipeline components...:  80%|████████  | 4/5 [00:06<00:01,  1.41s/it]Loading pipeline components...: 100%|██████████| 5/5 [00:07<00:00,  1.44s/it]Loading pipeline components...: 100%|██████████| 5/5 [00:07<00:00,  1.56s/it]
+
+Running image edit with prompt: 'Add sunglasses'
+
+Saved edited image → edit_output/flux/image_2_sunglasses.png
+Saved raw difference image → edit_output/flux/difference.png
+Saved 8x enhanced difference image → edit_output/flux/difference_8.png
+
+Done!
+Running FLUX with 'Change hair color to green'...
+2026-07-14 11:52:11.839990: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-07-14 11:52:11.930377: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1784010131.988255 1890458 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1784010132.006547 1890458 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-07-14 11:52:12.059696: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Loading image: new_images/image_2.png
+  Image size: (512, 512)
+
+Initialising FLUX backend...
+  Model: black-forest-labs/FLUX.2-klein-4B
+  Steps: 10
+  Guidance: 1.0
+  Dtype: bfloat16
+  Max seq len: 512
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:  20%|██        | 1/5 [00:00<00:01,  3.42it/s]Loading pipeline components...:  40%|████      | 2/5 [00:01<00:02,  1.08it/s]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][ALoading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 21.93it/s]
+Loading pipeline components...:  60%|██████    | 3/5 [00:01<00:01,  1.68it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:01<00:00,  2.58it/s]
+
+Running image edit with prompt: 'Change hair color to green'
+
+Saved edited image → edit_output/flux/image_2_green_hair.png
+Saved raw difference image → edit_output/flux/difference.png
+Saved 8x enhanced difference image → edit_output/flux/difference_8.png
+
+Done!
+Running InstructPix2Pix with 'Add sunglasses'...
+Loading image: new_images/image_2.png
+  Image size: (512, 512)
+
+Initialising InstructPix2Pix backend...
+  Model: timbrooks/instruct-pix2pix
+  Steps: 20
+  Guidance: 7.5
+  Image Guidance: 1.5
+  Dtype: float16
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s][0;93m2026-07-14 11:53:43.784281272 [W:onnxruntime:Default, device_discovery.cc:164 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:89 ReadFileContents Failed to open file: "/sys/class/drm/card0/device/vendor"[m
+Loading pipeline components...:  17%|█▋        | 1/6 [00:00<00:04,  1.01it/s]Loading pipeline components...:  33%|███▎      | 2/6 [00:02<00:05,  1.37s/it]Loading pipeline components...:  67%|██████▋   | 4/6 [00:07<00:04,  2.10s/it]
+Loading weights:   0%|          | 0/196 [00:00<?, ?it/s][A
+Loading weights:  88%|████████▊ | 172/196 [00:00<00:00, 1682.10it/s][ALoading weights: 100%|██████████| 196/196 [00:00<00:00, 1742.56it/s]
+Loading pipeline components...:  83%|████████▎ | 5/6 [00:08<00:01,  1.64s/it]Loading pipeline components...: 100%|██████████| 6/6 [00:08<00:00,  1.28s/it]Loading pipeline components...: 100%|██████████| 6/6 [00:08<00:00,  1.46s/it]
+
+Running image edit with prompt: 'Add sunglasses'
+
+Saved edited image → edit_output/instruct/image_2_sunglasses.png
+Saved raw difference image → edit_output/instruct/difference.png
+Saved 8x enhanced difference image → edit_output/instruct/difference_8.png
+
+Done!
+Running InstructPix2Pix with 'Change hair color to green'...
+Loading image: new_images/image_2.png
+  Image size: (512, 512)
+
+Initialising InstructPix2Pix backend...
+  Model: timbrooks/instruct-pix2pix
+  Steps: 20
+  Guidance: 7.5
+  Image Guidance: 1.5
+  Dtype: float16
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s][0;93m2026-07-14 11:54:37.325260231 [W:onnxruntime:Default, device_discovery.cc:164 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:89 ReadFileContents Failed to open file: "/sys/class/drm/card0/device/vendor"[m
+Loading pipeline components...:  17%|█▋        | 1/6 [00:06<00:34,  6.99s/it]Loading pipeline components...:  50%|█████     | 3/6 [00:08<00:07,  2.45s/it]Loading pipeline components...:  83%|████████▎ | 5/6 [00:09<00:01,  1.32s/it]
+Loading weights:   0%|          | 0/196 [00:00<?, ?it/s][A
+Loading weights:  81%|████████  | 158/196 [00:00<00:00, 1432.47it/s][ALoading weights: 100%|██████████| 196/196 [00:00<00:00, 1451.87it/s]
+Loading pipeline components...: 100%|██████████| 6/6 [00:10<00:00,  1.27s/it]Loading pipeline components...: 100%|██████████| 6/6 [00:10<00:00,  1.73s/it]
+
+Running image edit with prompt: 'Change hair color to green'
+
+Saved edited image → edit_output/instruct/image_2_green_hair.png
+Saved raw difference image → edit_output/instruct/difference.png
+Saved 8x enhanced difference image → edit_output/instruct/difference_8.png
+
+Done!
+=== Completed: image_2 ===
+
+=== Processing: image_3 ===
+Running FLUX with 'Add sunglasses'...
+2026-07-14 11:55:16.396790: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-07-14 11:55:16.432645: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1784010316.475259 1893557 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1784010316.488296 1893557 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-07-14 11:55:16.528722: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Loading image: new_images/image_3.png
+  Image size: (512, 512)
+
+Initialising FLUX backend...
+  Model: black-forest-labs/FLUX.2-klein-4B
+  Steps: 10
+  Guidance: 1.0
+  Dtype: bfloat16
+  Max seq len: 512
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:  20%|██        | 1/5 [00:00<00:00,  8.22it/s]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][A
+Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 18.93it/s][ALoading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 18.81it/s]
+Loading pipeline components...:  60%|██████    | 3/5 [00:00<00:00,  5.78it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:01<00:00,  3.34it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:01<00:00,  3.72it/s]
+
+Running image edit with prompt: 'Add sunglasses'
+
+Saved edited image → edit_output/flux/image_3_sunglasses.png
+Saved raw difference image → edit_output/flux/difference.png
+Saved 8x enhanced difference image → edit_output/flux/difference_8.png
+
+Done!
+Running FLUX with 'Change hair color to green'...
+2026-07-14 11:56:03.628284: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-07-14 11:56:03.683342: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1784010363.738066 1894143 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1784010363.750300 1894143 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-07-14 11:56:03.799398: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Loading image: new_images/image_3.png
+  Image size: (512, 512)
+
+Initialising FLUX backend...
+  Model: black-forest-labs/FLUX.2-klein-4B
+  Steps: 10
+  Guidance: 1.0
+  Dtype: bfloat16
+  Max seq len: 512
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:  40%|████      | 2/5 [00:00<00:01,  2.60it/s]Loading pipeline components...:  80%|████████  | 4/5 [00:00<00:00,  4.99it/s]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][A
+Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 18.11it/s][ALoading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 18.05it/s]
+Loading pipeline components...: 100%|██████████| 5/5 [00:01<00:00,  4.38it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:01<00:00,  4.13it/s]
+
+Running image edit with prompt: 'Change hair color to green'
+
+Saved edited image → edit_output/flux/image_3_green_hair.png
+Saved raw difference image → edit_output/flux/difference.png
+Saved 8x enhanced difference image → edit_output/flux/difference_8.png
+
+Done!
+Running InstructPix2Pix with 'Add sunglasses'...
+Loading image: new_images/image_3.png
+  Image size: (512, 512)
+
+Initialising InstructPix2Pix backend...
+  Model: timbrooks/instruct-pix2pix
+  Steps: 20
+  Guidance: 7.5
+  Image Guidance: 1.5
+  Dtype: float16
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s][0;93m2026-07-14 11:57:01.291919650 [W:onnxruntime:Default, device_discovery.cc:164 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:89 ReadFileContents Failed to open file: "/sys/class/drm/card0/device/vendor"[m
+Loading pipeline components...:  17%|█▋        | 1/6 [00:05<00:26,  5.31s/it]Loading pipeline components...:  33%|███▎      | 2/6 [00:06<00:12,  3.02s/it]
+Loading weights:   0%|          | 0/196 [00:00<?, ?it/s][A
+Loading weights:  74%|███████▍  | 145/196 [00:00<00:00, 1421.06it/s][ALoading weights: 100%|██████████| 196/196 [00:00<00:00, 1511.44it/s]
+Loading pipeline components...:  50%|█████     | 3/6 [00:07<00:05,  1.95s/it]Loading pipeline components...: 100%|██████████| 6/6 [00:07<00:00,  1.37it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:07<00:00,  1.29s/it]
+
+Running image edit with prompt: 'Add sunglasses'
+
+Saved edited image → edit_output/instruct/image_3_sunglasses.png
+Saved raw difference image → edit_output/instruct/difference.png
+Saved 8x enhanced difference image → edit_output/instruct/difference_8.png
+
+Done!
+Running InstructPix2Pix with 'Change hair color to green'...
+Loading image: new_images/image_3.png
+  Image size: (512, 512)
+
+Initialising InstructPix2Pix backend...
+  Model: timbrooks/instruct-pix2pix
+  Steps: 20
+  Guidance: 7.5
+  Image Guidance: 1.5
+  Dtype: float16
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s][0;93m2026-07-14 11:57:36.725742990 [W:onnxruntime:Default, device_discovery.cc:164 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:89 ReadFileContents Failed to open file: "/sys/class/drm/card0/device/vendor"[m
+Loading pipeline components...:  33%|███▎      | 2/6 [00:05<00:10,  2.63s/it]Loading pipeline components...:  50%|█████     | 3/6 [00:06<00:06,  2.07s/it]
+Loading weights:   0%|          | 0/196 [00:00<?, ?it/s][A
+Loading weights:  77%|███████▋  | 150/196 [00:00<00:00, 1499.59it/s][ALoading weights: 100%|██████████| 196/196 [00:00<00:00, 1459.84it/s]
+Loading pipeline components...:  83%|████████▎ | 5/6 [00:07<00:01,  1.09s/it]Loading pipeline components...: 100%|██████████| 6/6 [00:07<00:00,  1.18it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:07<00:00,  1.21s/it]
+
+Running image edit with prompt: 'Change hair color to green'
+
+Saved edited image → edit_output/instruct/image_3_green_hair.png
+Saved raw difference image → edit_output/instruct/difference.png
+Saved 8x enhanced difference image → edit_output/instruct/difference_8.png
+
+Done!
+=== Completed: image_3 ===
+
+=== Processing: original ===
+Running FLUX with 'Add sunglasses'...
+2026-07-14 11:58:11.237299: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-07-14 11:58:11.283593: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1784010491.325985 1896182 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1784010491.347490 1896182 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-07-14 11:58:11.388737: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Loading image: new_images/original.jpg
+  Image size: (256, 256)
+
+Initialising FLUX backend...
+  Model: black-forest-labs/FLUX.2-klein-4B
+  Steps: 10
+  Guidance: 1.0
+  Dtype: bfloat16
+  Max seq len: 512
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:  40%|████      | 2/5 [00:00<00:00, 11.21it/s]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][A
+Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 17.36it/s][ALoading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 17.23it/s]
+Loading pipeline components...:  80%|████████  | 4/5 [00:01<00:00,  2.98it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:01<00:00,  4.18it/s]
+
+Running image edit with prompt: 'Add sunglasses'
+
+Saved edited image → edit_output/flux/original_sunglasses.png
+Saved raw difference image → edit_output/flux/difference.png
+Saved 8x enhanced difference image → edit_output/flux/difference_8.png
+
+Done!
+Running FLUX with 'Change hair color to green'...
+2026-07-14 11:58:44.182247: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-07-14 11:58:44.217350: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1784010524.279590 1897099 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1784010524.347605 1897099 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-07-14 11:58:44.406981: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Loading image: new_images/original.jpg
+  Image size: (256, 256)
+
+Initialising FLUX backend...
+  Model: black-forest-labs/FLUX.2-klein-4B
+  Steps: 10
+  Guidance: 1.0
+  Dtype: bfloat16
+  Max seq len: 512
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:  20%|██        | 1/5 [00:00<00:00,  9.00it/s]Loading pipeline components...:  60%|██████    | 3/5 [00:01<00:00,  2.69it/s]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][A
+Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 19.58it/s][ALoading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 19.39it/s]
+Loading pipeline components...: 100%|██████████| 5/5 [00:01<00:00,  4.10it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:01<00:00,  3.89it/s]
+
+Running image edit with prompt: 'Change hair color to green'
+
+Saved edited image → edit_output/flux/original_green_hair.png
+Saved raw difference image → edit_output/flux/difference.png
+Saved 8x enhanced difference image → edit_output/flux/difference_8.png
+
+Done!
+Running InstructPix2Pix with 'Add sunglasses'...
