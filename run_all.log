@@ -2815,3 +2815,278 @@ Saved 8x enhanced difference image → output_save/image_3/instruct_output/all_5
 Done!
 === Completed: image_3/all_50 ===
 Committing results...
+[main fb744ff] Add results for image_3 all_50 iterations - VAE: all warp with 50 iterations - FLUX: Add sunglasses, Make hair color green - InstructPix2Pix: Add sunglasses, Make hair color green
+ 22 files changed, 319 insertions(+)
+ create mode 100644 output_save/image_3/flux_output/all_50/difference.png
+ create mode 100644 output_save/image_3/flux_output/all_50/difference_8.png
+ create mode 100644 output_save/image_3/flux_output/all_50/output_green_hair.png
+ create mode 100644 output_save/image_3/flux_output/all_50/output_sunglasses.png
+ create mode 100644 output_save/image_3/instruct_output/all_50/difference.png
+ create mode 100644 output_save/image_3/instruct_output/all_50/difference_8.png
+ create mode 100644 output_save/image_3/instruct_output/all_50/output_green_hair.png
+ create mode 100644 output_save/image_3/instruct_output/all_50/output_sunglasses.png
+ create mode 100644 output_save/image_3/results/all_20/raw_difference.png
+ create mode 100644 output_save/image_3/results/all_20/unenhanced_difference.png
+ create mode 100644 output_save/image_3/results/all_20/vae_latent_iterations/iter_0000.png
+ create mode 100644 output_save/image_3/results/all_20/vae_latent_iterations/iter_0000_original.png
+ create mode 100644 output_save/image_3/results/all_20/vae_latent_iterations/iter_0000_warped.png
+ create mode 100644 output_save/image_3/results/all_20/vae_latent_out.png
+ create mode 100644 output_save/image_3/results/all_50/raw_difference.png
+ create mode 100644 output_save/image_3/results/all_50/unenhanced_difference.png
+ create mode 100644 output_save/image_3/results/all_50/vae_latent_iterations/iter_0000.png
+ create mode 100644 output_save/image_3/results/all_50/vae_latent_iterations/iter_0000_original.png
+ create mode 100644 output_save/image_3/results/all_50/vae_latent_iterations/iter_0000_warped.png
+ create mode 100644 output_save/image_3/results/all_50/vae_latent_out.png
+ rewrite output_save/image_3/vae_latent_out.png (94%)
+=== Committed: image_3/all_50 ===
+
+=== Iterations: 75 ===
+Processing: image_3/all_75
+Running VAE latent optimization...
+/home/interns/.local/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py:205: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+Loading image: new_images/image_3.png
+  Image shape: torch.Size([1, 3, 512, 512])
+
+Initialising VAE ...
+Loading InstructPix2Pix VAE from 'timbrooks/instruct-pix2pix' ...
+  ✓ InstructPix2Pix VAE loaded.
+Initialising all 13 warp types (learnable, imperceptible) ...
+  Imperceptibility thresholds: {}
+Loading identity model: facenet
+facenet-pytorch not available, using fallback model
+Initialising MediaPipe landmark detector ...
+MediaPipe Tasks API failed: No module named 'mediapipe', trying legacy API ...
+MediaPipe legacy API not available: No module named 'mediapipe', using default landmarks
+Encoding original image to VAE latent space ...
+  Latent shape: torch.Size([1, 4, 64, 64])
+Detecting landmarks on original image ...
+Cycling through 13 warp types per iteration.
+  Learnable parameters: 1 (Δz) + 37 (warp θ)
+
+Running joint VAE latent + warp optimisation for 75 iterations ...
+  lr=0.01  λ_lm=0.1  λ_reg=0.001  λ_ssim=5.0  λ_pix=0.1
+  ε=10.0px  (imperceptibility thresholds enforced via tanh bounds)
+  Warp: all
+  Saving images every 50 iterations → output_save/image_3/results/all_75/vae_latent_iterations
+
+Joint VAE+warp optimisation:   0%|          | 0/75 [00:00<?, ?it/s]Joint VAE+warp optimisation:   0%|          | 0/75 [00:01<?, ?it/s, L_total=0.4876, L_id=0.0000, L_ssim=0.0975, warp=bspline]Joint VAE+warp optimisation:   0%|          | 0/75 [00:02<?, ?it/s, L_total=0.4876, L_id=0.0000, L_ssim=0.0975, warp=bspline]
+  Iter    0 [bspline   ] | L_total=0.487593  L_id=0.000004  L_ssim=0.097501  L_pix=0.000504  L_lm=0.000000  |warp|=0.0149
+
+✓ Converged at iteration 0: identity_sim=0.0000  landmark_drift=0.0000
+
+Saved perturbed image → output_save/image_3/results/all_75/vae_latent_out.png
+Saved unenhanced difference image → output_save/image_3/results/all_75/unenhanced_difference.png
+Saved raw difference image (8x enhanced) → output_save/image_3/results/all_75/raw_difference.png
+
+============================================================
+VAE Latent Optimisation — Final Results
+  VAE type: pix2pix
+  Warp type: all
+============================================================
+  Identity similarity (cos):  0.999996
+  Landmark drift (px):        0.000000
+  ε threshold:                10.0 px
+  Landmarks preserved:        ✓
+  Identity disrupted:         ✗
+  Iterations run:             1
+============================================================
+
+── Per-Warp Summary (on optimised perturbed image) ──
+Warp           Identity Sim   Landmark Drift   Disrupted
+----------------------------------------------------------
+bspline        0.999996       0.000000         ✗
+polar          0.999996       0.000000         ✗
+bezier         0.999996       0.000000         ✗
+lens           0.999996       0.000000         ✗
+mobius         0.999996       0.000000         ✗
+laplacian      0.999996       0.000000         ✗
+geodesic       0.999996       0.000000         ✗
+diffgeom       0.999996       0.000000         ✗
+delaunay       0.999996       0.000000         ✗
+tps            0.999884       0.000000         ✗
+rolling        0.999996       0.000000         ✗
+fft            0.999996       0.000000         ✗
+homography     0.999996       0.000000         ✗
+
+Done!
+Running FLUX with 'Add sunglasses'...
+2026-07-13 22:05:28.757562: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-07-13 22:05:28.793598: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1783960528.835550  456726 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1783960528.848333  456726 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-07-13 22:05:28.888848: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Loading image: output_save/image_3/results/all_75/vae_latent_out.png
+  Image size: (512, 512)
+
+Initialising FLUX backend...
+  Model: black-forest-labs/FLUX.2-klein-4B
+  Steps: 10
+  Guidance: 1.0
+  Dtype: bfloat16
+  Max seq len: 512
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][A
+Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 18.97it/s][ALoading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 18.88it/s]
+Loading pipeline components...:  40%|████      | 2/5 [00:00<00:00,  6.16it/s]Loading pipeline components...:  80%|████████  | 4/5 [00:01<00:00,  3.09it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:01<00:00,  4.14it/s]
+Traceback (most recent call last):
+  File "/home/interns/Desktop/amit_code/flux.py", line 332, in <module>
+    main()
+  File "/home/interns/Desktop/amit_code/flux.py", line 276, in main
+    backend = FluxBackend(device, settings)
+  File "/home/interns/Desktop/amit_code/flux.py", line 64, in __init__
+    self.pipe = self._load()
+  File "/home/interns/Desktop/amit_code/flux.py", line 80, in _load
+    ).to(self.device)
+  File "/home/interns/Desktop/clean/.venv-linux-gpu/lib/python3.10/site-packages/diffusers/pipelines/pipeline_utils.py", line 569, in to
+    module.to(device, dtype)
+  File "/home/interns/Desktop/clean/.venv-linux-gpu/lib/python3.10/site-packages/transformers/modeling_utils.py", line 4462, in to
+    return super().to(*args, **kwargs)
+  File "/home/interns/Desktop/clean/.venv-linux-gpu/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1355, in to
+    return self._apply(convert)
+  File "/home/interns/Desktop/clean/.venv-linux-gpu/lib/python3.10/site-packages/torch/nn/modules/module.py", line 915, in _apply
+    module._apply(fn)
+  File "/home/interns/Desktop/clean/.venv-linux-gpu/lib/python3.10/site-packages/torch/nn/modules/module.py", line 915, in _apply
+    module._apply(fn)
+  File "/home/interns/Desktop/clean/.venv-linux-gpu/lib/python3.10/site-packages/torch/nn/modules/module.py", line 915, in _apply
+    module._apply(fn)
+  [Previous line repeated 2 more times]
+  File "/home/interns/Desktop/clean/.venv-linux-gpu/lib/python3.10/site-packages/torch/nn/modules/module.py", line 942, in _apply
+    param_applied = fn(param)
+  File "/home/interns/Desktop/clean/.venv-linux-gpu/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1341, in convert
+    return t.to(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 48.00 MiB. GPU 0 has a total capacity of 47.53 GiB of which 39.56 MiB is free. Process 3638029 has 8.03 MiB memory in use. Process 3638034 has 7.91 MiB memory in use. Process 3638025 has 7.91 MiB memory in use. Process 3638039 has 8.03 MiB memory in use. Process 3861067 has 21.24 GiB memory in use. Process 450739 has 18.95 GiB memory in use. Including non-PyTorch memory, this process has 7.20 GiB memory in use. Of the allocated memory 6.93 GiB is allocated by PyTorch, and 11.66 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+ERROR: FLUX sunglasses failed for image_3/all_75
+Continuing to next combination...
+
+=== Iterations: 100 ===
+Processing: image_3/all_100
+Running VAE latent optimization...
+/home/interns/.local/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py:205: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+Loading image: new_images/image_3.png
+  Image shape: torch.Size([1, 3, 512, 512])
+
+Initialising VAE ...
+Loading InstructPix2Pix VAE from 'timbrooks/instruct-pix2pix' ...
+  ✓ InstructPix2Pix VAE loaded.
+Initialising all 13 warp types (learnable, imperceptible) ...
+  Imperceptibility thresholds: {}
+Loading identity model: facenet
+facenet-pytorch not available, using fallback model
+Initialising MediaPipe landmark detector ...
+MediaPipe Tasks API failed: No module named 'mediapipe', trying legacy API ...
+MediaPipe legacy API not available: No module named 'mediapipe', using default landmarks
+Encoding original image to VAE latent space ...
+  Latent shape: torch.Size([1, 4, 64, 64])
+Detecting landmarks on original image ...
+Cycling through 13 warp types per iteration.
+  Learnable parameters: 1 (Δz) + 37 (warp θ)
+
+Running joint VAE latent + warp optimisation for 100 iterations ...
+  lr=0.01  λ_lm=0.1  λ_reg=0.001  λ_ssim=5.0  λ_pix=0.1
+  ε=10.0px  (imperceptibility thresholds enforced via tanh bounds)
+  Warp: all
+  Saving images every 50 iterations → output_save/image_3/results/all_100/vae_latent_iterations
+
+Joint VAE+warp optimisation:   0%|          | 0/100 [00:00<?, ?it/s]Joint VAE+warp optimisation:   0%|          | 0/100 [00:02<?, ?it/s, L_total=0.4876, L_id=0.0000, L_ssim=0.0975, warp=bspline]Joint VAE+warp optimisation:   0%|          | 0/100 [00:02<?, ?it/s, L_total=0.4876, L_id=0.0000, L_ssim=0.0975, warp=bspline]
+  Iter    0 [bspline   ] | L_total=0.487593  L_id=0.000004  L_ssim=0.097501  L_pix=0.000504  L_lm=0.000000  |warp|=0.0149
+
+✓ Converged at iteration 0: identity_sim=0.0000  landmark_drift=0.0000
+
+Saved perturbed image → output_save/image_3/results/all_100/vae_latent_out.png
+Saved unenhanced difference image → output_save/image_3/results/all_100/unenhanced_difference.png
+Saved raw difference image (8x enhanced) → output_save/image_3/results/all_100/raw_difference.png
+
+============================================================
+VAE Latent Optimisation — Final Results
+  VAE type: pix2pix
+  Warp type: all
+============================================================
+  Identity similarity (cos):  0.999996
+  Landmark drift (px):        0.000000
+  ε threshold:                10.0 px
+  Landmarks preserved:        ✓
+  Identity disrupted:         ✗
+  Iterations run:             1
+============================================================
+
+── Per-Warp Summary (on optimised perturbed image) ──
+Warp           Identity Sim   Landmark Drift   Disrupted
+----------------------------------------------------------
+bspline        0.999996       0.000000         ✗
+polar          0.999996       0.000000         ✗
+bezier         0.999996       0.000000         ✗
+lens           0.999996       0.000000         ✗
+mobius         0.999996       0.000000         ✗
+laplacian      0.999996       0.000000         ✗
+geodesic       0.999996       0.000000         ✗
+diffgeom       0.999996       0.000000         ✗
+delaunay       0.999996       0.000000         ✗
+tps            0.999884       0.000000         ✗
+rolling        0.999996       0.000000         ✗
+fft            0.999996       0.000000         ✗
+homography     0.999996       0.000000         ✗
+
+Done!
+Running FLUX with 'Add sunglasses'...
+2026-07-13 22:06:56.187027: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-07-13 22:06:56.211108: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1783960616.239089  459380 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1783960616.248059  459380 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-07-13 22:06:56.274257: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Loading image: output_save/image_3/results/all_100/vae_latent_out.png
+  Image size: (512, 512)
+
+Initialising FLUX backend...
+  Model: black-forest-labs/FLUX.2-klein-4B
+  Steps: 10
+  Guidance: 1.0
+  Dtype: bfloat16
+  Max seq len: 512
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:  20%|██        | 1/5 [00:00<00:03,  1.05it/s]Loading pipeline components...:  40%|████      | 2/5 [00:01<00:02,  1.12it/s]Loading pipeline components...:  60%|██████    | 3/5 [00:02<00:01,  1.44it/s]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][A
+Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.07s/it][A
+Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.12s/it][ALoading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.11s/it]
+Loading pipeline components...: 100%|██████████| 5/5 [00:04<00:00,  1.03it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:04<00:00,  1.08it/s]
+Traceback (most recent call last):
+  File "/home/interns/Desktop/amit_code/flux.py", line 332, in <module>
+    main()
+  File "/home/interns/Desktop/amit_code/flux.py", line 276, in main
+    backend = FluxBackend(device, settings)
+  File "/home/interns/Desktop/amit_code/flux.py", line 64, in __init__
+    self.pipe = self._load()
+  File "/home/interns/Desktop/amit_code/flux.py", line 80, in _load
+    ).to(self.device)
+  File "/home/interns/Desktop/clean/.venv-linux-gpu/lib/python3.10/site-packages/diffusers/pipelines/pipeline_utils.py", line 569, in to
+    module.to(device, dtype)
+  File "/home/interns/Desktop/clean/.venv-linux-gpu/lib/python3.10/site-packages/transformers/modeling_utils.py", line 4462, in to
+    return super().to(*args, **kwargs)
+  File "/home/interns/Desktop/clean/.venv-linux-gpu/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1355, in to
+    return self._apply(convert)
+  File "/home/interns/Desktop/clean/.venv-linux-gpu/lib/python3.10/site-packages/torch/nn/modules/module.py", line 915, in _apply
+    module._apply(fn)
+  File "/home/interns/Desktop/clean/.venv-linux-gpu/lib/python3.10/site-packages/torch/nn/modules/module.py", line 915, in _apply
+    module._apply(fn)
+  File "/home/interns/Desktop/clean/.venv-linux-gpu/lib/python3.10/site-packages/torch/nn/modules/module.py", line 915, in _apply
+    module._apply(fn)
+  [Previous line repeated 2 more times]
+  File "/home/interns/Desktop/clean/.venv-linux-gpu/lib/python3.10/site-packages/torch/nn/modules/module.py", line 942, in _apply
+    param_applied = fn(param)
+  File "/home/interns/Desktop/clean/.venv-linux-gpu/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1341, in convert
+    return t.to(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 48.00 MiB. GPU 0 has a total capacity of 47.53 GiB of which 39.56 MiB is free. Process 3638029 has 8.03 MiB memory in use. Process 3638034 has 7.91 MiB memory in use. Process 3638025 has 7.91 MiB memory in use. Process 3638039 has 8.03 MiB memory in use. Process 3861067 has 21.24 GiB memory in use. Process 450739 has 18.95 GiB memory in use. Including non-PyTorch memory, this process has 7.20 GiB memory in use. Of the allocated memory 6.93 GiB is allocated by PyTorch, and 11.66 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+ERROR: FLUX sunglasses failed for image_3/all_100
+Continuing to next combination...
+--- Completed warp: all ---
+==========================================
+Completed image: image_3.png
+==========================================
+
+==========================================
+All pipeline executions completed!
+==========================================
