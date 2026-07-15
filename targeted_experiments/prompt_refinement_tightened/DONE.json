@@ -1,0 +1,16 @@
+{
+  "status": "complete",
+  "num_base_cases": 10,
+  "num_refined_pairs": 90,
+  "best_output_ssim": 0.5789529085159302,
+  "image_guidance_scales": [
+    1.0,
+    1.5,
+    2.0
+  ],
+  "seeds": [
+    1234,
+    24001,
+    7777
+  ]
+}
