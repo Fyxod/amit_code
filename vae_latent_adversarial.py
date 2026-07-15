@@ -61,7 +61,7 @@ from transforms import (
     create_face_mask,
 )
 from models import FaceRecognitionModel
-from utils import load_image, save_image, Visualizer
+from utils import load_image, save_image
 from utils.landmarks import LandmarkDetector
 
 
@@ -990,6 +990,7 @@ def main():
     # ── Optional visualisation ─────────────────────────────────
     if args.visualize:
         print("\nGenerating visualisations ...")
+        from utils.visualization import Visualizer
         viz_dir = os.path.dirname(args.output) or "."
         viz = Visualizer(save_dir=viz_dir)
 
