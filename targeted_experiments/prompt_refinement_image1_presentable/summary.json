@@ -1,0 +1,15 @@
+{
+  "num_base_cases": 15,
+  "num_refined_pairs": 135,
+  "best_output_ssim": 0.3277466297149658,
+  "image_guidance_scales": [
+    1.0,
+    1.5,
+    2.0
+  ],
+  "seeds": [
+    1234,
+    24001,
+    7777
+  ]
+}
