@@ -1,0 +1,22 @@
+{
+  "face_id": "image_1",
+  "prompt": "Add a full beard",
+  "prompt_slug": "add_a_full_beard",
+  "candidate_id": "output_save_image_1_results_bspline_10_vae_latent_out_png",
+  "seed": 1234,
+  "steps": 20,
+  "guidance_scale": 7.5,
+  "image_guidance_scale": 1.5,
+  "input_ssim": 0.9463112950325012,
+  "input_psnr": 33.97656068331204,
+  "input_mse": 0.00040026160422712564,
+  "input_l2": 0.020006539036703117,
+  "output_ssim": 0.7748518586158752,
+  "output_psnr": 25.038146605972308,
+  "output_mse": 0.003134623169898987,
+  "output_l2": 0.05598770552450767,
+  "editor": "InstructPix2Pix",
+  "optimization_identity_model": "ArcFace iResNet-100",
+  "source_csv": "targeted_experiments/prompt_sweep_image1_presentable/prompt_sweep_metrics.csv",
+  "observation": "Partial case: both edits add a full beard, but beard shape, density, facial appearance, and color rendering differ while the inputs remain visually close."
+}

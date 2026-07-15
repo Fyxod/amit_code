@@ -1,0 +1,12 @@
+[
+  {
+    "folder": "failed/image_1_make_hair_black_igs1p5_seed1234",
+    "csv": "targeted_experiments/prompt_sweep_image1_presentable/prompt_sweep_metrics.csv",
+    "face_id": "image_1",
+    "prompt": "Make the hair black",
+    "image_guidance_scale": "1.5",
+    "seed": "1234",
+    "candidate_id": "output_save_image_1_results_bspline_10_vae_latent_out_png",
+    "observation": "Failed case: both edited outputs make the hair black, and the clean edit also changes the face and skin appearance too strongly to serve as a clean-success baseline."
+  }
+]

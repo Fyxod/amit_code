@@ -1,0 +1,22 @@
+{
+  "face_id": "image_1",
+  "prompt": "Make the hair black",
+  "prompt_slug": "make_the_hair_black",
+  "candidate_id": "output_save_image_1_results_bspline_10_vae_latent_out_png",
+  "seed": 1234,
+  "steps": 20,
+  "guidance_scale": 7.5,
+  "image_guidance_scale": 1.5,
+  "input_ssim": 0.9463112950325012,
+  "input_psnr": 33.97656068331204,
+  "input_mse": 0.00040026160422712564,
+  "input_l2": 0.020006539036703117,
+  "output_ssim": 0.7075154781341553,
+  "output_psnr": 19.45497823993695,
+  "output_mse": 0.011337105184793472,
+  "output_l2": 0.10647584319832115,
+  "editor": "InstructPix2Pix",
+  "optimization_identity_model": "ArcFace iResNet-100",
+  "source_csv": "targeted_experiments/prompt_sweep_image1_presentable/prompt_sweep_metrics.csv",
+  "observation": "Failed case: both edited outputs make the hair black, and the clean edit also changes the face and skin appearance too strongly to serve as a clean-success baseline."
+}
