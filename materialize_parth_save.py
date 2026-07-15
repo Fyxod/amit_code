@@ -74,14 +74,21 @@ def main() -> None:
         for destination, field in PATH_FIELDS.items():
             shutil.copy2(local_path(root, row[field]), case_root / destination)
 
-        metrics = {key: numeric(value) for key, value in row.items() if not key.endswith("_path")}
+        metrics_path = case_root / "metrics.json"
+        existing_metrics = {}
+        if metrics_path.exists():
+            existing_metrics = json.loads(metrics_path.read_text(encoding="utf-8"))
+        metrics = {
+            **existing_metrics,
+            **{key: numeric(value) for key, value in row.items() if not key.endswith("_path")},
+        }
         metrics.update({
             "editor": "InstructPix2Pix",
             "optimization_identity_model": "ArcFace iResNet-100",
             "source_csv": selection["csv"],
             "observation": selection["observation"],
         })
-        (case_root / "metrics.json").write_text(
+        metrics_path.write_text(
             json.dumps(metrics, indent=2) + "\n", encoding="utf-8"
         )
         print(f"Saved {selection['folder']}")
