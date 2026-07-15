@@ -1,0 +1,22 @@
+{
+  "face_id": "image_1",
+  "prompt": "Add a yellow rain jacket",
+  "prompt_slug": "add_a_yellow_rain_jacket",
+  "candidate_id": "output_save_image_1_results_bspline_10_vae_latent_out_png",
+  "seed": 24001,
+  "steps": 20,
+  "guidance_scale": 7.5,
+  "image_guidance_scale": 1.0,
+  "input_ssim": 0.9463112950325012,
+  "input_psnr": 33.97656068331204,
+  "input_mse": 0.00040026160422712564,
+  "input_l2": 0.020006539036703117,
+  "output_ssim": 0.47905102372169495,
+  "output_psnr": 10.435289541578385,
+  "output_mse": 0.09046301245689392,
+  "output_l2": 0.3007706974705048,
+  "editor": "InstructPix2Pix",
+  "optimization_identity_model": "ArcFace iResNet-100",
+  "source_csv": "targeted_experiments/prompt_refinement_image1_colored_jackets/refined_prompt_metrics.csv",
+  "observation": "The clean edit visibly adds a yellow rain jacket while retaining the subject. The perturbed edit preserves the requested color but changes the face and hood structure substantially, with the inputs remaining visually close."
+}
