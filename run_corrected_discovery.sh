@@ -8,6 +8,8 @@ OUT="$ROOT/targeted_experiments/corrected_perturbations"
 cd "$ROOT"
 mkdir -p "$OUT" logs
 
+export PYTHONPATH="/home/interns/Desktop/face4${PYTHONPATH:+:$PYTHONPATH}"
+
 # These runs deliberately vary the geometry family while holding the corrected
 # identity-disruption objective and preservation weights fixed.
 for face in image_2 image_3; do
@@ -29,8 +31,12 @@ for face in image_2 image_3; do
       --imperceptibility-scale 0.75 \
       --save-interval 15 \
       --device cuda \
+      --target-model arcface \
+      --arcface-checkpoint /home/interns/Desktop/face4/models/arcface/iresnet100.pth \
       --seed 24001 \
       --save-dir "$run_dir" \
+      --whole-image \
+      --disable-landmarks \
       --verbose
   done
 done

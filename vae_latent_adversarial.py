@@ -65,6 +65,18 @@ from utils import load_image, save_image, Visualizer
 from utils.landmarks import LandmarkDetector
 
 
+class NullLandmarkDetector:
+    """Zero-cost placeholder when landmark drift is disabled.
+
+    Landmark detection in this optimizer is non-differentiable and therefore
+    contributes no training gradient. This detector lets the corrected run
+    proceed without importing a broken MediaPipe/TensorFlow installation.
+    """
+
+    def detect(self, image):
+        return torch.zeros((image.shape[0], 1, 2), device=image.device, dtype=image.dtype)
+
+
 # ──────────────────────────────────────────────────────────────
 #  Warp registry  (same as bspline_adversarial.py)
 # ──────────────────────────────────────────────────────────────
@@ -368,16 +380,7 @@ class SimpleVAE(nn.Module):
 
 def extract_embedding(identity_model, x):
     """Extract identity embedding with gradient flow."""
-    if x.shape[2:] != identity_model.input_size:
-        x = F.interpolate(x, size=identity_model.input_size,
-                          mode='bilinear', align_corners=False)
-    # facenet-pytorch's pretrained InceptionResnetV1 expects fixed image
-    # standardization. Our tensors are [0, 1], so this is 2*x - 1.
-    if getattr(identity_model, "model_name", "") == "facenet":
-        x = x * 2.0 - 1.0
-    embedding = identity_model.model(x)
-    embedding = F.normalize(embedding, p=2, dim=1)
-    return embedding
+    return identity_model(x)
 
 
 def identity_loss(E_orig, E_pert):
@@ -792,9 +795,12 @@ def parse_args():
                         help="HuggingFace model ID for InstructPix2Pix VAE")
     parser.add_argument("--taesd-path", type=str, default="taesd",
                         help="Path to local TAESD directory (fallback VAE)")
-    parser.add_argument("--target-model", type=str, default="facenet",
-                        choices=["facenet", "arcface"],
+    parser.add_argument("--target-model", type=str, default="arcface",
+                        choices=["arcface"],
                         help="Identity model for embedding extraction")
+    parser.add_argument("--arcface-checkpoint", type=str,
+                        default="/home/interns/Desktop/face4/models/arcface/iresnet100.pth",
+                        help="Exact ArcFace iResNet-100 checkpoint")
     parser.add_argument("--device", type=str, default="cuda",
                         choices=["cuda", "cpu"], help="Device")
     parser.add_argument("--seed", type=int, default=42, help="Random seed")
@@ -809,6 +815,8 @@ def parse_args():
                         help="Print per-iteration loss values")
     parser.add_argument("--whole-image", action="store_true",
                         help="Apply the warp to the entire image")
+    parser.add_argument("--disable-landmarks", action="store_true",
+                        help="Disable the non-differentiable landmark monitor (requires --whole-image)")
     return parser.parse_args()
 
 
@@ -869,14 +877,20 @@ def main():
     # ── Initialise identity model ──────────────────────────────
     print(f"Loading identity model: {args.target_model}")
     identity_model = FaceRecognitionModel(
-        model_name=args.target_model, device=device,
+        model_name=args.target_model, model_path=args.arcface_checkpoint, device=device,
     )
 
     # ── Initialise MediaPipe landmark detector ─────────────────
-    print("Initialising MediaPipe landmark detector ...")
-    landmark_detector = LandmarkDetector(
-        detector_type="mediapipe", num_landmarks=68, device=device,
-    )
+    if args.disable_landmarks:
+        if not args.whole_image:
+            raise ValueError("--disable-landmarks requires --whole-image because face masks need landmarks")
+        print("Landmark monitor disabled; using whole-image geometry.")
+        landmark_detector = NullLandmarkDetector()
+    else:
+        print("Initialising MediaPipe landmark detector ...")
+        landmark_detector = LandmarkDetector(
+            detector_type="mediapipe", num_landmarks=68, device=device,
+        )
 
     # ── Run VAE latent optimisation ────────────────────────────
     perturbed, final_warped, history, decoded_prewarp = run_vae_latent_optimisation(

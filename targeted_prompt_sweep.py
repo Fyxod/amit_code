@@ -16,7 +16,7 @@ from pathlib import Path
 import numpy as np
 import torch
 from PIL import Image, ImageDraw
-from skimage.metrics import peak_signal_noise_ratio, structural_similarity
+from scipy.ndimage import gaussian_filter
 
 from instruct import InstructBackend, InstructSettings
 
@@ -57,9 +57,18 @@ def pair_metrics(a_path: Path, b_path: Path) -> dict[str, float]:
     a = np.asarray(a_image, dtype=np.float32) / 255.0
     b = load_array(b_path, a_image.size)
     mse = float(np.mean((a - b) ** 2))
+    mu_a = gaussian_filter(a, sigma=(1.5, 1.5, 0), mode="reflect")
+    mu_b = gaussian_filter(b, sigma=(1.5, 1.5, 0), mode="reflect")
+    sigma_a = gaussian_filter(a * a, sigma=(1.5, 1.5, 0), mode="reflect") - mu_a * mu_a
+    sigma_b = gaussian_filter(b * b, sigma=(1.5, 1.5, 0), mode="reflect") - mu_b * mu_b
+    sigma_ab = gaussian_filter(a * b, sigma=(1.5, 1.5, 0), mode="reflect") - mu_a * mu_b
+    c1, c2 = 0.01 ** 2, 0.03 ** 2
+    ssim_map = ((2 * mu_a * mu_b + c1) * (2 * sigma_ab + c2)) / (
+        (mu_a * mu_a + mu_b * mu_b + c1) * (sigma_a + sigma_b + c2)
+    )
     return {
-        "ssim": float(structural_similarity(a, b, channel_axis=2, data_range=1.0)),
-        "psnr": float(peak_signal_noise_ratio(a, b, data_range=1.0)),
+        "ssim": float(np.mean(ssim_map)),
+        "psnr": float("inf") if mse == 0 else float(-10.0 * np.log10(mse)),
         "mse": mse,
         "l2": float(np.sqrt(mse)),
     }

@@ -10,6 +10,8 @@ import torch.nn as nn
 import torch.nn.functional as F
 from typing import Optional, Tuple, Dict, List
 import numpy as np
+from pathlib import Path
+import sys
 
 
 class TargetModel(nn.Module):
@@ -157,22 +159,18 @@ class FaceRecognitionModel(TargetModel):
             return self._create_simple_model()
     
     def _load_arcface(self, model_path: str) -> nn.Module:
-        """Load ArcFace model."""
-        try:
-            import torchvision.models as models
-            # Use ResNet as backbone
-            model = models.resnet50(pretrained=True)
-            model.fc = nn.Linear(model.fc.in_features, 512)
-            self.input_size = (112, 112)
-            
-            if model_path is not None:
-                state_dict = torch.load(model_path, map_location=self.device)
-                model.load_state_dict(state_dict)
-            
-            return model
-        except Exception as e:
-            print(f"Could not load ArcFace: {e}")
-            return self._create_simple_model()
+        """Load the exact pretrained ArcFace iResNet-100 used by FACE4."""
+        if not model_path:
+            raise ValueError("ArcFace requires an explicit iResNet-100 checkpoint path")
+        sibling_root = Path(__file__).resolve().parents[2] / "face4"
+        if not sibling_root.exists():
+            raise FileNotFoundError(f"Required sibling FACE4 repository is missing: {sibling_root}")
+        if str(sibling_root) not in sys.path:
+            sys.path.insert(0, str(sibling_root))
+        from face4.models.arcface import ArcFaceIResNet100
+
+        self.input_size = (112, 112)
+        return ArcFaceIResNet100(model_path, torch.device(self.device), fp16=False)
     
     def _create_simple_model(self) -> nn.Module:
         """Create a simple face recognition model as fallback."""
@@ -217,6 +215,9 @@ class FaceRecognitionModel(TargetModel):
 
         if self.model_name == 'facenet':
             x = x * 2.0 - 1.0
+
+        if self.model_name == 'arcface' and hasattr(self.model, 'embedding'):
+            return self.model.embedding(x)
 
         # The recognition weights are frozen, but the forward pass must remain
         # differentiable with respect to ``x``.  Wrapping this call in
