@@ -1,0 +1,30 @@
+[
+  {
+    "case": "image_2_black_jacket_igs2_seed24001",
+    "original_vs_perturbed": 0.521733820438385,
+    "original_edit_vs_perturbed_edit": 0.22125831246376038,
+    "original_vs_original_edit": 0.6463270783424377,
+    "perturbed_vs_perturbed_edit": 0.08820240944623947
+  },
+  {
+    "case": "image_2_blue_medical_mask_igs1_seed7777",
+    "original_vs_perturbed": 0.6797099113464355,
+    "original_edit_vs_perturbed_edit": 0.6818127036094666,
+    "original_vs_original_edit": 0.383480042219162,
+    "perturbed_vs_perturbed_edit": 0.43643346428871155
+  },
+  {
+    "case": "image_3_black_jacket_igs2_seed1234",
+    "original_vs_perturbed": 0.7693263292312622,
+    "original_edit_vs_perturbed_edit": 0.3609846234321594,
+    "original_vs_original_edit": 0.41362571716308594,
+    "perturbed_vs_perturbed_edit": 0.8090060949325562
+  },
+  {
+    "case": "image_3_red_scarf_igs1_seed24001",
+    "original_vs_perturbed": 0.4226738214492798,
+    "original_edit_vs_perturbed_edit": 0.7774560451507568,
+    "original_vs_original_edit": 0.16180899739265442,
+    "perturbed_vs_perturbed_edit": -0.08985037356615067
+  }
+]

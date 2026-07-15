@@ -18,5 +18,12 @@
   "editor": "InstructPix2Pix",
   "optimization_identity_model": "ArcFace iResNet-100",
   "source_csv": "targeted_experiments/prompt_refinement_tightened/refined_prompt_metrics.csv",
-  "observation": "The two inputs remain visually close, while the clean and perturbed edits place the black garment over substantially different parts of the face."
+  "observation": "The two inputs remain visually close, while the clean and perturbed edits place the black garment over substantially different parts of the face.",
+  "arcface_model": "ArcFace iResNet-100",
+  "arcface_cosine_similarity": {
+    "original_vs_perturbed": 0.7693263292312622,
+    "original_edit_vs_perturbed_edit": 0.3609846234321594,
+    "original_vs_original_edit": 0.41362571716308594,
+    "perturbed_vs_perturbed_edit": 0.8090060949325562
+  }
 }
