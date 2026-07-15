@@ -1,5 +1,40 @@
 [
   {
+    "case": "image_1_black_baseball_cap_igs1p5_seed1234",
+    "original_vs_perturbed": 0.8391552567481995,
+    "original_edit_vs_perturbed_edit": 0.6696885824203491,
+    "original_vs_original_edit": 0.6328738331794739,
+    "perturbed_vs_perturbed_edit": 0.8811635971069336
+  },
+  {
+    "case": "image_1_black_jacket_igs1p5_seed1234",
+    "original_vs_perturbed": 0.8391552567481995,
+    "original_edit_vs_perturbed_edit": 0.14736127853393555,
+    "original_vs_original_edit": 0.9231302738189697,
+    "perturbed_vs_perturbed_edit": 0.21086741983890533
+  },
+  {
+    "case": "image_1_blue_medical_mask_igs1p5_seed1234",
+    "original_vs_perturbed": 0.8391552567481995,
+    "original_edit_vs_perturbed_edit": 0.6799267530441284,
+    "original_vs_original_edit": 0.7538498640060425,
+    "perturbed_vs_perturbed_edit": 0.865285336971283
+  },
+  {
+    "case": "image_1_red_scarf_igs1_seed1234",
+    "original_vs_perturbed": 0.7061388492584229,
+    "original_edit_vs_perturbed_edit": 0.02306153066456318,
+    "original_vs_original_edit": 0.7894819974899292,
+    "perturbed_vs_perturbed_edit": 0.007679048925638199
+  },
+  {
+    "case": "image_1_yellow_rain_jacket_igs1_seed24001",
+    "original_vs_perturbed": 0.8391552567481995,
+    "original_edit_vs_perturbed_edit": 0.09797803312540054,
+    "original_vs_original_edit": 0.6582680940628052,
+    "perturbed_vs_perturbed_edit": 0.12381204962730408
+  },
+  {
     "case": "image_2_black_jacket_igs2_seed24001",
     "original_vs_perturbed": 0.521733820438385,
     "original_edit_vs_perturbed_edit": 0.22125831246376038,

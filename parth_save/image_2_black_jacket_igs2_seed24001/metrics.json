@@ -18,5 +18,12 @@
   "editor": "InstructPix2Pix",
   "optimization_identity_model": "ArcFace iResNet-100",
   "source_csv": "targeted_experiments/prompt_refinement_hair_localized/refined_prompt_metrics.csv",
-  "observation": "The clean edit adds dark clothing and black hair. The perturbed edit produces a much heavier black hood and a visibly different face composition."
+  "observation": "The clean edit adds dark clothing and black hair. The perturbed edit produces a much heavier black hood and a visibly different face composition.",
+  "arcface_model": "ArcFace iResNet-100",
+  "arcface_cosine_similarity": {
+    "original_vs_perturbed": 0.521733820438385,
+    "original_edit_vs_perturbed_edit": 0.22125831246376038,
+    "original_vs_original_edit": 0.6463270783424377,
+    "perturbed_vs_perturbed_edit": 0.08820240944623947
+  }
 }

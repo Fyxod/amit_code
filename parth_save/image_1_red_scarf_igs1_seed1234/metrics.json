@@ -18,5 +18,12 @@
   "editor": "InstructPix2Pix",
   "optimization_identity_model": "ArcFace iResNet-100",
   "source_csv": "targeted_experiments/prompt_refinement_image1_presentable/refined_prompt_metrics.csv",
-  "observation": "The clean edit visibly adds a red scarf while retaining the subject. The perturbed edit changes the person and scarf composition substantially."
+  "observation": "The clean edit visibly adds a red scarf while retaining the subject. The perturbed edit changes the person and scarf composition substantially.",
+  "arcface_model": "ArcFace iResNet-100",
+  "arcface_cosine_similarity": {
+    "original_vs_perturbed": 0.7061388492584229,
+    "original_edit_vs_perturbed_edit": 0.02306153066456318,
+    "original_vs_original_edit": 0.7894819974899292,
+    "perturbed_vs_perturbed_edit": 0.007679048925638199
+  }
 }

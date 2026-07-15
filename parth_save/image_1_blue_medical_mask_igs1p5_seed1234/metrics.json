@@ -18,5 +18,12 @@
   "editor": "InstructPix2Pix",
   "optimization_identity_model": "ArcFace iResNet-100",
   "source_csv": "targeted_experiments/prompt_sweep_image1_presentable/prompt_sweep_metrics.csv",
-  "observation": "The clean edit produces a coherent blue medical mask. The perturbed edit produces a structurally different mask and blue head wrapping."
+  "observation": "The clean edit produces a coherent blue medical mask. The perturbed edit produces a structurally different mask and blue head wrapping.",
+  "arcface_model": "ArcFace iResNet-100",
+  "arcface_cosine_similarity": {
+    "original_vs_perturbed": 0.8391552567481995,
+    "original_edit_vs_perturbed_edit": 0.6799267530441284,
+    "original_vs_original_edit": 0.7538498640060425,
+    "perturbed_vs_perturbed_edit": 0.865285336971283
+  }
 }

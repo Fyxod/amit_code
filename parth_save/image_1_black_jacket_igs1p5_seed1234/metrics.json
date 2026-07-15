@@ -18,5 +18,12 @@
   "editor": "InstructPix2Pix",
   "optimization_identity_model": "ArcFace iResNet-100",
   "source_csv": "targeted_experiments/prompt_refinement_image1_presentable/refined_prompt_metrics.csv",
-  "observation": "The clean edit coherently adds black clothing while retaining the face. The perturbed edit becomes a faceless black-clothed figure even though the inputs remain visually close."
+  "observation": "The clean edit coherently adds black clothing while retaining the face. The perturbed edit becomes a faceless black-clothed figure even though the inputs remain visually close.",
+  "arcface_model": "ArcFace iResNet-100",
+  "arcface_cosine_similarity": {
+    "original_vs_perturbed": 0.8391552567481995,
+    "original_edit_vs_perturbed_edit": 0.14736127853393555,
+    "original_vs_original_edit": 0.9231302738189697,
+    "perturbed_vs_perturbed_edit": 0.21086741983890533
+  }
 }
