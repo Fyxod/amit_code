@@ -217,7 +217,7 @@ class FaceRecognitionModel(TargetModel):
 
         if self.model_name == 'facenet':
             x = x * 2.0 - 1.0
-        
+
         # The recognition weights are frozen, but the forward pass must remain
         # differentiable with respect to ``x``.  Wrapping this call in
         # ``torch.no_grad()`` silently disconnects every image/geometry

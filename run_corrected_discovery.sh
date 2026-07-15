@@ -39,7 +39,7 @@ done
   --root "$ROOT" \
   --candidate-root targeted_experiments/corrected_perturbations \
   --output-root targeted_experiments/prompt_sweep_corrected \
-  --min-input-ssim 0.88 \
+  --min-input-ssim 0.84 \
   --max-candidates-per-face 4 \
   --steps 20 \
   --guidance-scale 7.5 \
