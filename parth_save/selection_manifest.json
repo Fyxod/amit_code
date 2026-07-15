@@ -1,0 +1,42 @@
+[
+  {
+    "folder": "image_2_black_jacket_igs2_seed24001",
+    "csv": "targeted_experiments/prompt_refinement_hair_localized/refined_prompt_metrics.csv",
+    "face_id": "image_2",
+    "prompt": "Add a black jacket",
+    "image_guidance_scale": "2.0",
+    "seed": "24001",
+    "candidate_id": "targeted_experiments_corrected_perturbations_image_2_lens_30_vae_latent_out_png",
+    "observation": "The clean edit adds dark clothing and black hair. The perturbed edit produces a much heavier black hood and a visibly different face composition."
+  },
+  {
+    "folder": "image_3_black_jacket_igs2_seed1234",
+    "csv": "targeted_experiments/prompt_refinement_tightened/refined_prompt_metrics.csv",
+    "face_id": "image_3",
+    "prompt": "Add a black jacket",
+    "image_guidance_scale": "2.0",
+    "seed": "1234",
+    "candidate_id": "targeted_experiments_tightened_perturbations_image_3_preserve60_polar_25_vae_latent_out_png",
+    "observation": "The two inputs remain visually close, while the clean and perturbed edits place the black garment over substantially different parts of the face."
+  },
+  {
+    "folder": "image_3_red_scarf_igs1_seed24001",
+    "csv": "targeted_experiments/prompt_refinement_hair_localized/refined_prompt_metrics.csv",
+    "face_id": "image_3",
+    "prompt": "Add a red scarf",
+    "image_guidance_scale": "1.0",
+    "seed": "24001",
+    "candidate_id": "targeted_experiments_corrected_perturbations_image_3_polar_30_vae_latent_out_png",
+    "observation": "The two inputs remain visually close, while the red scarf and face composition differ visibly between the paired edits."
+  },
+  {
+    "folder": "image_2_blue_medical_mask_igs1_seed7777",
+    "csv": "targeted_experiments/prompt_refinement_hair_localized/refined_prompt_metrics.csv",
+    "face_id": "image_2",
+    "prompt": "Add a blue medical mask",
+    "image_guidance_scale": "1.0",
+    "seed": "7777",
+    "candidate_id": "targeted_experiments_tightened_perturbations_image_2_preserve60_polar_25_vae_latent_out_png",
+    "observation": "The clean and perturbed inputs are close, while the generated mask, visor, and surrounding blue garment have visibly different structure."
+  }
+]

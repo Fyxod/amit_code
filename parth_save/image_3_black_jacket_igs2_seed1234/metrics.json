@@ -1,0 +1,22 @@
+{
+  "face_id": "image_3",
+  "prompt": "Add a black jacket",
+  "prompt_slug": "add_a_black_jacket",
+  "candidate_id": "targeted_experiments_tightened_perturbations_image_3_preserve60_polar_25_vae_latent_out_png",
+  "seed": 1234,
+  "steps": 20,
+  "guidance_scale": 7.5,
+  "image_guidance_scale": 2.0,
+  "input_ssim": 0.9127791523933411,
+  "input_psnr": 32.447536971305965,
+  "input_mse": 0.0005691756377927959,
+  "input_l2": 0.0238574021593466,
+  "output_ssim": 0.5789529085159302,
+  "output_psnr": 9.390775646666455,
+  "output_mse": 0.11505948752164841,
+  "output_l2": 0.33920419738212026,
+  "editor": "InstructPix2Pix",
+  "optimization_identity_model": "ArcFace iResNet-100",
+  "source_csv": "targeted_experiments/prompt_refinement_tightened/refined_prompt_metrics.csv",
+  "observation": "The two inputs remain visually close, while the clean and perturbed edits place the black garment over substantially different parts of the face."
+}

@@ -1,16 +1,22 @@
 {
   "face_id": "image_2",
-  "actual_prompt": "Add a black jacket",
-  "editor": "InstructPix2Pix",
-  "geometry_candidate": "lens_30",
-  "optimization_identity_model": "ArcFace iResNet-100",
+  "prompt": "Add a black jacket",
+  "prompt_slug": "add_a_black_jacket",
+  "candidate_id": "targeted_experiments_corrected_perturbations_image_2_lens_30_vae_latent_out_png",
   "seed": 24001,
-  "num_inference_steps": 20,
+  "steps": 20,
   "guidance_scale": 7.5,
   "image_guidance_scale": 2.0,
   "input_ssim": 0.8463161587715149,
   "input_psnr": 30.96761470499725,
+  "input_mse": 0.0008002736722119153,
+  "input_l2": 0.028289108720705843,
   "output_ssim": 0.48565807938575745,
   "output_psnr": 11.087686965940387,
-  "observation": "The original edit darkens the hair and adds dark clothing. The perturbed edit produces a much heavier black hood/clothing alteration and a visibly different face composition."
+  "output_mse": 0.07784510403871536,
+  "output_l2": 0.27900735481115074,
+  "editor": "InstructPix2Pix",
+  "optimization_identity_model": "ArcFace iResNet-100",
+  "source_csv": "targeted_experiments/prompt_refinement_hair_localized/refined_prompt_metrics.csv",
+  "observation": "The clean edit adds dark clothing and black hair. The perturbed edit produces a much heavier black hood and a visibly different face composition."
 }

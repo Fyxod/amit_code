@@ -1,0 +1,22 @@
+{
+  "face_id": "image_2",
+  "prompt": "Add a blue medical mask",
+  "prompt_slug": "add_a_blue_medical_mask",
+  "candidate_id": "targeted_experiments_tightened_perturbations_image_2_preserve60_polar_25_vae_latent_out_png",
+  "seed": 7777,
+  "steps": 20,
+  "guidance_scale": 7.5,
+  "image_guidance_scale": 1.0,
+  "input_ssim": 0.8445420265197754,
+  "input_psnr": 30.564681179812496,
+  "input_mse": 0.0008780755451880395,
+  "input_l2": 0.029632339515941693,
+  "output_ssim": 0.8196583390235901,
+  "output_psnr": 17.976203669211486,
+  "output_mse": 0.01593601144850254,
+  "output_l2": 0.12623791604942844,
+  "editor": "InstructPix2Pix",
+  "optimization_identity_model": "ArcFace iResNet-100",
+  "source_csv": "targeted_experiments/prompt_refinement_hair_localized/refined_prompt_metrics.csv",
+  "observation": "The clean and perturbed inputs are close, while the generated mask, visor, and surrounding blue garment have visibly different structure."
+}

@@ -1,0 +1,22 @@
+{
+  "face_id": "image_3",
+  "prompt": "Add a red scarf",
+  "prompt_slug": "add_a_red_scarf",
+  "candidate_id": "targeted_experiments_corrected_perturbations_image_3_polar_30_vae_latent_out_png",
+  "seed": 24001,
+  "steps": 20,
+  "guidance_scale": 7.5,
+  "image_guidance_scale": 1.0,
+  "input_ssim": 0.910761296749115,
+  "input_psnr": 32.30487703627248,
+  "input_mse": 0.0005881827673874795,
+  "input_l2": 0.024252479613175216,
+  "output_ssim": 0.6671435832977295,
+  "output_psnr": 18.114533549760864,
+  "output_mse": 0.01543642207980156,
+  "output_l2": 0.12424339853610557,
+  "editor": "InstructPix2Pix",
+  "optimization_identity_model": "ArcFace iResNet-100",
+  "source_csv": "targeted_experiments/prompt_refinement_hair_localized/refined_prompt_metrics.csv",
+  "observation": "The two inputs remain visually close, while the red scarf and face composition differ visibly between the paired edits."
+}
