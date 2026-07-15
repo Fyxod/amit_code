@@ -32,6 +32,12 @@ DEFAULT_PROMPTS = [
     "Add red lipstick",
     "Make the person smile slightly",
     "Add a small beard",
+    "Turn the hair blonde",
+    "Add a black baseball cap",
+    "Add a flower crown",
+    "Add a blue medical mask",
+    "Add large hoop earrings",
+    "Change the shirt to bright red",
 ]
 
 
