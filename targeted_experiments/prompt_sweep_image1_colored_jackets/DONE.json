@@ -1,0 +1,22 @@
+{
+  "status": "complete",
+  "num_candidates": 7,
+  "num_prompts": 6,
+  "num_pairs": 42,
+  "best_output_ssim": 0.2640232741832733,
+  "settings": {
+    "root": "/home/interns/Desktop/amit_code",
+    "candidate_root": [
+      "output_save/image_1/results"
+    ],
+    "output_root": "/home/interns/Desktop/amit_code/targeted_experiments/prompt_sweep_image1_colored_jackets",
+    "prompts_json": "configs/image1_colored_jackets.json",
+    "min_input_ssim": 0.9,
+    "max_candidates_per_face": 7,
+    "steps": 20,
+    "guidance_scale": 7.5,
+    "image_guidance_scale": 1.5,
+    "seed": 1234,
+    "device": "cuda"
+  }
+}
