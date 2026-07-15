@@ -81,6 +81,38 @@ def discover(root: Path) -> list[dict[str, object]]:
     return rows
 
 
+def add_facenet_cosines(rows: list[dict[str, object]], device: str) -> None:
+    """Add cosine identity similarities using the script's actual FaceNet."""
+    import torch
+    import torch.nn.functional as F
+    from facenet_pytorch import InceptionResnetV1
+
+    model = InceptionResnetV1(pretrained="vggface2").eval().to(device)
+    for parameter in model.parameters():
+        parameter.requires_grad_(False)
+
+    cache: dict[str, torch.Tensor] = {}
+
+    def embed(path_text: str) -> torch.Tensor:
+        if path_text in cache:
+            return cache[path_text]
+        image = Image.open(path_text).convert("RGB").resize((160, 160), Image.Resampling.BILINEAR)
+        tensor = torch.from_numpy(np.asarray(image, dtype=np.float32)).permute(2, 0, 1).unsqueeze(0)
+        tensor = (tensor / 127.5 - 1.0).to(device)
+        with torch.no_grad():
+            value = F.normalize(model(tensor), dim=1).cpu()
+        cache[path_text] = value
+        return value
+
+    for row in rows:
+        row["input_facenet_cosine"] = float(F.cosine_similarity(
+            embed(str(row["original_path"])), embed(str(row["perturbed_path"])), dim=1,
+        ).item())
+        row["output_facenet_cosine"] = float(F.cosine_similarity(
+            embed(str(row["clean_edit_path"])), embed(str(row["perturbed_edit_path"])), dim=1,
+        ).item())
+
+
 def make_sheet(rows: list[dict[str, object]], output: Path, max_rows: int = 16) -> None:
     chosen = sorted(
         (r for r in rows if float(r["input_ssim"]) >= 0.88),
@@ -116,10 +148,14 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parent)
     parser.add_argument("--output-dir", type=Path, default=Path("analysis_outputs"))
+    parser.add_argument("--facenet", action="store_true")
+    parser.add_argument("--device", default="cpu")
     args = parser.parse_args()
     root = args.root.resolve()
     output_dir = args.output_dir if args.output_dir.is_absolute() else root / args.output_dir
     rows = discover(root)
+    if args.facenet:
+        add_facenet_cosines(rows, args.device)
     output_dir.mkdir(parents=True, exist_ok=True)
     csv_path = output_dir / "saved_results_metrics.csv"
     if rows:
