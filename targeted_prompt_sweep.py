@@ -76,7 +76,7 @@ def pair_metrics(a_path: Path, b_path: Path) -> dict[str, float]:
 
 def infer_face_id(path: Path) -> str | None:
     for part in path.parts:
-        match = re.fullmatch(r"image_([123])", part)
+        match = re.fullmatch(r"image_(\d+)", part)
         if match:
             return f"image_{match.group(1)}"
     return None
