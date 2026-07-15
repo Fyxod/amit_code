@@ -1,0 +1,22 @@
+{
+  "status": "complete",
+  "num_candidates": 6,
+  "num_prompts": 16,
+  "num_pairs": 96,
+  "best_output_ssim": 0.7496232390403748,
+  "settings": {
+    "root": "/home/interns/Desktop/amit_code",
+    "candidate_root": [
+      "targeted_experiments/corrected_perturbations"
+    ],
+    "output_root": "/home/interns/Desktop/amit_code/targeted_experiments/prompt_sweep_corrected",
+    "prompts_json": null,
+    "min_input_ssim": 0.84,
+    "max_candidates_per_face": 4,
+    "steps": 20,
+    "guidance_scale": 7.5,
+    "image_guidance_scale": 1.5,
+    "seed": 1234,
+    "device": "cuda"
+  }
+}
