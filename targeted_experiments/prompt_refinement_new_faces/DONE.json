@@ -1,0 +1,18 @@
+{
+  "status": "complete",
+  "num_base_cases": 30,
+  "num_refined_pairs": 450,
+  "best_output_ssim": 0.612127959728241,
+  "image_guidance_scales": [
+    0.8,
+    1.0,
+    1.2,
+    1.5,
+    2.0
+  ],
+  "seeds": [
+    1234,
+    24001,
+    7777
+  ]
+}
