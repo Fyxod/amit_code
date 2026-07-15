@@ -41,6 +41,7 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--input-csv", type=Path, required=True)
     parser.add_argument("--output-root", type=Path, required=True)
+    parser.add_argument("--prompts-json", type=Path)
     parser.add_argument("--top-cases", type=int, default=8)
     parser.add_argument("--min-input-ssim", type=float, default=0.84)
     parser.add_argument("--image-guidance-scales", type=float, nargs="+", default=[1.0, 1.5, 2.0])
@@ -53,7 +54,12 @@ def main() -> None:
     input_csv = args.input_csv.resolve()
     output_root = args.output_root.resolve()
     output_root.mkdir(parents=True, exist_ok=True)
-    base_cases = select_base_cases(read_rows(input_csv), args.top_cases, args.min_input_ssim)
+    input_rows = read_rows(input_csv)
+    if args.prompts_json:
+        prompt_path = args.prompts_json.resolve()
+        allowed_prompts = set(json.loads(prompt_path.read_text(encoding="utf-8")))
+        input_rows = [row for row in input_rows if row["prompt"] in allowed_prompts]
+    base_cases = select_base_cases(input_rows, args.top_cases, args.min_input_ssim)
     if not base_cases:
         raise RuntimeError("No base prompt-sweep cases passed refinement selection")
 
