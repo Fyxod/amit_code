@@ -1,0 +1,22 @@
+{
+  "face_id": "image_4",
+  "prompt": "Add a red scarf",
+  "prompt_slug": "add_a_red_scarf",
+  "candidate_id": "targeted_experiments_new_face_perturbations_image_4_polar_25_vae_latent_out_png",
+  "seed": 1234,
+  "steps": 20,
+  "guidance_scale": 7.5,
+  "image_guidance_scale": 1.5,
+  "input_ssim": 0.8487568497657776,
+  "input_psnr": 29.702175605918477,
+  "input_mse": 0.0010709826601669192,
+  "input_l2": 0.03272587141951944,
+  "output_ssim": 0.7923109531402588,
+  "output_psnr": 22.209167394719145,
+  "output_mse": 0.00601289002224803,
+  "output_l2": 0.07754282701996382,
+  "editor": "InstructPix2Pix",
+  "optimization_identity_model": "ArcFace iResNet-100",
+  "source_csv": "targeted_experiments/prompt_sweep_new_faces/prompt_sweep_metrics.csv",
+  "observation": "The clean edit clearly adds a red scarf. The perturbed edit retains red clothing but removes the visible scarf, while the source inputs remain recognizably the same subject."
+}

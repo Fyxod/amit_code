@@ -88,5 +88,15 @@
     "seed": "24001",
     "candidate_id": "output_save_image_1_results_bspline_10_vae_latent_out_png",
     "observation": "The clean edit visibly adds a yellow rain jacket while retaining the subject. The perturbed edit preserves the requested color but changes the face and hood structure substantially, with the inputs remaining visually close."
+  },
+  {
+    "folder": "image_4_red_scarf_igs1p5_seed1234",
+    "csv": "targeted_experiments/prompt_sweep_new_faces/prompt_sweep_metrics.csv",
+    "face_id": "image_4",
+    "prompt": "Add a red scarf",
+    "image_guidance_scale": "1.5",
+    "seed": "1234",
+    "candidate_id": "targeted_experiments_new_face_perturbations_image_4_polar_25_vae_latent_out_png",
+    "observation": "The clean edit clearly adds a red scarf. The perturbed edit retains red clothing but removes the visible scarf, while the source inputs remain recognizably the same subject."
   }
 ]
