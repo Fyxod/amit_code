@@ -1,0 +1,22 @@
+{
+  "face_id": "image_1",
+  "prompt": "Add a black jacket",
+  "prompt_slug": "add_a_black_jacket",
+  "candidate_id": "output_save_image_1_results_bspline_10_vae_latent_out_png",
+  "seed": 1234,
+  "steps": 20,
+  "guidance_scale": 7.5,
+  "image_guidance_scale": 1.5,
+  "input_ssim": 0.9463112950325012,
+  "input_psnr": 33.97656068331204,
+  "input_mse": 0.00040026160422712564,
+  "input_l2": 0.020006539036703117,
+  "output_ssim": 0.33371153473854065,
+  "output_psnr": 9.038506388750086,
+  "output_mse": 0.12478125840425491,
+  "output_l2": 0.3532439078091155,
+  "editor": "InstructPix2Pix",
+  "optimization_identity_model": "ArcFace iResNet-100",
+  "source_csv": "targeted_experiments/prompt_refinement_image1_presentable/refined_prompt_metrics.csv",
+  "observation": "The clean edit coherently adds black clothing while retaining the face. The perturbed edit becomes a faceless black-clothed figure even though the inputs remain visually close."
+}

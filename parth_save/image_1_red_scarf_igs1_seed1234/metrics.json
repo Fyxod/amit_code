@@ -1,0 +1,22 @@
+{
+  "face_id": "image_1",
+  "prompt": "Add a red scarf",
+  "prompt_slug": "add_a_red_scarf",
+  "candidate_id": "output_save_image_1_results_bspline_15_vae_latent_out_png",
+  "seed": 1234,
+  "steps": 20,
+  "guidance_scale": 7.5,
+  "image_guidance_scale": 1.0,
+  "input_ssim": 0.9354972243309021,
+  "input_psnr": 32.058303738043904,
+  "input_mse": 0.0006225433899089694,
+  "input_l2": 0.024950819423597483,
+  "output_ssim": 0.39865121245384216,
+  "output_psnr": 12.054746609900445,
+  "output_mse": 0.062305349856615067,
+  "output_l2": 0.24961039613088046,
+  "editor": "InstructPix2Pix",
+  "optimization_identity_model": "ArcFace iResNet-100",
+  "source_csv": "targeted_experiments/prompt_refinement_image1_presentable/refined_prompt_metrics.csv",
+  "observation": "The clean edit visibly adds a red scarf while retaining the subject. The perturbed edit changes the person and scarf composition substantially."
+}

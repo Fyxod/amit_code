@@ -18,12 +18,5 @@
   "editor": "InstructPix2Pix",
   "optimization_identity_model": "ArcFace iResNet-100",
   "source_csv": "targeted_experiments/prompt_refinement_hair_localized/refined_prompt_metrics.csv",
-  "observation": "The clean and perturbed inputs are close, while the generated mask, visor, and surrounding blue garment have visibly different structure.",
-  "arcface_model": "ArcFace iResNet-100",
-  "arcface_cosine_similarity": {
-    "original_vs_perturbed": 0.6797099113464355,
-    "original_edit_vs_perturbed_edit": 0.6818127036094666,
-    "original_vs_original_edit": 0.383480042219162,
-    "perturbed_vs_perturbed_edit": 0.43643346428871155
-  }
+  "observation": "The clean and perturbed inputs are close, while the generated mask, visor, and surrounding blue garment have visibly different structure."
 }

@@ -1,0 +1,22 @@
+{
+  "face_id": "image_1",
+  "prompt": "Add a blue medical mask",
+  "prompt_slug": "add_a_blue_medical_mask",
+  "candidate_id": "output_save_image_1_results_bspline_10_vae_latent_out_png",
+  "seed": 1234,
+  "steps": 20,
+  "guidance_scale": 7.5,
+  "image_guidance_scale": 1.5,
+  "input_ssim": 0.9463112950325012,
+  "input_psnr": 33.97656068331204,
+  "input_mse": 0.00040026160422712564,
+  "input_l2": 0.020006539036703117,
+  "output_ssim": 0.6665651202201843,
+  "output_psnr": 13.040875703254983,
+  "output_mse": 0.04964921995997429,
+  "output_l2": 0.2228210491851573,
+  "editor": "InstructPix2Pix",
+  "optimization_identity_model": "ArcFace iResNet-100",
+  "source_csv": "targeted_experiments/prompt_sweep_image1_presentable/prompt_sweep_metrics.csv",
+  "observation": "The clean edit produces a coherent blue medical mask. The perturbed edit produces a structurally different mask and blue head wrapping."
+}

@@ -18,12 +18,5 @@
   "editor": "InstructPix2Pix",
   "optimization_identity_model": "ArcFace iResNet-100",
   "source_csv": "targeted_experiments/prompt_refinement_hair_localized/refined_prompt_metrics.csv",
-  "observation": "The two inputs remain visually close, while the red scarf and face composition differ visibly between the paired edits.",
-  "arcface_model": "ArcFace iResNet-100",
-  "arcface_cosine_similarity": {
-    "original_vs_perturbed": 0.4226738214492798,
-    "original_edit_vs_perturbed_edit": 0.7774560451507568,
-    "original_vs_original_edit": 0.16180899739265442,
-    "perturbed_vs_perturbed_edit": -0.08985037356615067
-  }
+  "observation": "The two inputs remain visually close, while the red scarf and face composition differ visibly between the paired edits."
 }

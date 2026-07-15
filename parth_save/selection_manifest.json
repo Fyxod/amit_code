@@ -38,5 +38,45 @@
     "seed": "7777",
     "candidate_id": "targeted_experiments_tightened_perturbations_image_2_preserve60_polar_25_vae_latent_out_png",
     "observation": "The clean and perturbed inputs are close, while the generated mask, visor, and surrounding blue garment have visibly different structure."
+  },
+  {
+    "folder": "image_1_black_jacket_igs1p5_seed1234",
+    "csv": "targeted_experiments/prompt_refinement_image1_presentable/refined_prompt_metrics.csv",
+    "face_id": "image_1",
+    "prompt": "Add a black jacket",
+    "image_guidance_scale": "1.5",
+    "seed": "1234",
+    "candidate_id": "output_save_image_1_results_bspline_10_vae_latent_out_png",
+    "observation": "The clean edit coherently adds black clothing while retaining the face. The perturbed edit becomes a faceless black-clothed figure even though the inputs remain visually close."
+  },
+  {
+    "folder": "image_1_red_scarf_igs1_seed1234",
+    "csv": "targeted_experiments/prompt_refinement_image1_presentable/refined_prompt_metrics.csv",
+    "face_id": "image_1",
+    "prompt": "Add a red scarf",
+    "image_guidance_scale": "1.0",
+    "seed": "1234",
+    "candidate_id": "output_save_image_1_results_bspline_15_vae_latent_out_png",
+    "observation": "The clean edit visibly adds a red scarf while retaining the subject. The perturbed edit changes the person and scarf composition substantially."
+  },
+  {
+    "folder": "image_1_blue_medical_mask_igs1p5_seed1234",
+    "csv": "targeted_experiments/prompt_sweep_image1_presentable/prompt_sweep_metrics.csv",
+    "face_id": "image_1",
+    "prompt": "Add a blue medical mask",
+    "image_guidance_scale": "1.5",
+    "seed": "1234",
+    "candidate_id": "output_save_image_1_results_bspline_10_vae_latent_out_png",
+    "observation": "The clean edit produces a coherent blue medical mask. The perturbed edit produces a structurally different mask and blue head wrapping."
+  },
+  {
+    "folder": "image_1_black_baseball_cap_igs1p5_seed1234",
+    "csv": "targeted_experiments/prompt_sweep_image1_presentable/prompt_sweep_metrics.csv",
+    "face_id": "image_1",
+    "prompt": "Add a black baseball cap",
+    "image_guidance_scale": "1.5",
+    "seed": "1234",
+    "candidate_id": "output_save_image_1_results_bspline_10_vae_latent_out_png",
+    "observation": "Both edits add a black cap, but the cap geometry, face appearance, and surrounding composition differ materially while the inputs remain visually close."
   }
 ]
