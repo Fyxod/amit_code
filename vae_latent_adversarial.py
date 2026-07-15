@@ -307,7 +307,10 @@ class VAELatentOptimiser(nn.Module):
         x = 2.0 * image - 1.0
 
         if self.vae_type == "pix2pix":
-            z = self.vae.encode(x).latent_dist.sample()
+            # Use the posterior mode so repeated runs compare the same image
+            # representation. Sampling here injected unrelated VAE noise into
+            # both optimization and editor-input comparisons.
+            z = self.vae.encode(x).latent_dist.mode()
             z = z * self.scaling_factor
         elif self.vae_type == "taesd":
             # AutoencoderTiny.encode() returns AutoencoderTinyOutput
@@ -368,6 +371,10 @@ def extract_embedding(identity_model, x):
     if x.shape[2:] != identity_model.input_size:
         x = F.interpolate(x, size=identity_model.input_size,
                           mode='bilinear', align_corners=False)
+    # facenet-pytorch's pretrained InceptionResnetV1 expects fixed image
+    # standardization. Our tensors are [0, 1], so this is 2*x - 1.
+    if getattr(identity_model, "model_name", "") == "facenet":
+        x = x * 2.0 - 1.0
     embedding = identity_model.model(x)
     embedding = F.normalize(embedding, p=2, dim=1)
     return embedding
@@ -524,7 +531,7 @@ def run_vae_latent_optimisation(
     # ── Determine warp list ────────────────────────────────────
     if warp_type == "all":
         warp_keys = list(WARP_TYPES.keys())
-        print(f"Cycling through {len(warp_keys)} warp types per iteration.")
+        print(f"Jointly composing {len(warp_keys)} warp types per iteration.")
     else:
         warp_keys = [warp_type]
 
@@ -579,13 +586,17 @@ def run_vae_latent_optimisation(
         # Warp parameters are learnable; gradient flows through warp
         # to both perturbed (→Δz) and warp params (θ_warp)
         if warp_type == "all":
-            wk = warp_keys[iteration % len(warp_keys)]
-            w = warps[wk]
+            # Joint mode means every enabled parameter block participates in
+            # the same forward/backward pass. The legacy implementation only
+            # cycled one warp per iteration, despite labelling the result all.
+            warped = perturbed
+            for wk_apply in warp_keys:
+                warped = warps[wk_apply](warped)
+            wk = "all_joint"
         else:
             wk = warp_type
             w = warps[wk] if isinstance(warps, dict) else warps
-
-        warped = w(perturbed)
+            warped = w(perturbed)
 
         # ── Step 4: Detect landmarks on warped image ───────────
         # MediaPipe is non-differentiable → no gradient to Δz or θ_warp
@@ -618,7 +629,9 @@ def run_vae_latent_optimisation(
         L_pix_warp = pixel_l2_loss(warped, perturbed)       # differentiable → Δz + θ_warp
         L_pix = L_pix_pert + L_pix_warp
 
-        L_total = (identity_weight * L_id
+        # L_id = 1 - cosine similarity. Maximising this distance disrupts the
+        # identity embedding, hence its negative sign in a minimised loss.
+        L_total = (-identity_weight * L_id
                    + ssim_weight * L_ssim
                    + pixel_weight * L_pix
                    + landmark_weight * L_lm
@@ -662,7 +675,10 @@ def run_vae_latent_optimisation(
             "warp": wk,
         })
         if verbose and iteration % 10 == 0:
-            warp_mag = get_warp_magnitude(w, wk)
+            if warp_type == "all":
+                warp_mag = max(get_warp_magnitude(warps[key], key) for key in warp_keys)
+            else:
+                warp_mag = get_warp_magnitude(w, wk)
             print(
                 f"  Iter {iteration:4d} [{wk:10s}] | "
                 f"L_total={loss_info['L_total']:.6f}  "
@@ -682,11 +698,11 @@ def run_vae_latent_optimisation(
             save_image(warped[0].detach(), warped_path)
 
         # ── Stopping criteria ──────────────────────────────────
-        identity_disrupted = loss_info["L_identity"] < 0.5
+        identity_disrupted = loss_info["L_identity"] > 0.5
         landmarks_preserved = loss_info["L_landmark"] < epsilon
         if identity_disrupted and landmarks_preserved:
             print(f"\n✓ Converged at iteration {iteration}: "
-                  f"identity_sim={loss_info['L_identity']:.4f}  "
+                  f"identity_cos={1.0 - loss_info['L_identity']:.4f}  "
                   f"landmark_drift={loss_info['L_landmark']:.4f}")
             break
 
@@ -711,17 +727,21 @@ def run_vae_latent_optimisation(
         z_final = z_orig + delta_z
         final_perturbed = vae_optimiser.decode(z_final)
 
-    # Apply each warp (with optimised params) to the final perturbed image
+    # Apply the optimized warp(s) to the final decoded image. This exact tensor
+    # must be returned and saved as the downstream editor input.
     final_warped = {}
     if warp_type == "all":
-        for wk in WARP_TYPES:
-            w = warps[wk]
-            final_warped[wk] = w(final_perturbed).detach()
+        final_output = final_perturbed
+        for wk in warp_keys:
+            final_output = warps[wk](final_output)
+            final_warped[wk] = final_output.detach()
+        final_warped["all_joint"] = final_output.detach()
     else:
         w = warps[warp_type] if isinstance(warps, dict) else warps
-        final_warped[warp_type] = w(final_perturbed).detach()
+        final_output = w(final_perturbed)
+        final_warped[warp_type] = final_output.detach()
 
-    return final_perturbed.detach(), final_warped, history
+    return final_output.detach(), final_warped, history, final_perturbed.detach()
 
 
 
@@ -859,7 +879,7 @@ def main():
     )
 
     # ── Run VAE latent optimisation ────────────────────────────
-    perturbed, final_warped, history = run_vae_latent_optimisation(
+    perturbed, final_warped, history, decoded_prewarp = run_vae_latent_optimisation(
         image=image,
         vae_optimiser=vae_optimiser,
         warps=warps,
@@ -883,7 +903,9 @@ def main():
     )
 
 
-    # ── Save final perturbed image ─────────────────────────────
+    # Save both stages explicitly. ``vae_latent_out.png`` is the exact image
+    # passed to downstream editors; ``decoded_prewarp.png`` is diagnostic.
+    save_image(decoded_prewarp[0], os.path.join(args.save_dir, "decoded_prewarp.png"))
     save_image(perturbed[0], args.output)
     print(f"\nSaved perturbed image → {args.output}")
 

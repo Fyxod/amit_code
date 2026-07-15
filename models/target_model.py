@@ -61,7 +61,7 @@ class TargetModel(nn.Module):
         # Resize if needed
         if x.shape[2:] != self.input_size:
             x = F.interpolate(x, size=self.input_size, mode='bilinear', align_corners=False)
-        
+
         # Normalize if needed
         if self.normalize:
             x = self._normalize_input(x)
@@ -214,10 +214,15 @@ class FaceRecognitionModel(TargetModel):
         # Resize if needed
         if x.shape[2:] != self.input_size:
             x = F.interpolate(x, size=self.input_size, mode='bilinear', align_corners=False)
+
+        if self.model_name == 'facenet':
+            x = x * 2.0 - 1.0
         
-        # Get embeddings
-        with torch.no_grad():
-            embedding = self.model(x)
+        # The recognition weights are frozen, but the forward pass must remain
+        # differentiable with respect to ``x``.  Wrapping this call in
+        # ``torch.no_grad()`` silently disconnects every image/geometry
+        # parameter from an embedding-space objective.
+        embedding = self.model(x)
         
         # Normalize embeddings
         embedding = F.normalize(embedding, p=2, dim=1)
