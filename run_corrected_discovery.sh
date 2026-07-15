@@ -47,6 +47,17 @@ done
   --seed 1234 \
   --device cuda
 
+"$PYTHON" refine_prompt_sweep.py \
+  --input-csv targeted_experiments/prompt_sweep_corrected/prompt_sweep_metrics.csv \
+  --output-root targeted_experiments/prompt_refinement_corrected \
+  --top-cases 8 \
+  --min-input-ssim 0.84 \
+  --image-guidance-scales 1.0 1.5 2.0 \
+  --seeds 1234 24001 \
+  --steps 20 \
+  --guidance-scale 7.5 \
+  --device cuda
+
 git add targeted_experiments analysis_outputs || true
 if ! git diff --cached --quiet; then
   git commit -m "Add corrected VAE geometry discovery results"
