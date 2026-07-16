@@ -134,5 +134,39 @@
       "command": "python vae_latent_adversarial.py -i new_images/original.jpg --warp-type all --iterations 10 --verbose --device cuda --save-dir output_save/image_1/results/all_10",
       "replay_note": "Use the source commit for the archived generator; the exact perturbed input is preserved with a SHA-256 hash."
     }
+  },
+  {
+    "folder": "image_1_bright_blue_hair_seed1234",
+    "csv": "targeted_experiments/flux_klein_prompt_sweep/flux_prompt_sweep_metrics.csv",
+    "face_id": "image_1",
+    "prompt": "Change hair color to bright blue",
+    "seed": 1234,
+    "candidate_id": "output_save_image_1_results_all_10_vae_latent_out_png",
+    "observation": "The clean edit produces saturated bright-blue hair. The perturbed edit shifts the result toward cyan and changes the hair boundary, face geometry, skin rendering, and identity appearance.",
+    "visual_verdict": "presentable_identity_and_structure_change",
+    "perturbation_reproduction": {
+      "source_commit": "897abbf81466ba7d05df4a32010a954f7bd22898",
+      "source_artifact": "output_save/image_1/results/all_10/vae_latent_out.png",
+      "generator": "vae_latent_adversarial.py",
+      "command": "python vae_latent_adversarial.py -i new_images/original.jpg --warp-type all --iterations 10 --verbose --device cuda --save-dir output_save/image_1/results/all_10",
+      "replay_note": "Use the source commit for the archived generator; the exact perturbed input is preserved with a SHA-256 hash."
+    }
+  },
+  {
+    "folder": "image_1_white_scarf_seed1234",
+    "csv": "targeted_experiments/flux_klein_prompt_sweep/flux_prompt_sweep_metrics.csv",
+    "face_id": "image_1",
+    "prompt": "Add a white scarf",
+    "seed": 1234,
+    "candidate_id": "output_save_image_1_results_all_10_vae_latent_out_png",
+    "observation": "The clean edit adds a broad white scarf. The perturbed edit changes the scarf wrap, neckline, head proportions, facial rendering, and overall identity composition while retaining the requested color.",
+    "visual_verdict": "presentable_identity_and_structure_change",
+    "perturbation_reproduction": {
+      "source_commit": "897abbf81466ba7d05df4a32010a954f7bd22898",
+      "source_artifact": "output_save/image_1/results/all_10/vae_latent_out.png",
+      "generator": "vae_latent_adversarial.py",
+      "command": "python vae_latent_adversarial.py -i new_images/original.jpg --warp-type all --iterations 10 --verbose --device cuda --save-dir output_save/image_1/results/all_10",
+      "replay_note": "Use the source commit for the archived generator; the exact perturbed input is preserved with a SHA-256 hash."
+    }
   }
 ]

@@ -1,0 +1,61 @@
+{
+  "face_id": "image_1",
+  "prompt": "Add a white scarf",
+  "candidate_id": "output_save_image_1_results_all_10_vae_latent_out_png",
+  "model": "black-forest-labs/FLUX.2-klein-4B",
+  "seed": 1234,
+  "steps": 10,
+  "guidance_scale": 1,
+  "input_ssim": 0.9478314518928528,
+  "input_psnr": 34.36732709723198,
+  "input_mse": 0.00036581986933015287,
+  "input_l2": 0.019126418099846946,
+  "output_ssim": 0.7649992108345032,
+  "output_psnr": 15.435729921371575,
+  "output_mse": 0.028604015707969666,
+  "output_l2": 0.16912721752565335,
+  "source_csv": "targeted_experiments/flux_klein_prompt_sweep/flux_prompt_sweep_metrics.csv",
+  "observation": "The clean edit adds a broad white scarf. The perturbed edit changes the scarf wrap, neckline, head proportions, facial rendering, and overall identity composition while retaining the requested color.",
+  "visual_verdict": "presentable_identity_and_structure_change",
+  "perturbation_reproduction": {
+    "source_commit": "897abbf81466ba7d05df4a32010a954f7bd22898",
+    "source_artifact": "output_save/image_1/results/all_10/vae_latent_out.png",
+    "generator": "vae_latent_adversarial.py",
+    "command": "python vae_latent_adversarial.py -i new_images/original.jpg --warp-type all --iterations 10 --verbose --device cuda --save-dir output_save/image_1/results/all_10",
+    "replay_note": "Use the source commit for the archived generator; the exact perturbed input is preserved with a SHA-256 hash."
+  },
+  "files": {
+    "original_path": {
+      "source": "new_images/original.jpg",
+      "saved": "original.png",
+      "sha256": "56d643d068b5dc75d0638ced385c5d3ff4dccbba816a3bd68706d5d1c08b203e"
+    },
+    "perturbed_path": {
+      "source": "output_save/image_1/results/all_10/vae_latent_out.png",
+      "saved": "perturbed.png",
+      "sha256": "09bfe4df502b1c8ba847e5a44ed8f12ea71a3a99a365dfa6dc4321ff46f778c2"
+    },
+    "clean_edit_path": {
+      "source": "targeted_experiments/flux_klein_prompt_sweep/image_1/add_a_white_scarf/clean_edit.png",
+      "saved": "original_edit.png",
+      "sha256": "46f4e8daa84890fa9287926576a9df71ee4dc903cfffcbc5830f89a44124ae50"
+    },
+    "perturbed_edit_path": {
+      "source": "targeted_experiments/flux_klein_prompt_sweep/image_1/add_a_white_scarf/output_save_image_1_results_all_10_vae_latent_out_png/perturbed_edit.png",
+      "saved": "perturbed_edit.png",
+      "sha256": "51995443ab2049157d5467b3a6ae47f1c440025610dd2d72329f3bd49f0a119e"
+    },
+    "strip_path": {
+      "source": "targeted_experiments/flux_klein_prompt_sweep/image_1/add_a_white_scarf/output_save_image_1_results_all_10_vae_latent_out_png/comparison_strip.jpg",
+      "saved": "comparison_strip.jpg",
+      "sha256": "3fd4f93683ec58e29d50c5160c832a06035fb35a214cdc96588aaaed70aac1a3"
+    }
+  },
+  "arcface_model": "ArcFace iResNet-100",
+  "arcface_cosine_similarity": {
+    "original_vs_perturbed": 0.8609616160392761,
+    "original_edit_vs_perturbed_edit": 0.833392858505249,
+    "original_vs_original_edit": 0.9744423031806946,
+    "perturbed_vs_perturbed_edit": 0.9768964052200317
+  }
+}

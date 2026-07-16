@@ -1,0 +1,61 @@
+{
+  "face_id": "image_1",
+  "prompt": "Change hair color to bright blue",
+  "candidate_id": "output_save_image_1_results_all_10_vae_latent_out_png",
+  "model": "black-forest-labs/FLUX.2-klein-4B",
+  "seed": 1234,
+  "steps": 10,
+  "guidance_scale": 1,
+  "input_ssim": 0.9478314518928528,
+  "input_psnr": 34.36732709723198,
+  "input_mse": 0.00036581986933015287,
+  "input_l2": 0.019126418099846946,
+  "output_ssim": 0.7420862317085266,
+  "output_psnr": 17.983635931093275,
+  "output_mse": 0.01590876281261444,
+  "output_l2": 0.12612994415528153,
+  "source_csv": "targeted_experiments/flux_klein_prompt_sweep/flux_prompt_sweep_metrics.csv",
+  "observation": "The clean edit produces saturated bright-blue hair. The perturbed edit shifts the result toward cyan and changes the hair boundary, face geometry, skin rendering, and identity appearance.",
+  "visual_verdict": "presentable_identity_and_structure_change",
+  "perturbation_reproduction": {
+    "source_commit": "897abbf81466ba7d05df4a32010a954f7bd22898",
+    "source_artifact": "output_save/image_1/results/all_10/vae_latent_out.png",
+    "generator": "vae_latent_adversarial.py",
+    "command": "python vae_latent_adversarial.py -i new_images/original.jpg --warp-type all --iterations 10 --verbose --device cuda --save-dir output_save/image_1/results/all_10",
+    "replay_note": "Use the source commit for the archived generator; the exact perturbed input is preserved with a SHA-256 hash."
+  },
+  "files": {
+    "original_path": {
+      "source": "new_images/original.jpg",
+      "saved": "original.png",
+      "sha256": "56d643d068b5dc75d0638ced385c5d3ff4dccbba816a3bd68706d5d1c08b203e"
+    },
+    "perturbed_path": {
+      "source": "output_save/image_1/results/all_10/vae_latent_out.png",
+      "saved": "perturbed.png",
+      "sha256": "09bfe4df502b1c8ba847e5a44ed8f12ea71a3a99a365dfa6dc4321ff46f778c2"
+    },
+    "clean_edit_path": {
+      "source": "targeted_experiments/flux_klein_prompt_sweep/image_1/change_hair_color_to_bright_blue/clean_edit.png",
+      "saved": "original_edit.png",
+      "sha256": "eb899a783c811f0714350c06149d31387592116272293ff015ef69a81fd7ade6"
+    },
+    "perturbed_edit_path": {
+      "source": "targeted_experiments/flux_klein_prompt_sweep/image_1/change_hair_color_to_bright_blue/output_save_image_1_results_all_10_vae_latent_out_png/perturbed_edit.png",
+      "saved": "perturbed_edit.png",
+      "sha256": "1a8457e41bd42b62acd47cdbd9cad4d340c9e33219dc882d0978ec0dea02e6ec"
+    },
+    "strip_path": {
+      "source": "targeted_experiments/flux_klein_prompt_sweep/image_1/change_hair_color_to_bright_blue/output_save_image_1_results_all_10_vae_latent_out_png/comparison_strip.jpg",
+      "saved": "comparison_strip.jpg",
+      "sha256": "17df7f1aa2d5697c00ec37b16aa0fd17799f06fd69bec8ab2977f047b91735cc"
+    }
+  },
+  "arcface_model": "ArcFace iResNet-100",
+  "arcface_cosine_similarity": {
+    "original_vs_perturbed": 0.8609616160392761,
+    "original_edit_vs_perturbed_edit": 0.8123675584793091,
+    "original_vs_original_edit": 0.9751654267311096,
+    "perturbed_vs_perturbed_edit": 0.9422785639762878
+  }
+}

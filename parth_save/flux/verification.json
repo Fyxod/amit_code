@@ -1,0 +1,117 @@
+{
+  "status": "passed",
+  "expected_cases": 10,
+  "verified_cases": 10,
+  "required_images_per_case": [
+    "original.png",
+    "perturbed.png",
+    "original_edit.png",
+    "perturbed_edit.png",
+    "comparison_strip.jpg"
+  ],
+  "metric_recomputation": "SSIM, PSNR, MSE, and L2 matched stored values",
+  "arcface_model": "ArcFace iResNet-100",
+  "cases": [
+    {
+      "case": "image_1_white_bridal_veil_seed1234",
+      "prompt": "Add a white bridal veil",
+      "input_ssim": 0.9478314518928528,
+      "input_psnr": 34.36732709723198,
+      "output_ssim": 0.3364027440547943,
+      "output_psnr": 10.922772071360388,
+      "arcface_original_vs_perturbed": 0.8609616160392761,
+      "arcface_original_edit_vs_perturbed_edit": 0.7710784077644348
+    },
+    {
+      "case": "image_1_flower_crown_seed1234",
+      "prompt": "Add a flower crown",
+      "input_ssim": 0.9478314518928528,
+      "input_psnr": 34.36732709723198,
+      "output_ssim": 0.5522404313087463,
+      "output_psnr": 12.84093855113787,
+      "arcface_original_vs_perturbed": 0.8609616160392761,
+      "arcface_original_edit_vs_perturbed_edit": 0.7993967533111572
+    },
+    {
+      "case": "image_1_over_ear_headphones_seed1234",
+      "prompt": "Add over-ear headphones",
+      "input_ssim": 0.9478314518928528,
+      "input_psnr": 34.36732709723198,
+      "output_ssim": 0.5667949318885803,
+      "output_psnr": 17.661920978563245,
+      "arcface_original_vs_perturbed": 0.8609616160392761,
+      "arcface_original_edit_vs_perturbed_edit": 0.7817503809928894
+    },
+    {
+      "case": "image_1_full_beard_seed1234",
+      "prompt": "Add a full beard",
+      "input_ssim": 0.9478314518928528,
+      "input_psnr": 34.36732709723198,
+      "output_ssim": 0.5986422896385193,
+      "output_psnr": 20.32850665739515,
+      "arcface_original_vs_perturbed": 0.8609616160392761,
+      "arcface_original_edit_vs_perturbed_edit": 0.7405998110771179
+    },
+    {
+      "case": "image_1_blue_baseball_cap_seed1234",
+      "prompt": "Add a blue baseball cap",
+      "input_ssim": 0.9478314518928528,
+      "input_psnr": 34.36732709723198,
+      "output_ssim": 0.6334055066108704,
+      "output_psnr": 16.862292260638906,
+      "arcface_original_vs_perturbed": 0.8609616160392761,
+      "arcface_original_edit_vs_perturbed_edit": 0.696173906326294
+    },
+    {
+      "case": "image_1_black_fedora_seed1234",
+      "prompt": "Add a black fedora",
+      "input_ssim": 0.9478314518928528,
+      "input_psnr": 34.36732709723198,
+      "output_ssim": 0.6505347490310669,
+      "output_psnr": 16.99517564183048,
+      "arcface_original_vs_perturbed": 0.8609616160392761,
+      "arcface_original_edit_vs_perturbed_edit": 0.8352354764938354
+    },
+    {
+      "case": "image_1_blue_medical_mask_seed1234",
+      "prompt": "Add a blue medical mask",
+      "input_ssim": 0.9478314518928528,
+      "input_psnr": 34.36732709723198,
+      "output_ssim": 0.6682102084159851,
+      "output_psnr": 17.930107938856196,
+      "arcface_original_vs_perturbed": 0.8609616160392761,
+      "arcface_original_edit_vs_perturbed_edit": 0.7535470128059387
+    },
+    {
+      "case": "image_1_blonde_hair_seed1234",
+      "prompt": "Turn the hair blonde",
+      "input_ssim": 0.9478314518928528,
+      "input_psnr": 34.36732709723198,
+      "output_ssim": 0.706286609172821,
+      "output_psnr": 20.46903530381868,
+      "arcface_original_vs_perturbed": 0.8609616160392761,
+      "arcface_original_edit_vs_perturbed_edit": 0.8183867931365967
+    },
+    {
+      "case": "image_1_bright_blue_hair_seed1234",
+      "prompt": "Change hair color to bright blue",
+      "input_ssim": 0.9478314518928528,
+      "input_psnr": 34.36732709723198,
+      "output_ssim": 0.7420862317085266,
+      "output_psnr": 17.983635931093275,
+      "arcface_original_vs_perturbed": 0.8609616160392761,
+      "arcface_original_edit_vs_perturbed_edit": 0.8123675584793091
+    },
+    {
+      "case": "image_1_white_scarf_seed1234",
+      "prompt": "Add a white scarf",
+      "input_ssim": 0.9478314518928528,
+      "input_psnr": 34.36732709723198,
+      "output_ssim": 0.7649992108345032,
+      "output_psnr": 15.435729921371575,
+      "arcface_original_vs_perturbed": 0.8609616160392761,
+      "arcface_original_edit_vs_perturbed_edit": 0.833392858505249
+    }
+  ],
+  "errors": []
+}

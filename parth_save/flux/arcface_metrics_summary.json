@@ -28,6 +28,13 @@
     "perturbed_vs_perturbed_edit": 0.5986948013305664
   },
   {
+    "case": "image_1_bright_blue_hair_seed1234",
+    "original_vs_perturbed": 0.8609616160392761,
+    "original_edit_vs_perturbed_edit": 0.8123675584793091,
+    "original_vs_original_edit": 0.9751654267311096,
+    "perturbed_vs_perturbed_edit": 0.9422785639762878
+  },
+  {
     "case": "image_1_flower_crown_seed1234",
     "original_vs_perturbed": 0.8609616160392761,
     "original_edit_vs_perturbed_edit": 0.7993967533111572,
@@ -54,5 +61,12 @@
     "original_edit_vs_perturbed_edit": 0.7710784077644348,
     "original_vs_original_edit": 0.8622311353683472,
     "perturbed_vs_perturbed_edit": 0.9323911666870117
+  },
+  {
+    "case": "image_1_white_scarf_seed1234",
+    "original_vs_perturbed": 0.8609616160392761,
+    "original_edit_vs_perturbed_edit": 0.833392858505249,
+    "original_vs_original_edit": 0.9744423031806946,
+    "perturbed_vs_perturbed_edit": 0.9768964052200317
   }
 ]
