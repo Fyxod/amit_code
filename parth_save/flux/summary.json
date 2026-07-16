@@ -1,0 +1,15 @@
+{
+  "model": "black-forest-labs/FLUX.2-klein-4B",
+  "num_cases": 8,
+  "cases": [
+    "image_1_white_bridal_veil_seed1234",
+    "image_1_flower_crown_seed1234",
+    "image_1_over_ear_headphones_seed1234",
+    "image_1_full_beard_seed1234",
+    "image_1_blue_baseball_cap_seed1234",
+    "image_1_black_fedora_seed1234",
+    "image_1_blue_medical_mask_seed1234",
+    "image_1_blonde_hair_seed1234"
+  ],
+  "manifest": "selection_manifest.json"
+}

@@ -1,0 +1,58 @@
+[
+  {
+    "case": "image_1_black_fedora_seed1234",
+    "original_vs_perturbed": 0.8609616160392761,
+    "original_edit_vs_perturbed_edit": 0.8352354764938354,
+    "original_vs_original_edit": 0.8484522104263306,
+    "perturbed_vs_perturbed_edit": 0.9010576009750366
+  },
+  {
+    "case": "image_1_blonde_hair_seed1234",
+    "original_vs_perturbed": 0.8609616160392761,
+    "original_edit_vs_perturbed_edit": 0.8183867931365967,
+    "original_vs_original_edit": 0.899865448474884,
+    "perturbed_vs_perturbed_edit": 0.8991811871528625
+  },
+  {
+    "case": "image_1_blue_baseball_cap_seed1234",
+    "original_vs_perturbed": 0.8609616160392761,
+    "original_edit_vs_perturbed_edit": 0.696173906326294,
+    "original_vs_original_edit": 0.7705577611923218,
+    "perturbed_vs_perturbed_edit": 0.7615166902542114
+  },
+  {
+    "case": "image_1_blue_medical_mask_seed1234",
+    "original_vs_perturbed": 0.8609616160392761,
+    "original_edit_vs_perturbed_edit": 0.7535470128059387,
+    "original_vs_original_edit": 0.5522474050521851,
+    "perturbed_vs_perturbed_edit": 0.5986948013305664
+  },
+  {
+    "case": "image_1_flower_crown_seed1234",
+    "original_vs_perturbed": 0.8609616160392761,
+    "original_edit_vs_perturbed_edit": 0.7993967533111572,
+    "original_vs_original_edit": 0.900673508644104,
+    "perturbed_vs_perturbed_edit": 0.8912918567657471
+  },
+  {
+    "case": "image_1_full_beard_seed1234",
+    "original_vs_perturbed": 0.8609616160392761,
+    "original_edit_vs_perturbed_edit": 0.7405998110771179,
+    "original_vs_original_edit": 0.739791750907898,
+    "perturbed_vs_perturbed_edit": 0.827012300491333
+  },
+  {
+    "case": "image_1_over_ear_headphones_seed1234",
+    "original_vs_perturbed": 0.8609616160392761,
+    "original_edit_vs_perturbed_edit": 0.7817503809928894,
+    "original_vs_original_edit": 0.9138820767402649,
+    "perturbed_vs_perturbed_edit": 0.9552741050720215
+  },
+  {
+    "case": "image_1_white_bridal_veil_seed1234",
+    "original_vs_perturbed": 0.8609616160392761,
+    "original_edit_vs_perturbed_edit": 0.7710784077644348,
+    "original_vs_original_edit": 0.8622311353683472,
+    "perturbed_vs_perturbed_edit": 0.9323911666870117
+  }
+]

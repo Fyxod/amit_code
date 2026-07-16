@@ -1,0 +1,61 @@
+{
+  "face_id": "image_1",
+  "prompt": "Add a black fedora",
+  "candidate_id": "output_save_image_1_results_all_10_vae_latent_out_png",
+  "model": "black-forest-labs/FLUX.2-klein-4B",
+  "seed": 1234,
+  "steps": 10,
+  "guidance_scale": 1,
+  "input_ssim": 0.9478314518928528,
+  "input_psnr": 34.36732709723198,
+  "input_mse": 0.00036581986933015287,
+  "input_l2": 0.019126418099846946,
+  "output_ssim": 0.6505347490310669,
+  "output_psnr": 16.99517564183048,
+  "output_mse": 0.01997479982674122,
+  "output_l2": 0.14133223208716836,
+  "source_csv": "targeted_experiments/flux_klein_prompt_sweep/flux_prompt_sweep_metrics.csv",
+  "observation": "The clean edit adds a wide-brim black fedora. The perturbed edit changes the brim, crown, head placement, face, and background while preserving the requested object.",
+  "visual_verdict": "presentable_identity_and_structure_change",
+  "perturbation_reproduction": {
+    "source_commit": "897abbf81466ba7d05df4a32010a954f7bd22898",
+    "source_artifact": "output_save/image_1/results/all_10/vae_latent_out.png",
+    "generator": "vae_latent_adversarial.py",
+    "command": "python vae_latent_adversarial.py -i new_images/original.jpg --warp-type all --iterations 10 --verbose --device cuda --save-dir output_save/image_1/results/all_10",
+    "replay_note": "Use the source commit for the archived generator; the exact perturbed input is preserved with a SHA-256 hash."
+  },
+  "files": {
+    "original_path": {
+      "source": "new_images/original.jpg",
+      "saved": "original.png",
+      "sha256": "56d643d068b5dc75d0638ced385c5d3ff4dccbba816a3bd68706d5d1c08b203e"
+    },
+    "perturbed_path": {
+      "source": "output_save/image_1/results/all_10/vae_latent_out.png",
+      "saved": "perturbed.png",
+      "sha256": "09bfe4df502b1c8ba847e5a44ed8f12ea71a3a99a365dfa6dc4321ff46f778c2"
+    },
+    "clean_edit_path": {
+      "source": "targeted_experiments/flux_klein_prompt_sweep/image_1/add_a_black_fedora/clean_edit.png",
+      "saved": "original_edit.png",
+      "sha256": "c330d180dad3680f6ba3a2f66d8c157c33ee6f58bbadff3fa419b40c2a63cfe4"
+    },
+    "perturbed_edit_path": {
+      "source": "targeted_experiments/flux_klein_prompt_sweep/image_1/add_a_black_fedora/output_save_image_1_results_all_10_vae_latent_out_png/perturbed_edit.png",
+      "saved": "perturbed_edit.png",
+      "sha256": "221d8c7abf5735d6e31f070c61a72a59bdedb32c3c795f9657900f477ce5d59b"
+    },
+    "strip_path": {
+      "source": "targeted_experiments/flux_klein_prompt_sweep/image_1/add_a_black_fedora/output_save_image_1_results_all_10_vae_latent_out_png/comparison_strip.jpg",
+      "saved": "comparison_strip.jpg",
+      "sha256": "53416fce5127d5c45071437267084b8642f74df4fba9dae14709ba23f5d2cd98"
+    }
+  },
+  "arcface_model": "ArcFace iResNet-100",
+  "arcface_cosine_similarity": {
+    "original_vs_perturbed": 0.8609616160392761,
+    "original_edit_vs_perturbed_edit": 0.8352354764938354,
+    "original_vs_original_edit": 0.8484522104263306,
+    "perturbed_vs_perturbed_edit": 0.9010576009750366
+  }
+}

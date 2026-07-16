@@ -1,0 +1,61 @@
+{
+  "face_id": "image_1",
+  "prompt": "Add a blue baseball cap",
+  "candidate_id": "output_save_image_1_results_all_10_vae_latent_out_png",
+  "model": "black-forest-labs/FLUX.2-klein-4B",
+  "seed": 1234,
+  "steps": 10,
+  "guidance_scale": 1,
+  "input_ssim": 0.9478314518928528,
+  "input_psnr": 34.36732709723198,
+  "input_mse": 0.00036581986933015287,
+  "input_l2": 0.019126418099846946,
+  "output_ssim": 0.6334055066108704,
+  "output_psnr": 16.862292260638906,
+  "output_mse": 0.020595425739884377,
+  "output_l2": 0.14351106486917437,
+  "source_csv": "targeted_experiments/flux_klein_prompt_sweep/flux_prompt_sweep_metrics.csv",
+  "observation": "Both edits add a blue baseball cap, but the cap geometry, head pose, facial rendering, and background composition change visibly.",
+  "visual_verdict": "presentable_identity_and_structure_change",
+  "perturbation_reproduction": {
+    "source_commit": "897abbf81466ba7d05df4a32010a954f7bd22898",
+    "source_artifact": "output_save/image_1/results/all_10/vae_latent_out.png",
+    "generator": "vae_latent_adversarial.py",
+    "command": "python vae_latent_adversarial.py -i new_images/original.jpg --warp-type all --iterations 10 --verbose --device cuda --save-dir output_save/image_1/results/all_10",
+    "replay_note": "Use the source commit for the archived generator; the exact perturbed input is preserved with a SHA-256 hash."
+  },
+  "files": {
+    "original_path": {
+      "source": "new_images/original.jpg",
+      "saved": "original.png",
+      "sha256": "56d643d068b5dc75d0638ced385c5d3ff4dccbba816a3bd68706d5d1c08b203e"
+    },
+    "perturbed_path": {
+      "source": "output_save/image_1/results/all_10/vae_latent_out.png",
+      "saved": "perturbed.png",
+      "sha256": "09bfe4df502b1c8ba847e5a44ed8f12ea71a3a99a365dfa6dc4321ff46f778c2"
+    },
+    "clean_edit_path": {
+      "source": "targeted_experiments/flux_klein_prompt_sweep/image_1/add_a_blue_baseball_cap/clean_edit.png",
+      "saved": "original_edit.png",
+      "sha256": "5403a27875acdccf4c11db727614faba9d20c08035ed88b5a2a7f00462ab8a80"
+    },
+    "perturbed_edit_path": {
+      "source": "targeted_experiments/flux_klein_prompt_sweep/image_1/add_a_blue_baseball_cap/output_save_image_1_results_all_10_vae_latent_out_png/perturbed_edit.png",
+      "saved": "perturbed_edit.png",
+      "sha256": "b4d9177aae78756fb048819d5013cfa1f63bcef337ac80a10718802ed390089c"
+    },
+    "strip_path": {
+      "source": "targeted_experiments/flux_klein_prompt_sweep/image_1/add_a_blue_baseball_cap/output_save_image_1_results_all_10_vae_latent_out_png/comparison_strip.jpg",
+      "saved": "comparison_strip.jpg",
+      "sha256": "b97a7733b4a88c98f597d1fee54dafd4979cc4afd91d124ffd6b1c0402ece16d"
+    }
+  },
+  "arcface_model": "ArcFace iResNet-100",
+  "arcface_cosine_similarity": {
+    "original_vs_perturbed": 0.8609616160392761,
+    "original_edit_vs_perturbed_edit": 0.696173906326294,
+    "original_vs_original_edit": 0.7705577611923218,
+    "perturbed_vs_perturbed_edit": 0.7615166902542114
+  }
+}

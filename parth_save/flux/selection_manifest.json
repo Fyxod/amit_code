@@ -1,0 +1,138 @@
+[
+  {
+    "folder": "image_1_white_bridal_veil_seed1234",
+    "csv": "targeted_experiments/flux_klein_prompt_sweep/flux_prompt_sweep_metrics.csv",
+    "face_id": "image_1",
+    "prompt": "Add a white bridal veil",
+    "seed": 1234,
+    "candidate_id": "output_save_image_1_results_all_10_vae_latent_out_png",
+    "observation": "The clean edit adds a coherent white bridal veil. With the visually close perturbed input, the veil structure, face rendering, and overall composition change substantially.",
+    "visual_verdict": "presentable_identity_and_structure_change",
+    "perturbation_reproduction": {
+      "source_commit": "897abbf81466ba7d05df4a32010a954f7bd22898",
+      "source_artifact": "output_save/image_1/results/all_10/vae_latent_out.png",
+      "generator": "vae_latent_adversarial.py",
+      "command": "python vae_latent_adversarial.py -i new_images/original.jpg --warp-type all --iterations 10 --verbose --device cuda --save-dir output_save/image_1/results/all_10",
+      "replay_note": "Use the source commit for the archived generator; the exact perturbed input is preserved with a SHA-256 hash."
+    }
+  },
+  {
+    "folder": "image_1_flower_crown_seed1234",
+    "csv": "targeted_experiments/flux_klein_prompt_sweep/flux_prompt_sweep_metrics.csv",
+    "face_id": "image_1",
+    "prompt": "Add a flower crown",
+    "seed": 1234,
+    "candidate_id": "output_save_image_1_results_all_10_vae_latent_out_png",
+    "observation": "Both edits add a flower crown, but its placement, flower arrangement, face rendering, and surrounding composition differ materially while the inputs remain close.",
+    "visual_verdict": "presentable_identity_and_structure_change",
+    "perturbation_reproduction": {
+      "source_commit": "897abbf81466ba7d05df4a32010a954f7bd22898",
+      "source_artifact": "output_save/image_1/results/all_10/vae_latent_out.png",
+      "generator": "vae_latent_adversarial.py",
+      "command": "python vae_latent_adversarial.py -i new_images/original.jpg --warp-type all --iterations 10 --verbose --device cuda --save-dir output_save/image_1/results/all_10",
+      "replay_note": "Use the source commit for the archived generator; the exact perturbed input is preserved with a SHA-256 hash."
+    }
+  },
+  {
+    "folder": "image_1_over_ear_headphones_seed1234",
+    "csv": "targeted_experiments/flux_klein_prompt_sweep/flux_prompt_sweep_metrics.csv",
+    "face_id": "image_1",
+    "prompt": "Add over-ear headphones",
+    "seed": 1234,
+    "candidate_id": "output_save_image_1_results_all_10_vae_latent_out_png",
+    "observation": "The clean edit adds large over-ear headphones. The perturbed edit changes the headphone geometry, face rendering, and head composition despite the high input similarity.",
+    "visual_verdict": "presentable_identity_and_structure_change",
+    "perturbation_reproduction": {
+      "source_commit": "897abbf81466ba7d05df4a32010a954f7bd22898",
+      "source_artifact": "output_save/image_1/results/all_10/vae_latent_out.png",
+      "generator": "vae_latent_adversarial.py",
+      "command": "python vae_latent_adversarial.py -i new_images/original.jpg --warp-type all --iterations 10 --verbose --device cuda --save-dir output_save/image_1/results/all_10",
+      "replay_note": "Use the source commit for the archived generator; the exact perturbed input is preserved with a SHA-256 hash."
+    }
+  },
+  {
+    "folder": "image_1_full_beard_seed1234",
+    "csv": "targeted_experiments/flux_klein_prompt_sweep/flux_prompt_sweep_metrics.csv",
+    "face_id": "image_1",
+    "prompt": "Add a full beard",
+    "seed": 1234,
+    "candidate_id": "output_save_image_1_results_all_10_vae_latent_out_png",
+    "observation": "The clean edit adds a coherent full beard. The perturbed edit produces a materially different beard, mouth, jaw, and facial identity rendering.",
+    "visual_verdict": "presentable_identity_and_structure_change",
+    "perturbation_reproduction": {
+      "source_commit": "897abbf81466ba7d05df4a32010a954f7bd22898",
+      "source_artifact": "output_save/image_1/results/all_10/vae_latent_out.png",
+      "generator": "vae_latent_adversarial.py",
+      "command": "python vae_latent_adversarial.py -i new_images/original.jpg --warp-type all --iterations 10 --verbose --device cuda --save-dir output_save/image_1/results/all_10",
+      "replay_note": "Use the source commit for the archived generator; the exact perturbed input is preserved with a SHA-256 hash."
+    }
+  },
+  {
+    "folder": "image_1_blue_baseball_cap_seed1234",
+    "csv": "targeted_experiments/flux_klein_prompt_sweep/flux_prompt_sweep_metrics.csv",
+    "face_id": "image_1",
+    "prompt": "Add a blue baseball cap",
+    "seed": 1234,
+    "candidate_id": "output_save_image_1_results_all_10_vae_latent_out_png",
+    "observation": "Both edits add a blue baseball cap, but the cap geometry, head pose, facial rendering, and background composition change visibly.",
+    "visual_verdict": "presentable_identity_and_structure_change",
+    "perturbation_reproduction": {
+      "source_commit": "897abbf81466ba7d05df4a32010a954f7bd22898",
+      "source_artifact": "output_save/image_1/results/all_10/vae_latent_out.png",
+      "generator": "vae_latent_adversarial.py",
+      "command": "python vae_latent_adversarial.py -i new_images/original.jpg --warp-type all --iterations 10 --verbose --device cuda --save-dir output_save/image_1/results/all_10",
+      "replay_note": "Use the source commit for the archived generator; the exact perturbed input is preserved with a SHA-256 hash."
+    }
+  },
+  {
+    "folder": "image_1_black_fedora_seed1234",
+    "csv": "targeted_experiments/flux_klein_prompt_sweep/flux_prompt_sweep_metrics.csv",
+    "face_id": "image_1",
+    "prompt": "Add a black fedora",
+    "seed": 1234,
+    "candidate_id": "output_save_image_1_results_all_10_vae_latent_out_png",
+    "observation": "The clean edit adds a wide-brim black fedora. The perturbed edit changes the brim, crown, head placement, face, and background while preserving the requested object.",
+    "visual_verdict": "presentable_identity_and_structure_change",
+    "perturbation_reproduction": {
+      "source_commit": "897abbf81466ba7d05df4a32010a954f7bd22898",
+      "source_artifact": "output_save/image_1/results/all_10/vae_latent_out.png",
+      "generator": "vae_latent_adversarial.py",
+      "command": "python vae_latent_adversarial.py -i new_images/original.jpg --warp-type all --iterations 10 --verbose --device cuda --save-dir output_save/image_1/results/all_10",
+      "replay_note": "Use the source commit for the archived generator; the exact perturbed input is preserved with a SHA-256 hash."
+    }
+  },
+  {
+    "folder": "image_1_blue_medical_mask_seed1234",
+    "csv": "targeted_experiments/flux_klein_prompt_sweep/flux_prompt_sweep_metrics.csv",
+    "face_id": "image_1",
+    "prompt": "Add a blue medical mask",
+    "seed": 1234,
+    "candidate_id": "output_save_image_1_results_all_10_vae_latent_out_png",
+    "observation": "The clean edit adds a coherent blue medical mask. The perturbed edit changes the mask structure, coverage, face rendering, and color distribution.",
+    "visual_verdict": "presentable_identity_and_structure_change",
+    "perturbation_reproduction": {
+      "source_commit": "897abbf81466ba7d05df4a32010a954f7bd22898",
+      "source_artifact": "output_save/image_1/results/all_10/vae_latent_out.png",
+      "generator": "vae_latent_adversarial.py",
+      "command": "python vae_latent_adversarial.py -i new_images/original.jpg --warp-type all --iterations 10 --verbose --device cuda --save-dir output_save/image_1/results/all_10",
+      "replay_note": "Use the source commit for the archived generator; the exact perturbed input is preserved with a SHA-256 hash."
+    }
+  },
+  {
+    "folder": "image_1_blonde_hair_seed1234",
+    "csv": "targeted_experiments/flux_klein_prompt_sweep/flux_prompt_sweep_metrics.csv",
+    "face_id": "image_1",
+    "prompt": "Turn the hair blonde",
+    "seed": 1234,
+    "candidate_id": "output_save_image_1_results_all_10_vae_latent_out_png",
+    "observation": "Both edits turn the hair blonde, but the perturbed branch changes hair tone, hairstyle, skin rendering, head shape, and identity appearance materially.",
+    "visual_verdict": "presentable_identity_and_structure_change",
+    "perturbation_reproduction": {
+      "source_commit": "897abbf81466ba7d05df4a32010a954f7bd22898",
+      "source_artifact": "output_save/image_1/results/all_10/vae_latent_out.png",
+      "generator": "vae_latent_adversarial.py",
+      "command": "python vae_latent_adversarial.py -i new_images/original.jpg --warp-type all --iterations 10 --verbose --device cuda --save-dir output_save/image_1/results/all_10",
+      "replay_note": "Use the source commit for the archived generator; the exact perturbed input is preserved with a SHA-256 hash."
+    }
+  }
+]
