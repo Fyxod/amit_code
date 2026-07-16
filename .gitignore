@@ -27,5 +27,6 @@ theta_final.pt
 theta_best.pt
 outputs/**/*.pt
 outputs/**/*.pth
+_tmp_*/
 
 # Keep logs addable when useful.
