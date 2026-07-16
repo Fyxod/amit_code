@@ -92,7 +92,7 @@ def main() -> None:
     parser.add_argument(
         "--manifest",
         type=Path,
-        default=Path("parth_save/flux/selection_manifest.json"),
+        default=Path("parth_save/flux_2/selection_manifest.json"),
     )
     args = parser.parse_args()
     root = args.root.resolve()

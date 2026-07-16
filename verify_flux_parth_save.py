@@ -42,7 +42,7 @@ def close(a: float, b: float, tolerance: float = 1e-8) -> bool:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parent)
-    parser.add_argument("--save-root", type=Path, default=Path("parth_save/flux"))
+    parser.add_argument("--save-root", type=Path, default=Path("parth_save/flux_2"))
     args = parser.parse_args()
     root = args.root.resolve()
     save_root = args.save_root if args.save_root.is_absolute() else root / args.save_root

@@ -1,0 +1,5 @@
+[
+  {"name": "steps10_guidance1", "steps": 10, "guidance_scale": 1.0},
+  {"name": "steps20_guidance1", "steps": 20, "guidance_scale": 1.0},
+  {"name": "steps10_guidance2p5", "steps": 10, "guidance_scale": 2.5}
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "face_id": "image_1",
+    "path": "output_save/image_1/results/all_100/vae_latent_out.png",
+    "perturbation_type": "all",
+    "iterations": 100,
+    "source_commit": "897abbf81466ba7d05df4a32010a954f7bd22898"
+  },
+  {
+    "face_id": "image_1",
+    "path": "output_save/image_1/results/bspline_100/vae_latent_out.png",
+    "perturbation_type": "bspline",
+    "iterations": 100,
+    "source_commit": "897abbf81466ba7d05df4a32010a954f7bd22898"
+  },
+  {
+    "face_id": "image_2",
+    "path": "output_save/image_2/results/all_100/vae_latent_out.png",
+    "perturbation_type": "all",
+    "iterations": 100,
+    "source_commit": "eaf6e9f"
+  },
+  {
+    "face_id": "image_2",
+    "path": "output_save/image_2/results/bspline_100/vae_latent_out.png",
+    "perturbation_type": "bspline",
+    "iterations": 100,
+    "source_commit": "41802eb"
+  }
+]
