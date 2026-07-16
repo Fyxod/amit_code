@@ -18,5 +18,12 @@
   "editor": "InstructPix2Pix",
   "optimization_identity_model": "ArcFace iResNet-100",
   "source_csv": "targeted_experiments/prompt_sweep_new_faces/prompt_sweep_metrics.csv",
-  "observation": "The clean edit clearly adds a red scarf. The perturbed edit retains red clothing but removes the visible scarf, while the source inputs remain recognizably the same subject."
+  "observation": "The clean edit clearly adds a red scarf. The perturbed edit retains red clothing but removes the visible scarf, while the source inputs remain recognizably the same subject.",
+  "arcface_model": "ArcFace iResNet-100",
+  "arcface_cosine_similarity": {
+    "original_vs_perturbed": 0.4004614055156708,
+    "original_edit_vs_perturbed_edit": 0.581527054309845,
+    "original_vs_original_edit": 0.7158383131027222,
+    "perturbed_vs_perturbed_edit": 0.9004541039466858
+  }
 }

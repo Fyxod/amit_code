@@ -1,65 +1,86 @@
 [
   {
+    "case": "failed/image_1_make_hair_black_igs1p5_seed1234",
+    "original_vs_perturbed": 0.839148223400116,
+    "original_edit_vs_perturbed_edit": 0.7849845886230469,
+    "original_vs_original_edit": 0.8278731107711792,
+    "perturbed_vs_perturbed_edit": 0.9654560089111328
+  },
+  {
     "case": "image_1_black_baseball_cap_igs1p5_seed1234",
-    "original_vs_perturbed": 0.8391552567481995,
-    "original_edit_vs_perturbed_edit": 0.6696885824203491,
-    "original_vs_original_edit": 0.6328738331794739,
-    "perturbed_vs_perturbed_edit": 0.8811635971069336
+    "original_vs_perturbed": 0.839148223400116,
+    "original_edit_vs_perturbed_edit": 0.6696625351905823,
+    "original_vs_original_edit": 0.6328336000442505,
+    "perturbed_vs_perturbed_edit": 0.8811646103858948
   },
   {
     "case": "image_1_black_jacket_igs1p5_seed1234",
-    "original_vs_perturbed": 0.8391552567481995,
-    "original_edit_vs_perturbed_edit": 0.14736127853393555,
-    "original_vs_original_edit": 0.9231302738189697,
-    "perturbed_vs_perturbed_edit": 0.21086741983890533
+    "original_vs_perturbed": 0.839148223400116,
+    "original_edit_vs_perturbed_edit": 0.14733418822288513,
+    "original_vs_original_edit": 0.9231054782867432,
+    "perturbed_vs_perturbed_edit": 0.21079319715499878
   },
   {
     "case": "image_1_blue_medical_mask_igs1p5_seed1234",
-    "original_vs_perturbed": 0.8391552567481995,
-    "original_edit_vs_perturbed_edit": 0.6799267530441284,
-    "original_vs_original_edit": 0.7538498640060425,
-    "perturbed_vs_perturbed_edit": 0.865285336971283
+    "original_vs_perturbed": 0.839148223400116,
+    "original_edit_vs_perturbed_edit": 0.6798707842826843,
+    "original_vs_original_edit": 0.7538725733757019,
+    "perturbed_vs_perturbed_edit": 0.8652553558349609
   },
   {
     "case": "image_1_red_scarf_igs1_seed1234",
-    "original_vs_perturbed": 0.7061388492584229,
-    "original_edit_vs_perturbed_edit": 0.02306153066456318,
-    "original_vs_original_edit": 0.7894819974899292,
-    "perturbed_vs_perturbed_edit": 0.007679048925638199
+    "original_vs_perturbed": 0.7060996294021606,
+    "original_edit_vs_perturbed_edit": 0.023334925994277,
+    "original_vs_original_edit": 0.7894943356513977,
+    "perturbed_vs_perturbed_edit": 0.007943637669086456
   },
   {
     "case": "image_1_yellow_rain_jacket_igs1_seed24001",
-    "original_vs_perturbed": 0.8391552567481995,
-    "original_edit_vs_perturbed_edit": 0.09797803312540054,
-    "original_vs_original_edit": 0.6582680940628052,
-    "perturbed_vs_perturbed_edit": 0.12381204962730408
+    "original_vs_perturbed": 0.839148223400116,
+    "original_edit_vs_perturbed_edit": 0.09790629148483276,
+    "original_vs_original_edit": 0.6582750082015991,
+    "perturbed_vs_perturbed_edit": 0.12376999855041504
   },
   {
     "case": "image_2_black_jacket_igs2_seed24001",
-    "original_vs_perturbed": 0.521733820438385,
-    "original_edit_vs_perturbed_edit": 0.22125831246376038,
-    "original_vs_original_edit": 0.6463270783424377,
-    "perturbed_vs_perturbed_edit": 0.08820240944623947
+    "original_vs_perturbed": 0.5215423703193665,
+    "original_edit_vs_perturbed_edit": 0.22144152224063873,
+    "original_vs_original_edit": 0.6460714340209961,
+    "perturbed_vs_perturbed_edit": 0.08817476034164429
   },
   {
     "case": "image_2_blue_medical_mask_igs1_seed7777",
-    "original_vs_perturbed": 0.6797099113464355,
-    "original_edit_vs_perturbed_edit": 0.6818127036094666,
-    "original_vs_original_edit": 0.383480042219162,
-    "perturbed_vs_perturbed_edit": 0.43643346428871155
+    "original_vs_perturbed": 0.6794912815093994,
+    "original_edit_vs_perturbed_edit": 0.681739091873169,
+    "original_vs_original_edit": 0.3834931254386902,
+    "perturbed_vs_perturbed_edit": 0.4364350438117981
   },
   {
     "case": "image_3_black_jacket_igs2_seed1234",
-    "original_vs_perturbed": 0.7693263292312622,
-    "original_edit_vs_perturbed_edit": 0.3609846234321594,
-    "original_vs_original_edit": 0.41362571716308594,
-    "perturbed_vs_perturbed_edit": 0.8090060949325562
+    "original_vs_perturbed": 0.7693137526512146,
+    "original_edit_vs_perturbed_edit": 0.3607426881790161,
+    "original_vs_original_edit": 0.41326338052749634,
+    "perturbed_vs_perturbed_edit": 0.8090676069259644
   },
   {
     "case": "image_3_red_scarf_igs1_seed24001",
-    "original_vs_perturbed": 0.4226738214492798,
-    "original_edit_vs_perturbed_edit": 0.7774560451507568,
-    "original_vs_original_edit": 0.16180899739265442,
-    "perturbed_vs_perturbed_edit": -0.08985037356615067
+    "original_vs_perturbed": 0.4227204918861389,
+    "original_edit_vs_perturbed_edit": 0.7773938179016113,
+    "original_vs_original_edit": 0.16184678673744202,
+    "perturbed_vs_perturbed_edit": -0.08979898691177368
+  },
+  {
+    "case": "image_4_red_scarf_igs1p5_seed1234",
+    "original_vs_perturbed": 0.4004614055156708,
+    "original_edit_vs_perturbed_edit": 0.581527054309845,
+    "original_vs_original_edit": 0.7158383131027222,
+    "perturbed_vs_perturbed_edit": 0.9004541039466858
+  },
+  {
+    "case": "partial/image_1_full_beard_igs1p5_seed1234",
+    "original_vs_perturbed": 0.839148223400116,
+    "original_edit_vs_perturbed_edit": 0.7691178321838379,
+    "original_vs_original_edit": 0.7637633085250854,
+    "perturbed_vs_perturbed_edit": 0.8712873458862305
   }
 ]

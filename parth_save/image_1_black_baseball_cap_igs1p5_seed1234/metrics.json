@@ -21,9 +21,9 @@
   "observation": "Both edits add a black cap, but the cap geometry, face appearance, and surrounding composition differ materially while the inputs remain visually close.",
   "arcface_model": "ArcFace iResNet-100",
   "arcface_cosine_similarity": {
-    "original_vs_perturbed": 0.8391552567481995,
-    "original_edit_vs_perturbed_edit": 0.6696885824203491,
-    "original_vs_original_edit": 0.6328738331794739,
-    "perturbed_vs_perturbed_edit": 0.8811635971069336
+    "original_vs_perturbed": 0.839148223400116,
+    "original_edit_vs_perturbed_edit": 0.6696625351905823,
+    "original_vs_original_edit": 0.6328336000442505,
+    "perturbed_vs_perturbed_edit": 0.8811646103858948
   }
 }

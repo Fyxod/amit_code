@@ -21,9 +21,9 @@
   "observation": "The clean edit visibly adds a yellow rain jacket while retaining the subject. The perturbed edit preserves the requested color but changes the face and hood structure substantially, with the inputs remaining visually close.",
   "arcface_model": "ArcFace iResNet-100",
   "arcface_cosine_similarity": {
-    "original_vs_perturbed": 0.8391552567481995,
-    "original_edit_vs_perturbed_edit": 0.09797803312540054,
-    "original_vs_original_edit": 0.6582680940628052,
-    "perturbed_vs_perturbed_edit": 0.12381204962730408
+    "original_vs_perturbed": 0.839148223400116,
+    "original_edit_vs_perturbed_edit": 0.09790629148483276,
+    "original_vs_original_edit": 0.6582750082015991,
+    "perturbed_vs_perturbed_edit": 0.12376999855041504
   }
 }

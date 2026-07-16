@@ -18,5 +18,12 @@
   "editor": "InstructPix2Pix",
   "optimization_identity_model": "ArcFace iResNet-100",
   "source_csv": "targeted_experiments/prompt_sweep_image1_presentable/prompt_sweep_metrics.csv",
-  "observation": "Failed case: both edited outputs make the hair black, and the clean edit also changes the face and skin appearance too strongly to serve as a clean-success baseline."
+  "observation": "Failed case: both edited outputs make the hair black, and the clean edit also changes the face and skin appearance too strongly to serve as a clean-success baseline.",
+  "arcface_model": "ArcFace iResNet-100",
+  "arcface_cosine_similarity": {
+    "original_vs_perturbed": 0.839148223400116,
+    "original_edit_vs_perturbed_edit": 0.7849845886230469,
+    "original_vs_original_edit": 0.8278731107711792,
+    "perturbed_vs_perturbed_edit": 0.9654560089111328
+  }
 }

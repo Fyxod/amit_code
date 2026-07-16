@@ -58,7 +58,7 @@ def main() -> None:
     ).eval()
 
     updated = []
-    for metrics_path in sorted(save_root.glob("*/metrics.json")):
+    for metrics_path in sorted(save_root.rglob("metrics.json")):
         case_root = metrics_path.parent
         paths = {key: case_root / value for key, value in IMAGE_NAMES.items()}
         missing = [str(path) for path in paths.values() if not path.exists()]
@@ -87,7 +87,8 @@ def main() -> None:
         metrics["arcface_model"] = "ArcFace iResNet-100"
         metrics["arcface_cosine_similarity"] = arcface
         metrics_path.write_text(json.dumps(metrics, indent=2) + "\n", encoding="utf-8")
-        updated.append({"case": case_root.name, **arcface})
+        relative_case = case_root.relative_to(save_root).as_posix()
+        updated.append({"case": relative_case, **arcface})
         print(json.dumps(updated[-1], indent=2))
 
     summary_path = save_root / "arcface_metrics_summary.json"
