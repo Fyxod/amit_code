@@ -1,0 +1,12 @@
+{
+  "status": "complete",
+  "model": "black-forest-labs/FLUX.2-klein-4B",
+  "num_faces": 8,
+  "num_candidates": 15,
+  "num_prompts": 20,
+  "num_pairs": 300,
+  "best_output_ssim": 0.32362326979637146,
+  "steps": 10,
+  "guidance_scale": 1.0,
+  "seed": 1234
+}
