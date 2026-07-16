@@ -46,10 +46,16 @@ def main() -> None:
         default=Path("/home/interns/Desktop/face4/models/arcface/iresnet100.pth"),
     )
     parser.add_argument("--device", default="cuda")
+    parser.add_argument(
+        "--save-root",
+        type=Path,
+        default=Path("parth_save"),
+        help="Folder to scan, relative to --root unless absolute.",
+    )
     args = parser.parse_args()
 
     root = args.root.resolve()
-    save_root = root / "parth_save"
+    save_root = args.save_root if args.save_root.is_absolute() else root / args.save_root
     device = torch.device(args.device)
     model = FaceRecognitionModel(
         model_name="arcface",
