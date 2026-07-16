@@ -224,7 +224,8 @@ def main() -> None:
                             write_csv(csv_path, rows)
                             print(
                                 f"[{len(rows)}] {setting_name} {face_id} seed={seed} "
-                                f"{prompt!r} {candidate['perturbation_type']}_100 "
+                                f"{prompt!r} {candidate['perturbation_type']}_"
+                                f"{candidate['iterations']} "
                                 f"input={float(candidate['input_ssim']):.3f} "
                                 f"output={output_metrics['ssim']:.3f}"
                             )

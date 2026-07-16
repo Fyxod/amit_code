@@ -26,5 +26,26 @@
     "perturbation_type": "bspline",
     "iterations": 100,
     "source_commit": "41802eb"
+  },
+  {
+    "face_id": "image_5",
+    "path": "targeted_experiments/new_face_round2_perturbations/image_5/bspline_30/vae_latent_out.png",
+    "perturbation_type": "bspline",
+    "iterations": 30,
+    "source_commit": "188938d76aceaa06faffbc1767eb9dc9ff0c2be4"
+  },
+  {
+    "face_id": "image_5",
+    "path": "targeted_experiments/new_face_round2_perturbations/image_5/polar_30/vae_latent_out.png",
+    "perturbation_type": "polar",
+    "iterations": 30,
+    "source_commit": "188938d76aceaa06faffbc1767eb9dc9ff0c2be4"
+  },
+  {
+    "face_id": "image_5",
+    "path": "targeted_experiments/new_face_round2_perturbations/image_5/lens_30/vae_latent_out.png",
+    "perturbation_type": "lens",
+    "iterations": 30,
+    "source_commit": "188938d76aceaa06faffbc1767eb9dc9ff0c2be4"
   }
 ]
