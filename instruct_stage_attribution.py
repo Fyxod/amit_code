@@ -482,9 +482,23 @@ def add_arcface_audit(
     )
     original = pil_to_tensor(Image.open(original_path).convert("RGB"), device)
     clean_edit = pil_to_tensor(Image.open(root / "clean_edit.png").convert("RGB"), device)
+    tensor_cache: dict[str, torch.Tensor] = {
+        str(original_path): original,
+        str(root / "clean_edit.png"): clean_edit,
+    }
+
+    def tensor_for(path_value: str) -> torch.Tensor:
+        if path_value not in tensor_cache:
+            tensor_cache[path_value] = pil_to_tensor(
+                Image.open(path_value).convert("RGB"), device,
+            )
+        return tensor_cache[path_value]
+
     for row in rows:
         stage = pil_to_tensor(Image.open(row["stage_path"]).convert("RGB"), device)
         edit = pil_to_tensor(Image.open(row["edit_path"]).convert("RGB"), device)
+        tensor_cache[row["stage_path"]] = stage
+        tensor_cache[row["edit_path"]] = edit
         row["arcface_original_vs_stage"] = arcface_similarity(model, original, stage)
         row["arcface_clean_edit_vs_stage_edit"] = arcface_similarity(model, clean_edit, edit)
         row["arcface_original_vs_clean_edit"] = arcface_similarity(model, original, clean_edit)
@@ -493,6 +507,60 @@ def add_arcface_audit(
         writer = csv.DictWriter(handle, fieldnames=list(rows[0]))
         writer.writeheader()
         writer.writerows(rows)
+
+    # Incremental comparisons isolate the effect added at each stage.  For
+    # example, delta-edit vs combined-edit measures what learned geometry adds
+    # after the same learned latent delta rather than comparing both to the
+    # clean editor output.
+    pair_definitions = (
+        ("reconstruction_effect", "clean_edit", "vae_reconstruction"),
+        ("delta_increment_after_reconstruction", "vae_reconstruction", "learned_delta_only"),
+        ("geometry_on_original_effect", "clean_edit", "learned_geometry_on_original"),
+        ("geometry_on_reconstruction_effect", "vae_reconstruction", "learned_geometry_on_reconstruction"),
+        ("geometry_increment_after_delta", "learned_delta_only", "learned_combined"),
+        ("order_effect", "learned_combined", "geometry_then_vae_reconstruction"),
+    )
+    incremental_rows: list[dict[str, Any]] = []
+    modes = sorted({row["mode"] for row in rows if row["mode"] != "baseline"})
+    clean_edit_path = str(root / "clean_edit.png")
+    for mode in modes:
+        stage_rows = {row["stage"]: row for row in rows if row["mode"] == mode}
+        for comparison, left_name, right_name in pair_definitions:
+            if left_name == "clean_edit":
+                left_path = clean_edit_path
+            else:
+                left_row = stage_rows.get(left_name)
+                left_path = left_row["edit_path"] if left_row else None
+            right_row = stage_rows.get(right_name)
+            right_path = right_row["edit_path"] if right_row else None
+            if not left_path or not right_path:
+                continue
+            visual = pair_metrics_pil(
+                Image.open(left_path).convert("RGB"),
+                Image.open(right_path).convert("RGB"),
+            )
+            incremental_rows.append({
+                "mode": mode,
+                "comparison": comparison,
+                "left_stage": left_name,
+                "right_stage": right_name,
+                "left_edit_path": left_path,
+                "right_edit_path": right_path,
+                "edit_ssim": visual["ssim"],
+                "edit_psnr": visual["psnr"],
+                "edit_mse": visual["mse"],
+                "edit_l2": visual["l2"],
+                "arcface_edit_cosine_similarity": arcface_similarity(
+                    model, tensor_for(left_path), tensor_for(right_path),
+                ),
+            })
+    if incremental_rows:
+        with (root / "incremental_attribution_metrics.csv").open(
+            "w", newline="", encoding="utf-8"
+        ) as handle:
+            writer = csv.DictWriter(handle, fieldnames=list(incremental_rows[0]))
+            writer.writeheader()
+            writer.writerows(incremental_rows)
     unload_cuda(model)
 
 
