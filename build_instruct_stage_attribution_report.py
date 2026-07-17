@@ -29,6 +29,7 @@ from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import mm
 from reportlab.platypus import (
     Image,
+    KeepTogether,
     PageBreak,
     Paragraph,
     SimpleDocTemplate,
@@ -312,8 +313,16 @@ def build_report(results_root: Path, output_root: Path) -> Path:
     story += [Paragraph("3. Aggregate stage attribution", h1)]
     for finding in aggregate_findings(runs):
         story.append(Paragraph(f"- {finding}", body))
+    graph_captions = {
+        "incremental_stage_effects.png": "Mean incremental change by pipeline stage",
+        "per_run_incremental_output_change.png": "Per-run incremental edited-output change",
+    }
     for path in graph_paths[:2]:
-        story += [Spacer(1, 3 * mm), scaled_image(path, 250 * mm, 79 * mm)]
+        story.append(KeepTogether([
+            Spacer(1, 3 * mm),
+            Paragraph(graph_captions.get(path.name, path.stem.replace("_", " ").title()), h2),
+            scaled_image(path, 250 * mm, 79 * mm),
+        ]))
     story.append(PageBreak())
 
     for index, run in enumerate(runs, start=1):
@@ -337,9 +346,11 @@ def build_report(results_root: Path, output_root: Path) -> Path:
         for strip_index in range(0, len(strips), 2):
             story.append(Paragraph(f"{run['id']} - saved stage comparisons", h2))
             for strip in strips[strip_index:strip_index + 2]:
-                story.append(Paragraph(strip.stem.replace("_comparison", "").replace("_", " "), small))
-                story.append(scaled_image(strip, 250 * mm, 75 * mm))
-                story.append(Spacer(1, 2 * mm))
+                story.append(KeepTogether([
+                    Paragraph(strip.stem.replace("_comparison", "").replace("_", " "), small),
+                    scaled_image(strip, 250 * mm, 75 * mm),
+                    Spacer(1, 2 * mm),
+                ]))
             story.append(PageBreak())
 
     story += [Paragraph("5. Factual limitations and artifact provenance", h1), Paragraph("The report distinguishes independent optimization modes from post-hoc replay controls. A replay shows the effect of a component state learned jointly; it does not claim that the same component would be learned by an independent optimizer. ArcFace is an identity diagnostic, while SSIM/PSNR/L2 quantify image similarity and do not alone establish semantic edit success or failure. All model conclusions should be read together with the saved image strips.", body), Paragraph(f"Source root: {results_root}", small), Paragraph(f"Incomplete folders excluded: {len(incomplete)}", small)]
