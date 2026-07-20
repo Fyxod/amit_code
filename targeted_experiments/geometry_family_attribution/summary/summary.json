@@ -1,0 +1,18 @@
+{
+  "case_roots": [
+    "targeted_experiments\\geometry_family_attribution\\image2_black_jacket",
+    "targeted_experiments\\geometry_family_attribution\\image4_red_scarf",
+    "targeted_experiments\\geometry_family_attribution\\image4_seed_replays"
+  ],
+  "stage_rows": 104,
+  "incremental_rows": 336,
+  "seed_direct_rows": 99,
+  "seed_aggregate_rows": 33,
+  "outputs": [
+    "stage_metrics.csv",
+    "incremental_metrics.csv",
+    "seed_direct_effects.csv",
+    "seed_direct_effects_aggregate.csv",
+    "geometry_family_findings.md"
+  ]
+}
