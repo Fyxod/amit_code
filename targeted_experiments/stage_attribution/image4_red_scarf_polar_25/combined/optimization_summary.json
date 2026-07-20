@@ -1,0 +1,16 @@
+{
+  "mode": "combined",
+  "best_iter": 24,
+  "best_loss": -13.278166770935059,
+  "iterations": 25,
+  "mean_seconds_iter": 0.6046388375014067,
+  "peak_vram_gb": 6.428441524505615,
+  "replay_images": {
+    "vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image4_red_scarf_polar_25/combined/vae_reconstruction.png",
+    "learned_delta_only": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image4_red_scarf_polar_25/combined/learned_delta_only.png",
+    "learned_geometry_on_original": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image4_red_scarf_polar_25/combined/learned_geometry_on_original.png",
+    "learned_geometry_on_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image4_red_scarf_polar_25/combined/learned_geometry_on_reconstruction.png",
+    "learned_combined": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image4_red_scarf_polar_25/combined/learned_combined.png",
+    "geometry_then_vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image4_red_scarf_polar_25/combined/geometry_then_vae_reconstruction.png"
+  }
+}
