@@ -1,0 +1,23 @@
+{
+  "case_root": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image4_red_scarf_polar_25_corrected",
+  "output_root": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/seed_replay_image4_red_scarf",
+  "prompt": "Add a red scarf",
+  "seeds": [
+    1234,
+    24001,
+    34007
+  ],
+  "steps": 20,
+  "guidance_scale": 7.5,
+  "image_guidance_scale": 1.5,
+  "original_path": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image4_red_scarf_polar_25_corrected/original.png",
+  "stages": {
+    "original": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image4_red_scarf_polar_25_corrected/original.png",
+    "vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image4_red_scarf_polar_25_corrected/vae_reconstruction.png",
+    "neutral_geometry_on_original": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image4_red_scarf_polar_25_corrected/neutral_geometry_on_original.png",
+    "delta_only": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image4_red_scarf_polar_25_corrected/delta_only/learned_delta_only.png",
+    "geometry_only_original": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image4_red_scarf_polar_25_corrected/geometry_only_original/learned_geometry_on_original.png",
+    "geometry_only_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image4_red_scarf_polar_25_corrected/geometry_only_reconstruction/learned_geometry_on_reconstruction.png",
+    "combined": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image4_red_scarf_polar_25_corrected/combined/learned_combined.png"
+  }
+}
