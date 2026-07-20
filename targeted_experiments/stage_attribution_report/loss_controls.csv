@@ -1,0 +1,4 @@
+label,identity_weight,ssim_weight,pixel_weight,final_loss,input_ssim,input_arcface,output_ssim,output_arcface,root
+Default,10.0,5.0,0.1,-14.344770431518555,0.7883581519126892,-0.5366888046264648,0.4262305796146393,0.3331906199455261,C:\Users\parth\Desktop\experiment\amit_code\targeted_experiments\stage_attribution\image2_black_jacket_lens_30
+Identity term disabled,0.0,5.0,0.1,0.5347528457641602,0.8883739113807678,0.9425410032272339,0.890986979007721,0.954468846321106,C:\Users\parth\Desktop\experiment\amit_code\targeted_experiments\stage_attribution\loss_controls_image2_jacket\no_identity
+Larger identity and preservation weights,10.0,20.0,1.0,-10.92563533782959,0.8212271332740784,-0.4384152293205261,0.4198119640350342,0.30402815341949463,C:\Users\parth\Desktop\experiment\amit_code\targeted_experiments\stage_attribution\loss_controls_image2_jacket\strong_preservation

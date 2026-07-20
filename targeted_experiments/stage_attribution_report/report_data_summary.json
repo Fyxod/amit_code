@@ -1,0 +1,54 @@
+{
+  "primary_valid_runs": [
+    "image1_blue_mask_tps_20_corrected_v2",
+    "image2_black_jacket_lens_30",
+    "image4_red_scarf_polar_25_corrected"
+  ],
+  "excluded_runs": [
+    {
+      "id": "pilot3_image1_blue_mask_bspline_10",
+      "reason": "Excluded: clean edit used a 256x256 source while ablation stages used a 512x512 normalized source."
+    },
+    {
+      "id": "image1_blue_mask_tps_20_corrected",
+      "reason": "Excluded: superseded by corrected_v2 after the same clean-baseline resolution mismatch was fixed."
+    },
+    {
+      "id": "image4_red_scarf_polar_25",
+      "reason": "Excluded: zero-state polar warp was not an identity transform; replaced by the corrected polar run."
+    }
+  ],
+  "iteration_depths": [
+    1,
+    5,
+    10,
+    20,
+    30
+  ],
+  "loss_controls": [
+    "Default",
+    "Identity term disabled",
+    "Larger identity and preservation weights"
+  ],
+  "seed_replays": {
+    "Image 2 - black jacket": [
+      1234,
+      24001,
+      34007
+    ],
+    "Image 4 - red scarf": [
+      1234,
+      24001,
+      34007
+    ]
+  },
+  "graphs": [
+    "C:\\Users\\parth\\Desktop\\experiment\\amit_code\\targeted_experiments\\stage_attribution_report\\assets\\incremental_stage_attribution.png",
+    "C:\\Users\\parth\\Desktop\\experiment\\amit_code\\targeted_experiments\\stage_attribution_report\\assets\\iteration_sweep.png",
+    "C:\\Users\\parth\\Desktop\\experiment\\amit_code\\targeted_experiments\\stage_attribution_report\\assets\\loss_controls.png",
+    "C:\\Users\\parth\\Desktop\\experiment\\amit_code\\targeted_experiments\\stage_attribution_report\\assets\\seed_replay_image_2__black_jacket.png",
+    "C:\\Users\\parth\\Desktop\\experiment\\amit_code\\targeted_experiments\\stage_attribution_report\\assets\\seed_replay_image_4__red_scarf.png"
+  ],
+  "pdf": "C:\\Users\\parth\\Desktop\\experiment\\amit_code\\targeted_experiments\\stage_attribution_report\\instruct_pipeline_stage_attribution_report.pdf",
+  "conclusion": "Latent delta-z is the dominant optimized source; learned geometry alone is not the main cause in the corrected runs."
+}
