@@ -1,8 +1,7 @@
 {
   "case_roots": [
     "targeted_experiments\\geometry_family_attribution\\image2_black_jacket",
-    "targeted_experiments\\geometry_family_attribution\\image4_red_scarf",
-    "targeted_experiments\\geometry_family_attribution\\image4_seed_replays"
+    "targeted_experiments\\geometry_family_attribution\\image4_red_scarf"
   ],
   "stage_rows": 104,
   "incremental_rows": 336,
