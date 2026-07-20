@@ -1,0 +1,390 @@
+/home/interns/.local/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py:205: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+/home/interns/Desktop/parth_cleanup/face4/face4/models/arcface.py:75: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  payload = torch.load(self.checkpoint_path, map_location="cpu")
+/home/interns/Desktop/parth_cleanup/face4/face4/models/iresnet.py:98: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=self.fp16):
+Loading InstructPix2Pix VAE from 'timbrooks/instruct-pix2pix' ...
+  ✓ InstructPix2Pix VAE loaded.
+Loading FACE4 ArcFace from /home/interns/Desktop/parth_cleanup/face4 with checkpoint /home/interns/Desktop/parth_cleanup/face4/models/arcface/iresnet100.pth
+[geometry_only_original] 001/100 loss=-0.00000 id_sim=1.00000 ssim=1.00000 0.36s
+[geometry_only_original] 002/100 loss=-0.00009 id_sim=0.99998 ssim=0.99997 0.21s
+[geometry_only_original] 003/100 loss=-0.00080 id_sim=0.99991 ssim=0.99997 0.19s
+[geometry_only_original] 004/100 loss=-0.00219 id_sim=0.99975 ssim=0.99993 0.23s
+[geometry_only_original] 005/100 loss=-0.00442 id_sim=0.99950 ssim=0.99987 0.18s
+[geometry_only_original] 006/100 loss=-0.00784 id_sim=0.99911 ssim=0.99979 0.17s
+[geometry_only_original] 007/100 loss=-0.01254 id_sim=0.99859 ssim=0.99968 0.20s
+[geometry_only_original] 008/100 loss=-0.01831 id_sim=0.99795 ssim=0.99955 0.21s
+[geometry_only_original] 009/100 loss=-0.02608 id_sim=0.99709 ssim=0.99939 0.21s
+[geometry_only_original] 010/100 loss=-0.03447 id_sim=0.99616 ssim=0.99919 0.17s
+[geometry_only_original] 011/100 loss=-0.04544 id_sim=0.99494 ssim=0.99895 0.18s
+[geometry_only_original] 012/100 loss=-0.05588 id_sim=0.99377 ssim=0.99868 0.19s
+[geometry_only_original] 013/100 loss=-0.06820 id_sim=0.99238 ssim=0.99838 0.19s
+[geometry_only_original] 014/100 loss=-0.08018 id_sim=0.99102 ssim=0.99803 0.19s
+[geometry_only_original] 015/100 loss=-0.09359 id_sim=0.98949 ssim=0.99765 0.20s
+[geometry_only_original] 016/100 loss=-0.10865 id_sim=0.98778 ssim=0.99724 0.21s
+[geometry_only_original] 017/100 loss=-0.12431 id_sim=0.98599 ssim=0.99680 0.19s
+[geometry_only_original] 018/100 loss=-0.14056 id_sim=0.98413 ssim=0.99632 0.19s
+[geometry_only_original] 019/100 loss=-0.15759 id_sim=0.98217 ssim=0.99580 0.20s
+[geometry_only_original] 020/100 loss=-0.17401 id_sim=0.98026 ssim=0.99526 0.19s
+[geometry_only_original] 021/100 loss=-0.19081 id_sim=0.97830 ssim=0.99469 0.19s
+[geometry_only_original] 022/100 loss=-0.20618 id_sim=0.97647 ssim=0.99410 0.19s
+[geometry_only_original] 023/100 loss=-0.22485 id_sim=0.97431 ssim=0.99350 0.19s
+[geometry_only_original] 024/100 loss=-0.24326 id_sim=0.97217 ssim=0.99290 0.20s
+[geometry_only_original] 025/100 loss=-0.26271 id_sim=0.96992 ssim=0.99228 0.18s
+[geometry_only_original] 026/100 loss=-0.28177 id_sim=0.96771 ssim=0.99167 0.21s
+[geometry_only_original] 027/100 loss=-0.30182 id_sim=0.96540 ssim=0.99105 0.19s
+[geometry_only_original] 028/100 loss=-0.32164 id_sim=0.96310 ssim=0.99041 0.22s
+[geometry_only_original] 029/100 loss=-0.34150 id_sim=0.96080 ssim=0.98977 0.19s
+[geometry_only_original] 030/100 loss=-0.36130 id_sim=0.95850 ssim=0.98912 0.19s
+[geometry_only_original] 031/100 loss=-0.37932 id_sim=0.95636 ssim=0.98845 0.21s
+[geometry_only_original] 032/100 loss=-0.39652 id_sim=0.95430 ssim=0.98776 0.19s
+[geometry_only_original] 033/100 loss=-0.41512 id_sim=0.95210 ssim=0.98707 0.21s
+[geometry_only_original] 034/100 loss=-0.43313 id_sim=0.94994 ssim=0.98635 0.20s
+[geometry_only_original] 035/100 loss=-0.45015 id_sim=0.94788 ssim=0.98563 0.21s
+[geometry_only_original] 036/100 loss=-0.46814 id_sim=0.94572 ssim=0.98488 0.19s
+[geometry_only_original] 037/100 loss=-0.48633 id_sim=0.94352 ssim=0.98411 0.20s
+[geometry_only_original] 038/100 loss=-0.50525 id_sim=0.94123 ssim=0.98331 0.15s
+[geometry_only_original] 039/100 loss=-0.52254 id_sim=0.93911 ssim=0.98251 0.19s
+[geometry_only_original] 040/100 loss=-0.53933 id_sim=0.93703 ssim=0.98169 0.21s
+[geometry_only_original] 041/100 loss=-0.55820 id_sim=0.93473 ssim=0.98085 0.21s
+[geometry_only_original] 042/100 loss=-0.57309 id_sim=0.93282 ssim=0.98000 0.19s
+[geometry_only_original] 043/100 loss=-0.58964 id_sim=0.93074 ssim=0.97915 0.22s
+[geometry_only_original] 044/100 loss=-0.60683 id_sim=0.92859 ssim=0.97827 0.18s
+[geometry_only_original] 045/100 loss=-0.62428 id_sim=0.92641 ssim=0.97739 0.18s
+[geometry_only_original] 046/100 loss=-0.64039 id_sim=0.92437 ssim=0.97651 0.18s
+[geometry_only_original] 047/100 loss=-0.65948 id_sim=0.92202 ssim=0.97562 0.18s
+[geometry_only_original] 048/100 loss=-0.67612 id_sim=0.91993 ssim=0.97475 0.18s
+[geometry_only_original] 049/100 loss=-0.69364 id_sim=0.91775 ssim=0.97388 0.18s
+[geometry_only_original] 050/100 loss=-0.71348 id_sim=0.91534 ssim=0.97301 0.17s
+[geometry_only_original] 051/100 loss=-0.72946 id_sim=0.91332 ssim=0.97216 0.18s
+[geometry_only_original] 052/100 loss=-0.74695 id_sim=0.91116 ssim=0.97133 0.18s
+[geometry_only_original] 053/100 loss=-0.76265 id_sim=0.90918 ssim=0.97050 0.21s
+[geometry_only_original] 054/100 loss=-0.77927 id_sim=0.90713 ssim=0.96970 0.20s
+[geometry_only_original] 055/100 loss=-0.79274 id_sim=0.90539 ssim=0.96890 0.19s
+[geometry_only_original] 056/100 loss=-0.81028 id_sim=0.90325 ssim=0.96812 0.19s
+[geometry_only_original] 057/100 loss=-0.82519 id_sim=0.90138 ssim=0.96736 0.19s
+[geometry_only_original] 058/100 loss=-0.83935 id_sim=0.89960 ssim=0.96661 0.19s
+[geometry_only_original] 059/100 loss=-0.85537 id_sim=0.89763 ssim=0.96588 0.20s
+[geometry_only_original] 060/100 loss=-0.87183 id_sim=0.89562 ssim=0.96514 0.20s
+[geometry_only_original] 061/100 loss=-0.88399 id_sim=0.89403 ssim=0.96439 0.20s
+[geometry_only_original] 062/100 loss=-0.89858 id_sim=0.89221 ssim=0.96366 0.19s
+[geometry_only_original] 063/100 loss=-0.91329 id_sim=0.89037 ssim=0.96292 0.19s
+[geometry_only_original] 064/100 loss=-0.92506 id_sim=0.88883 ssim=0.96218 0.18s
+[geometry_only_original] 065/100 loss=-0.93992 id_sim=0.88697 ssim=0.96143 0.17s
+[geometry_only_original] 066/100 loss=-0.95612 id_sim=0.88497 ssim=0.96066 0.17s
+[geometry_only_original] 067/100 loss=-0.97129 id_sim=0.88306 ssim=0.95988 0.22s
+[geometry_only_original] 068/100 loss=-0.98456 id_sim=0.88135 ssim=0.95909 0.20s
+[geometry_only_original] 069/100 loss=-0.99854 id_sim=0.87955 ssim=0.95828 0.22s
+[geometry_only_original] 070/100 loss=-1.01293 id_sim=0.87770 ssim=0.95747 0.21s
+[geometry_only_original] 071/100 loss=-1.02227 id_sim=0.87637 ssim=0.95666 0.19s
+[geometry_only_original] 072/100 loss=-1.03480 id_sim=0.87473 ssim=0.95588 0.18s
+[geometry_only_original] 073/100 loss=-1.04443 id_sim=0.87340 ssim=0.95514 0.20s
+[geometry_only_original] 074/100 loss=-1.05636 id_sim=0.87187 ssim=0.95445 0.21s
+[geometry_only_original] 075/100 loss=-1.06629 id_sim=0.87057 ssim=0.95381 0.20s
+[geometry_only_original] 076/100 loss=-1.07650 id_sim=0.86925 ssim=0.95319 0.18s
+[geometry_only_original] 077/100 loss=-1.08766 id_sim=0.86784 ssim=0.95259 0.19s
+[geometry_only_original] 078/100 loss=-1.09807 id_sim=0.86651 ssim=0.95200 0.20s
+[geometry_only_original] 079/100 loss=-1.10896 id_sim=0.86513 ssim=0.95141 0.20s
+[geometry_only_original] 080/100 loss=-1.11995 id_sim=0.86375 ssim=0.95082 0.20s
+[geometry_only_original] 081/100 loss=-1.12965 id_sim=0.86250 ssim=0.95024 0.17s
+[geometry_only_original] 082/100 loss=-1.13743 id_sim=0.86146 ssim=0.94970 0.20s
+[geometry_only_original] 083/100 loss=-1.14812 id_sim=0.86015 ssim=0.94919 0.17s
+[geometry_only_original] 084/100 loss=-1.15820 id_sim=0.85891 ssim=0.94872 0.20s
+[geometry_only_original] 085/100 loss=-1.16795 id_sim=0.85772 ssim=0.94827 0.18s
+[geometry_only_original] 086/100 loss=-1.17870 id_sim=0.85643 ssim=0.94783 0.19s
+[geometry_only_original] 087/100 loss=-1.18518 id_sim=0.85558 ssim=0.94740 0.19s
+[geometry_only_original] 088/100 loss=-1.19306 id_sim=0.85459 ssim=0.94697 0.20s
+[geometry_only_original] 089/100 loss=-1.20138 id_sim=0.85355 ssim=0.94654 0.20s
+[geometry_only_original] 090/100 loss=-1.21031 id_sim=0.85244 ssim=0.94610 0.22s
+[geometry_only_original] 091/100 loss=-1.21790 id_sim=0.85148 ssim=0.94567 0.20s
+[geometry_only_original] 092/100 loss=-1.22496 id_sim=0.85058 ssim=0.94527 0.20s
+[geometry_only_original] 093/100 loss=-1.23199 id_sim=0.84970 ssim=0.94490 0.21s
+[geometry_only_original] 094/100 loss=-1.23766 id_sim=0.84897 ssim=0.94457 0.20s
+[geometry_only_original] 095/100 loss=-1.24437 id_sim=0.84816 ssim=0.94428 0.19s
+[geometry_only_original] 096/100 loss=-1.24803 id_sim=0.84768 ssim=0.94403 0.18s
+[geometry_only_original] 097/100 loss=-1.25485 id_sim=0.84689 ssim=0.94381 0.20s
+[geometry_only_original] 098/100 loss=-1.25937 id_sim=0.84635 ssim=0.94362 0.19s
+[geometry_only_original] 099/100 loss=-1.26411 id_sim=0.84580 ssim=0.94346 0.19s
+[geometry_only_original] 100/100 loss=-1.26963 id_sim=0.84518 ssim=0.94331 0.18s
+[geometry_only_reconstruction] 001/100 loss=0.18638 id_sim=0.94208 ssim=0.84190 0.21s
+[geometry_only_reconstruction] 002/100 loss=0.18037 id_sim=0.94146 ssim=0.84263 0.21s
+[geometry_only_reconstruction] 003/100 loss=0.16666 id_sim=0.94006 ssim=0.84313 0.24s
+[geometry_only_reconstruction] 004/100 loss=0.15258 id_sim=0.93861 ssim=0.84364 0.23s
+[geometry_only_reconstruction] 005/100 loss=0.14022 id_sim=0.93732 ssim=0.84414 0.20s
+[geometry_only_reconstruction] 006/100 loss=0.12874 id_sim=0.93610 ssim=0.84459 0.21s
+[geometry_only_reconstruction] 007/100 loss=0.11615 id_sim=0.93476 ssim=0.84498 0.21s
+[geometry_only_reconstruction] 008/100 loss=0.10425 id_sim=0.93348 ssim=0.84531 0.17s
+[geometry_only_reconstruction] 009/100 loss=0.09154 id_sim=0.93212 ssim=0.84559 0.17s
+[geometry_only_reconstruction] 010/100 loss=0.07889 id_sim=0.93076 ssim=0.84583 0.17s
+[geometry_only_reconstruction] 011/100 loss=0.06813 id_sim=0.92959 ssim=0.84603 0.17s
+[geometry_only_reconstruction] 012/100 loss=0.05585 id_sim=0.92826 ssim=0.84622 0.19s
+[geometry_only_reconstruction] 013/100 loss=0.04325 id_sim=0.92689 ssim=0.84640 0.18s
+[geometry_only_reconstruction] 014/100 loss=0.03150 id_sim=0.92560 ssim=0.84657 0.20s
+[geometry_only_reconstruction] 015/100 loss=0.02176 id_sim=0.92449 ssim=0.84674 0.17s
+[geometry_only_reconstruction] 016/100 loss=0.01071 id_sim=0.92326 ssim=0.84691 0.18s
+[geometry_only_reconstruction] 017/100 loss=0.00021 id_sim=0.92207 ssim=0.84708 0.18s
+[geometry_only_reconstruction] 018/100 loss=-0.01109 id_sim=0.92079 ssim=0.84724 0.19s
+[geometry_only_reconstruction] 019/100 loss=-0.02045 id_sim=0.91971 ssim=0.84740 0.20s
+[geometry_only_reconstruction] 020/100 loss=-0.03029 id_sim=0.91857 ssim=0.84755 0.20s
+[geometry_only_reconstruction] 021/100 loss=-0.03876 id_sim=0.91757 ssim=0.84769 0.20s
+[geometry_only_reconstruction] 022/100 loss=-0.04933 id_sim=0.91637 ssim=0.84782 0.19s
+[geometry_only_reconstruction] 023/100 loss=-0.05842 id_sim=0.91531 ssim=0.84794 0.22s
+[geometry_only_reconstruction] 024/100 loss=-0.06837 id_sim=0.91416 ssim=0.84805 0.17s
+[geometry_only_reconstruction] 025/100 loss=-0.07681 id_sim=0.91318 ssim=0.84814 0.16s
+[geometry_only_reconstruction] 026/100 loss=-0.08568 id_sim=0.91216 ssim=0.84823 0.18s
+[geometry_only_reconstruction] 027/100 loss=-0.09267 id_sim=0.91133 ssim=0.84830 0.19s
+[geometry_only_reconstruction] 028/100 loss=-0.10203 id_sim=0.91027 ssim=0.84836 0.19s
+[geometry_only_reconstruction] 029/100 loss=-0.10862 id_sim=0.90948 ssim=0.84842 0.19s
+[geometry_only_reconstruction] 030/100 loss=-0.11526 id_sim=0.90870 ssim=0.84846 0.21s
+[geometry_only_reconstruction] 031/100 loss=-0.12215 id_sim=0.90790 ssim=0.84849 0.20s
+[geometry_only_reconstruction] 032/100 loss=-0.12745 id_sim=0.90726 ssim=0.84852 0.20s
+[geometry_only_reconstruction] 033/100 loss=-0.13269 id_sim=0.90663 ssim=0.84853 0.20s
+[geometry_only_reconstruction] 034/100 loss=-0.13787 id_sim=0.90601 ssim=0.84854 0.20s
+[geometry_only_reconstruction] 035/100 loss=-0.14355 id_sim=0.90534 ssim=0.84855 0.20s
+[geometry_only_reconstruction] 036/100 loss=-0.14913 id_sim=0.90469 ssim=0.84856 0.15s
+[geometry_only_reconstruction] 037/100 loss=-0.15387 id_sim=0.90411 ssim=0.84856 0.19s
+[geometry_only_reconstruction] 038/100 loss=-0.15851 id_sim=0.90354 ssim=0.84856 0.21s
+[geometry_only_reconstruction] 039/100 loss=-0.16455 id_sim=0.90283 ssim=0.84857 0.17s
+[geometry_only_reconstruction] 040/100 loss=-0.16878 id_sim=0.90230 ssim=0.84858 0.18s
+[geometry_only_reconstruction] 041/100 loss=-0.17439 id_sim=0.90162 ssim=0.84859 0.18s
+[geometry_only_reconstruction] 042/100 loss=-0.17953 id_sim=0.90099 ssim=0.84860 0.17s
+[geometry_only_reconstruction] 043/100 loss=-0.18435 id_sim=0.90039 ssim=0.84861 0.20s
+[geometry_only_reconstruction] 044/100 loss=-0.18887 id_sim=0.89982 ssim=0.84860 0.20s
+[geometry_only_reconstruction] 045/100 loss=-0.19419 id_sim=0.89917 ssim=0.84860 0.18s
+[geometry_only_reconstruction] 046/100 loss=-0.19948 id_sim=0.89852 ssim=0.84859 0.20s
+[geometry_only_reconstruction] 047/100 loss=-0.20372 id_sim=0.89799 ssim=0.84857 0.18s
+[geometry_only_reconstruction] 048/100 loss=-0.20998 id_sim=0.89726 ssim=0.84856 0.17s
+[geometry_only_reconstruction] 049/100 loss=-0.21502 id_sim=0.89665 ssim=0.84854 0.17s
+[geometry_only_reconstruction] 050/100 loss=-0.22041 id_sim=0.89600 ssim=0.84853 0.17s
+[geometry_only_reconstruction] 051/100 loss=-0.22550 id_sim=0.89538 ssim=0.84853 0.17s
+[geometry_only_reconstruction] 052/100 loss=-0.22916 id_sim=0.89492 ssim=0.84853 0.19s
+[geometry_only_reconstruction] 053/100 loss=-0.23244 id_sim=0.89450 ssim=0.84853 0.19s
+[geometry_only_reconstruction] 054/100 loss=-0.23785 id_sim=0.89387 ssim=0.84853 0.19s
+[geometry_only_reconstruction] 055/100 loss=-0.24126 id_sim=0.89346 ssim=0.84853 0.19s
+[geometry_only_reconstruction] 056/100 loss=-0.24583 id_sim=0.89293 ssim=0.84853 0.18s
+[geometry_only_reconstruction] 057/100 loss=-0.24966 id_sim=0.89248 ssim=0.84853 0.19s
+[geometry_only_reconstruction] 058/100 loss=-0.25405 id_sim=0.89199 ssim=0.84854 0.18s
+[geometry_only_reconstruction] 059/100 loss=-0.25670 id_sim=0.89166 ssim=0.84854 0.22s
+[geometry_only_reconstruction] 060/100 loss=-0.26138 id_sim=0.89115 ssim=0.84853 0.17s
+[geometry_only_reconstruction] 061/100 loss=-0.26544 id_sim=0.89069 ssim=0.84853 0.18s
+[geometry_only_reconstruction] 062/100 loss=-0.26861 id_sim=0.89033 ssim=0.84853 0.18s
+[geometry_only_reconstruction] 063/100 loss=-0.27105 id_sim=0.89004 ssim=0.84852 0.19s
+[geometry_only_reconstruction] 064/100 loss=-0.27531 id_sim=0.88957 ssim=0.84852 0.20s
+[geometry_only_reconstruction] 065/100 loss=-0.27778 id_sim=0.88927 ssim=0.84852 0.20s
+[geometry_only_reconstruction] 066/100 loss=-0.28072 id_sim=0.88893 ssim=0.84853 0.18s
+[geometry_only_reconstruction] 067/100 loss=-0.28410 id_sim=0.88854 ssim=0.84854 0.17s
+[geometry_only_reconstruction] 068/100 loss=-0.28679 id_sim=0.88821 ssim=0.84855 0.17s
+[geometry_only_reconstruction] 069/100 loss=-0.29031 id_sim=0.88780 ssim=0.84856 0.18s
+[geometry_only_reconstruction] 070/100 loss=-0.29276 id_sim=0.88749 ssim=0.84858 0.17s
+[geometry_only_reconstruction] 071/100 loss=-0.29533 id_sim=0.88718 ssim=0.84859 0.18s
+[geometry_only_reconstruction] 072/100 loss=-0.29751 id_sim=0.88691 ssim=0.84861 0.18s
+[geometry_only_reconstruction] 073/100 loss=-0.29993 id_sim=0.88662 ssim=0.84862 0.22s
+[geometry_only_reconstruction] 074/100 loss=-0.30246 id_sim=0.88632 ssim=0.84863 0.20s
+[geometry_only_reconstruction] 075/100 loss=-0.30346 id_sim=0.88618 ssim=0.84864 0.20s
+[geometry_only_reconstruction] 076/100 loss=-0.30691 id_sim=0.88579 ssim=0.84865 0.20s
+[geometry_only_reconstruction] 077/100 loss=-0.30884 id_sim=0.88556 ssim=0.84866 0.20s
+[geometry_only_reconstruction] 078/100 loss=-0.31097 id_sim=0.88531 ssim=0.84867 0.20s
+[geometry_only_reconstruction] 079/100 loss=-0.31363 id_sim=0.88500 ssim=0.84868 0.21s
+[geometry_only_reconstruction] 080/100 loss=-0.31611 id_sim=0.88472 ssim=0.84868 0.21s
+[geometry_only_reconstruction] 081/100 loss=-0.31806 id_sim=0.88448 ssim=0.84869 0.20s
+[geometry_only_reconstruction] 082/100 loss=-0.31994 id_sim=0.88426 ssim=0.84870 0.21s
+[geometry_only_reconstruction] 083/100 loss=-0.32216 id_sim=0.88400 ssim=0.84870 0.21s
+[geometry_only_reconstruction] 084/100 loss=-0.32370 id_sim=0.88381 ssim=0.84871 0.19s
+[geometry_only_reconstruction] 085/100 loss=-0.32561 id_sim=0.88359 ssim=0.84871 0.19s
+[geometry_only_reconstruction] 086/100 loss=-0.32771 id_sim=0.88335 ssim=0.84872 0.19s
+[geometry_only_reconstruction] 087/100 loss=-0.32902 id_sim=0.88319 ssim=0.84872 0.18s
+[geometry_only_reconstruction] 088/100 loss=-0.33122 id_sim=0.88294 ssim=0.84872 0.17s
+[geometry_only_reconstruction] 089/100 loss=-0.33378 id_sim=0.88266 ssim=0.84873 0.19s
+[geometry_only_reconstruction] 090/100 loss=-0.33516 id_sim=0.88250 ssim=0.84873 0.19s
+[geometry_only_reconstruction] 091/100 loss=-0.33659 id_sim=0.88234 ssim=0.84873 0.19s
+[geometry_only_reconstruction] 092/100 loss=-0.33785 id_sim=0.88220 ssim=0.84873 0.19s
+[geometry_only_reconstruction] 093/100 loss=-0.34065 id_sim=0.88190 ssim=0.84872 0.19s
+[geometry_only_reconstruction] 094/100 loss=-0.34216 id_sim=0.88173 ssim=0.84872 0.19s
+[geometry_only_reconstruction] 095/100 loss=-0.34337 id_sim=0.88159 ssim=0.84872 0.19s
+[geometry_only_reconstruction] 096/100 loss=-0.34521 id_sim=0.88139 ssim=0.84872 0.19s
+[geometry_only_reconstruction] 097/100 loss=-0.34601 id_sim=0.88128 ssim=0.84871 0.20s
+[geometry_only_reconstruction] 098/100 loss=-0.34800 id_sim=0.88106 ssim=0.84871 0.20s
+[geometry_only_reconstruction] 099/100 loss=-0.34961 id_sim=0.88088 ssim=0.84870 0.17s
+[geometry_only_reconstruction] 100/100 loss=-0.35232 id_sim=0.88059 ssim=0.84870 0.17s
+[combined] 001/100 loss=0.18638 id_sim=0.94208 ssim=0.84190 0.24s
+[combined] 002/100 loss=-1.98275 id_sim=0.72536 ssim=0.84303 0.27s
+[combined] 003/100 loss=-3.53855 id_sim=0.56965 ssim=0.84300 0.38s
+[combined] 004/100 loss=-4.59721 id_sim=0.46350 ssim=0.84261 0.34s
+[combined] 005/100 loss=-5.69748 id_sim=0.35308 ssim=0.84196 0.34s
+[combined] 006/100 loss=-6.92131 id_sim=0.23027 ssim=0.84112 0.34s
+[combined] 007/100 loss=-7.63332 id_sim=0.15859 ssim=0.84027 0.34s
+[combined] 008/100 loss=-8.15662 id_sim=0.10576 ssim=0.83945 0.35s
+[combined] 009/100 loss=-8.61967 id_sim=0.05894 ssim=0.83864 0.37s
+[combined] 010/100 loss=-9.05360 id_sim=0.01505 ssim=0.83783 0.34s
+[combined] 011/100 loss=-9.44377 id_sim=-0.02445 ssim=0.83701 0.35s
+[combined] 012/100 loss=-9.84652 id_sim=-0.06521 ssim=0.83615 0.34s
+[combined] 013/100 loss=-10.21813 id_sim=-0.10286 ssim=0.83526 0.34s
+[combined] 014/100 loss=-10.55993 id_sim=-0.13752 ssim=0.83436 0.34s
+[combined] 015/100 loss=-10.90376 id_sim=-0.17239 ssim=0.83344 0.34s
+[combined] 016/100 loss=-11.26730 id_sim=-0.20924 ssim=0.83249 0.35s
+[combined] 017/100 loss=-11.57160 id_sim=-0.24015 ssim=0.83155 0.34s
+[combined] 018/100 loss=-11.86405 id_sim=-0.26984 ssim=0.83067 0.34s
+[combined] 019/100 loss=-12.15559 id_sim=-0.29942 ssim=0.82981 0.35s
+[combined] 020/100 loss=-12.42229 id_sim=-0.32649 ssim=0.82900 0.34s
+[combined] 021/100 loss=-12.69235 id_sim=-0.35387 ssim=0.82823 0.37s
+[combined] 022/100 loss=-12.97629 id_sim=-0.38261 ssim=0.82750 0.36s
+[combined] 023/100 loss=-13.26702 id_sim=-0.41203 ssim=0.82679 0.36s
+[combined] 024/100 loss=-13.53151 id_sim=-0.43883 ssim=0.82607 0.37s
+[combined] 025/100 loss=-13.77401 id_sim=-0.46341 ssim=0.82539 0.39s
+[combined] 026/100 loss=-13.99736 id_sim=-0.48608 ssim=0.82475 0.37s
+[combined] 027/100 loss=-14.19323 id_sim=-0.50598 ssim=0.82417 0.37s
+[combined] 028/100 loss=-14.36990 id_sim=-0.52396 ssim=0.82363 0.34s
+[combined] 029/100 loss=-14.54114 id_sim=-0.54137 ssim=0.82309 0.35s
+[combined] 030/100 loss=-14.71232 id_sim=-0.55877 ssim=0.82255 0.35s
+[combined] 031/100 loss=-14.87358 id_sim=-0.57516 ssim=0.82200 0.35s
+[combined] 032/100 loss=-15.02298 id_sim=-0.59036 ssim=0.82145 0.36s
+[combined] 033/100 loss=-15.16142 id_sim=-0.60446 ssim=0.82090 0.36s
+[combined] 034/100 loss=-15.28816 id_sim=-0.61737 ssim=0.82039 0.34s
+[combined] 035/100 loss=-15.41636 id_sim=-0.63041 ssim=0.81992 0.34s
+[combined] 036/100 loss=-15.54980 id_sim=-0.64395 ssim=0.81949 0.34s
+[combined] 037/100 loss=-15.68128 id_sim=-0.65728 ssim=0.81909 0.35s
+[combined] 038/100 loss=-15.80724 id_sim=-0.67006 ssim=0.81870 0.35s
+[combined] 039/100 loss=-15.93069 id_sim=-0.68256 ssim=0.81836 0.34s
+[combined] 040/100 loss=-16.04771 id_sim=-0.69441 ssim=0.81807 0.34s
+[combined] 041/100 loss=-16.15338 id_sim=-0.70512 ssim=0.81781 0.37s
+[combined] 042/100 loss=-16.25234 id_sim=-0.71514 ssim=0.81756 0.34s
+[combined] 043/100 loss=-16.34894 id_sim=-0.72492 ssim=0.81733 0.35s
+[combined] 044/100 loss=-16.44144 id_sim=-0.73428 ssim=0.81710 0.34s
+[combined] 045/100 loss=-16.52926 id_sim=-0.74316 ssim=0.81688 0.34s
+[combined] 046/100 loss=-16.61997 id_sim=-0.75231 ssim=0.81667 0.35s
+[combined] 047/100 loss=-16.70632 id_sim=-0.76103 ssim=0.81646 0.37s
+[combined] 048/100 loss=-16.79342 id_sim=-0.76980 ssim=0.81627 0.33s
+[combined] 049/100 loss=-16.88160 id_sim=-0.77867 ssim=0.81608 0.34s
+[combined] 050/100 loss=-16.96724 id_sim=-0.78729 ssim=0.81589 0.32s
+[combined] 051/100 loss=-17.05022 id_sim=-0.79563 ssim=0.81572 0.35s
+[combined] 052/100 loss=-17.12692 id_sim=-0.80334 ssim=0.81558 0.36s
+[combined] 053/100 loss=-17.20033 id_sim=-0.81070 ssim=0.81547 0.36s
+[combined] 054/100 loss=-17.27065 id_sim=-0.81774 ssim=0.81541 0.36s
+[combined] 055/100 loss=-17.33350 id_sim=-0.82402 ssim=0.81538 0.33s
+[combined] 056/100 loss=-17.39434 id_sim=-0.83008 ssim=0.81540 0.34s
+[combined] 057/100 loss=-17.45135 id_sim=-0.83574 ssim=0.81545 0.34s
+[combined] 058/100 loss=-17.51080 id_sim=-0.84163 ssim=0.81554 0.35s
+[combined] 059/100 loss=-17.56813 id_sim=-0.84729 ssim=0.81565 0.34s
+[combined] 060/100 loss=-17.62256 id_sim=-0.85266 ssim=0.81576 0.36s
+[combined] 061/100 loss=-17.67318 id_sim=-0.85763 ssim=0.81589 0.36s
+[combined] 062/100 loss=-17.72064 id_sim=-0.86229 ssim=0.81602 0.36s
+[combined] 063/100 loss=-17.76946 id_sim=-0.86708 ssim=0.81616 0.35s
+[combined] 064/100 loss=-17.81272 id_sim=-0.87131 ssim=0.81630 0.34s
+[combined] 065/100 loss=-17.85527 id_sim=-0.87546 ssim=0.81643 0.34s
+[combined] 066/100 loss=-17.89315 id_sim=-0.87915 ssim=0.81658 0.34s
+[combined] 067/100 loss=-17.92998 id_sim=-0.88274 ssim=0.81672 0.35s
+[combined] 068/100 loss=-17.96789 id_sim=-0.88644 ssim=0.81686 0.35s
+[combined] 069/100 loss=-18.00397 id_sim=-0.88995 ssim=0.81701 0.34s
+[combined] 070/100 loss=-18.03544 id_sim=-0.89301 ssim=0.81716 0.34s
+[combined] 071/100 loss=-18.06676 id_sim=-0.89605 ssim=0.81731 0.34s
+[combined] 072/100 loss=-18.09684 id_sim=-0.89898 ssim=0.81746 0.34s
+[combined] 073/100 loss=-18.12824 id_sim=-0.90203 ssim=0.81763 0.35s
+[combined] 074/100 loss=-18.15734 id_sim=-0.90484 ssim=0.81780 0.34s
+[combined] 075/100 loss=-18.18672 id_sim=-0.90768 ssim=0.81798 0.36s
+[combined] 076/100 loss=-18.21474 id_sim=-0.91038 ssim=0.81816 0.33s
+[combined] 077/100 loss=-18.24068 id_sim=-0.91288 ssim=0.81835 0.34s
+[combined] 078/100 loss=-18.26592 id_sim=-0.91531 ssim=0.81852 0.36s
+[combined] 079/100 loss=-18.28923 id_sim=-0.91755 ssim=0.81869 0.34s
+[combined] 080/100 loss=-18.31339 id_sim=-0.91987 ssim=0.81886 0.34s
+[combined] 081/100 loss=-18.34122 id_sim=-0.92256 ssim=0.81904 0.34s
+[combined] 082/100 loss=-18.36391 id_sim=-0.92473 ssim=0.81922 0.34s
+[combined] 083/100 loss=-18.38155 id_sim=-0.92639 ssim=0.81941 0.34s
+[combined] 084/100 loss=-18.40478 id_sim=-0.92861 ssim=0.81962 0.37s
+[combined] 085/100 loss=-18.43204 id_sim=-0.93124 ssim=0.81981 0.36s
+[combined] 086/100 loss=-18.45231 id_sim=-0.93316 ssim=0.82001 0.38s
+[combined] 087/100 loss=-18.46592 id_sim=-0.93442 ssim=0.82023 0.36s
+[combined] 088/100 loss=-18.48873 id_sim=-0.93659 ssim=0.82043 0.36s
+[combined] 089/100 loss=-18.51104 id_sim=-0.93871 ssim=0.82064 0.34s
+[combined] 090/100 loss=-18.52880 id_sim=-0.94038 ssim=0.82086 0.35s
+[combined] 091/100 loss=-18.54258 id_sim=-0.94165 ssim=0.82106 0.34s
+[combined] 092/100 loss=-18.56456 id_sim=-0.94374 ssim=0.82126 0.34s
+[combined] 093/100 loss=-18.58261 id_sim=-0.94544 ssim=0.82147 0.34s
+[combined] 094/100 loss=-18.59760 id_sim=-0.94683 ssim=0.82168 0.37s
+[combined] 095/100 loss=-18.61269 id_sim=-0.94822 ssim=0.82190 0.37s
+[combined] 096/100 loss=-18.62785 id_sim=-0.94962 ssim=0.82212 0.37s
+[combined] 097/100 loss=-18.64328 id_sim=-0.95104 ssim=0.82235 0.37s
+[combined] 098/100 loss=-18.65792 id_sim=-0.95238 ssim=0.82261 0.37s
+[combined] 099/100 loss=-18.67051 id_sim=-0.95351 ssim=0.82285 0.37s
+[combined] 100/100 loss=-18.68712 id_sim=-0.95503 ssim=0.82312 0.36s
+
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s][0;93m2026-07-20 23:45:39.115318584 [W:onnxruntime:Default, device_discovery.cc:164 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:89 ReadFileContents Failed to open file: "/sys/class/drm/card0/device/vendor"[m
+
+Loading pipeline components...:  17%|█▋        | 1/6 [00:02<00:14,  2.88s/it]
+Loading pipeline components...:  50%|█████     | 3/6 [00:03<00:02,  1.01it/s]
+Loading pipeline components...:  67%|██████▋   | 4/6 [00:03<00:01,  1.41it/s]
+
+Loading weights:   0%|          | 0/196 [00:00<?, ?it/s][A
+
+Loading weights:  92%|█████████▏| 180/196 [00:00<00:00, 1792.22it/s][A
+Loading weights: 100%|██████████| 196/196 [00:00<00:00, 1860.20it/s]
+
+Loading pipeline components...: 100%|██████████| 6/6 [00:04<00:00,  2.19it/s]
+Loading pipeline components...: 100%|██████████| 6/6 [00:04<00:00,  1.46it/s]
+Loading FACE4 ArcFace from /home/interns/Desktop/parth_cleanup/face4 with checkpoint /home/interns/Desktop/parth_cleanup/face4/models/arcface/iresnet100.pth
+{
+  "status": "complete",
+  "face_id": "image_4",
+  "prompt": "Add a red scarf",
+  "warp_type": "bspline",
+  "warp_components": [
+    "bspline"
+  ],
+  "modes": [
+    "geometry_only_original",
+    "geometry_only_reconstruction",
+    "combined"
+  ],
+  "mode_summaries": [
+    {
+      "mode": "geometry_only_original",
+      "best_iter": 99,
+      "best_loss": -1.269625186920166,
+      "iterations": 100,
+      "mean_seconds_iter": 0.19530331574380397,
+      "peak_vram_gb": 0.8677406311035156,
+      "replay_images": {
+        "vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_depth_strength_controls/image4_red_scarf__bspline_iter100_scale1/geometry_only_original/vae_reconstruction.png",
+        "learned_delta_only": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_depth_strength_controls/image4_red_scarf__bspline_iter100_scale1/geometry_only_original/learned_delta_only.png",
+        "learned_geometry_on_original": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_depth_strength_controls/image4_red_scarf__bspline_iter100_scale1/geometry_only_original/learned_geometry_on_original.png",
+        "learned_geometry_on_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_depth_strength_controls/image4_red_scarf__bspline_iter100_scale1/geometry_only_original/learned_geometry_on_reconstruction.png",
+        "learned_combined": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_depth_strength_controls/image4_red_scarf__bspline_iter100_scale1/geometry_only_original/learned_combined.png",
+        "geometry_then_vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_depth_strength_controls/image4_red_scarf__bspline_iter100_scale1/geometry_only_original/geometry_then_vae_reconstruction.png"
+      }
+    },
+    {
+      "mode": "geometry_only_reconstruction",
+      "best_iter": 99,
+      "best_loss": -0.35231924057006836,
+      "iterations": 100,
+      "mean_seconds_iter": 0.18982272135093808,
+      "peak_vram_gb": 0.8677406311035156,
+      "replay_images": {
+        "vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_depth_strength_controls/image4_red_scarf__bspline_iter100_scale1/geometry_only_reconstruction/vae_reconstruction.png",
+        "learned_delta_only": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_depth_strength_controls/image4_red_scarf__bspline_iter100_scale1/geometry_only_reconstruction/learned_delta_only.png",
+        "learned_geometry_on_original": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_depth_strength_controls/image4_red_scarf__bspline_iter100_scale1/geometry_only_reconstruction/learned_geometry_on_original.png",
+        "learned_geometry_on_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_depth_strength_controls/image4_red_scarf__bspline_iter100_scale1/geometry_only_reconstruction/learned_geometry_on_reconstruction.png",
+        "learned_combined": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_depth_strength_controls/image4_red_scarf__bspline_iter100_scale1/geometry_only_reconstruction/learned_combined.png",
+        "geometry_then_vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_depth_strength_controls/image4_red_scarf__bspline_iter100_scale1/geometry_only_reconstruction/geometry_then_vae_reconstruction.png"
+      }
+    },
+    {
+      "mode": "combined",
+      "best_iter": 99,
+      "best_loss": -18.687118530273438,
+      "iterations": 100,
+      "mean_seconds_iter": 0.34808779165148734,
+      "peak_vram_gb": 6.495820999145508,
+      "replay_images": {
+        "vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_depth_strength_controls/image4_red_scarf__bspline_iter100_scale1/combined/vae_reconstruction.png",
+        "learned_delta_only": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_depth_strength_controls/image4_red_scarf__bspline_iter100_scale1/combined/learned_delta_only.png",
+        "learned_geometry_on_original": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_depth_strength_controls/image4_red_scarf__bspline_iter100_scale1/combined/learned_geometry_on_original.png",
+        "learned_geometry_on_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_depth_strength_controls/image4_red_scarf__bspline_iter100_scale1/combined/learned_geometry_on_reconstruction.png",
+        "learned_combined": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_depth_strength_controls/image4_red_scarf__bspline_iter100_scale1/combined/learned_combined.png",
+        "geometry_then_vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_depth_strength_controls/image4_red_scarf__bspline_iter100_scale1/combined/geometry_then_vae_reconstruction.png"
+      }
+    }
+  ],
+  "num_stage_edits": 21,
+  "output_root": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_depth_strength_controls/image4_red_scarf__bspline_iter100_scale1"
+}

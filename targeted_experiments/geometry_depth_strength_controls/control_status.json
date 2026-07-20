@@ -1,0 +1,16 @@
+{
+  "completed_this_invocation": [
+    "image2_black_jacket__bspline_iter100_scale1",
+    "image2_black_jacket__bspline_iter100_scale2",
+    "image2_black_jacket__rolling_iter100_scale1",
+    "image2_black_jacket__diffgeom_iter50_scale05",
+    "image2_black_jacket__all_iter50_scale05",
+    "image4_red_scarf__bspline_iter100_scale1",
+    "image4_red_scarf__bspline_iter100_scale2",
+    "image4_red_scarf__rolling_iter100_scale1",
+    "image4_red_scarf__diffgeom_iter50_scale05",
+    "image4_red_scarf__all_iter50_scale05"
+  ],
+  "skipped": [],
+  "failed": []
+}

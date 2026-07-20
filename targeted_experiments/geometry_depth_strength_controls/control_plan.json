@@ -1,0 +1,72 @@
+{
+  "seed": 24001,
+  "cases": [
+    {
+      "id": "image2_black_jacket",
+      "face_id": "image_2",
+      "input": "parth_save/image_2_black_jacket_igs2_seed24001/original.png",
+      "prompt": "Add a black jacket"
+    },
+    {
+      "id": "image4_red_scarf",
+      "face_id": "image_4",
+      "input": "targeted_experiments/stage_attribution/image4_red_scarf_polar_25_corrected/original.png",
+      "prompt": "Add a red scarf"
+    }
+  ],
+  "controls": [
+    {
+      "id": "bspline_iter100_scale1",
+      "warp": "bspline",
+      "iterations": 100,
+      "scale": 1.0,
+      "modes": [
+        "geometry_only_original",
+        "geometry_only_reconstruction",
+        "combined"
+      ]
+    },
+    {
+      "id": "bspline_iter100_scale2",
+      "warp": "bspline",
+      "iterations": 100,
+      "scale": 2.0,
+      "modes": [
+        "geometry_only_original",
+        "geometry_only_reconstruction",
+        "combined"
+      ]
+    },
+    {
+      "id": "rolling_iter100_scale1",
+      "warp": "rolling",
+      "iterations": 100,
+      "scale": 1.0,
+      "modes": [
+        "geometry_only_original",
+        "geometry_only_reconstruction"
+      ]
+    },
+    {
+      "id": "diffgeom_iter50_scale05",
+      "warp": "diffgeom",
+      "iterations": 50,
+      "scale": 0.5,
+      "modes": [
+        "geometry_only_original",
+        "geometry_only_reconstruction"
+      ]
+    },
+    {
+      "id": "all_iter50_scale05",
+      "warp": "all",
+      "iterations": 50,
+      "scale": 0.5,
+      "modes": [
+        "geometry_only_original",
+        "geometry_only_reconstruction",
+        "combined"
+      ]
+    }
+  ]
+}

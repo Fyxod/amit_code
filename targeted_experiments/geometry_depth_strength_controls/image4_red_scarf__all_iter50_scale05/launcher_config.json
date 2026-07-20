@@ -1,0 +1,62 @@
+{
+  "run_id": "image4_red_scarf__all_iter50_scale05",
+  "case": {
+    "id": "image4_red_scarf",
+    "face_id": "image_4",
+    "input": "targeted_experiments/stage_attribution/image4_red_scarf_polar_25_corrected/original.png",
+    "prompt": "Add a red scarf"
+  },
+  "control": {
+    "id": "all_iter50_scale05",
+    "warp": "all",
+    "iterations": 50,
+    "scale": 0.5,
+    "modes": [
+      "geometry_only_original",
+      "geometry_only_reconstruction",
+      "combined"
+    ]
+  },
+  "command": [
+    "/home/interns/Desktop/mat/.micromamba/envs/mat-a6000/bin/python",
+    "/home/interns/Desktop/amit_code/instruct_stage_attribution.py",
+    "--input",
+    "targeted_experiments/stage_attribution/image4_red_scarf_polar_25_corrected/original.png",
+    "--output-root",
+    "targeted_experiments/geometry_depth_strength_controls/image4_red_scarf__all_iter50_scale05",
+    "--prompt",
+    "Add a red scarf",
+    "--face-id",
+    "image_4",
+    "--warp-type",
+    "all",
+    "--modes",
+    "geometry_only_original",
+    "geometry_only_reconstruction",
+    "combined",
+    "--iterations",
+    "50",
+    "--imperceptibility-scale",
+    "0.5",
+    "--lr",
+    "0.01",
+    "--identity-weight",
+    "10.0",
+    "--ssim-weight",
+    "5.0",
+    "--pixel-weight",
+    "0.1",
+    "--latent-reg-weight",
+    "0.001",
+    "--seed",
+    "24001",
+    "--steps",
+    "20",
+    "--guidance-scale",
+    "7.5",
+    "--image-guidance-scale",
+    "2.0",
+    "--arcface-checkpoint",
+    "/home/interns/Desktop/parth_cleanup/face4/models/arcface/iresnet100.pth"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "input": "/home/interns/Desktop/amit_code/parth_save/image_2_black_jacket_igs2_seed24001/original.png",
+  "output_root": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_depth_strength_controls/image2_black_jacket__rolling_iter100_scale1",
+  "prompt": "Add a black jacket",
+  "face_id": "image_2",
+  "warp_type": "rolling",
+  "modes": [
+    "geometry_only_original",
+    "geometry_only_reconstruction"
+  ],
+  "iterations": 100,
+  "lr": 0.01,
+  "identity_weight": 10.0,
+  "ssim_weight": 5.0,
+  "pixel_weight": 0.1,
+  "latent_reg_weight": 0.001,
+  "grad_clip": 1.0,
+  "imperceptibility_scale": 1.0,
+  "grid_size": [
+    8,
+    8
+  ],
+  "image_size": [
+    512,
+    512
+  ],
+  "seed": 24001,
+  "steps": 20,
+  "guidance_scale": 7.5,
+  "image_guidance_scale": 2.0,
+  "arcface_checkpoint": "/home/interns/Desktop/parth_cleanup/face4/models/arcface/iresnet100.pth",
+  "model_id": "timbrooks/instruct-pix2pix",
+  "taesd_path": "taesd",
+  "device": "cuda",
+  "skip_edits": false,
+  "skip_arcface_audit": false,
+  "device_resolved": "cuda",
+  "pipeline_order": "geometry(decode(encode(original) + delta_z))",
+  "warp_components": [
+    "rolling"
+  ]
+}

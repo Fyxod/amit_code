@@ -1,0 +1,62 @@
+{
+  "run_id": "image2_black_jacket__bspline_iter100_scale1",
+  "case": {
+    "id": "image2_black_jacket",
+    "face_id": "image_2",
+    "input": "parth_save/image_2_black_jacket_igs2_seed24001/original.png",
+    "prompt": "Add a black jacket"
+  },
+  "control": {
+    "id": "bspline_iter100_scale1",
+    "warp": "bspline",
+    "iterations": 100,
+    "scale": 1.0,
+    "modes": [
+      "geometry_only_original",
+      "geometry_only_reconstruction",
+      "combined"
+    ]
+  },
+  "command": [
+    "/home/interns/Desktop/mat/.micromamba/envs/mat-a6000/bin/python",
+    "/home/interns/Desktop/amit_code/instruct_stage_attribution.py",
+    "--input",
+    "parth_save/image_2_black_jacket_igs2_seed24001/original.png",
+    "--output-root",
+    "targeted_experiments/geometry_depth_strength_controls/image2_black_jacket__bspline_iter100_scale1",
+    "--prompt",
+    "Add a black jacket",
+    "--face-id",
+    "image_2",
+    "--warp-type",
+    "bspline",
+    "--modes",
+    "geometry_only_original",
+    "geometry_only_reconstruction",
+    "combined",
+    "--iterations",
+    "100",
+    "--imperceptibility-scale",
+    "1.0",
+    "--lr",
+    "0.01",
+    "--identity-weight",
+    "10.0",
+    "--ssim-weight",
+    "5.0",
+    "--pixel-weight",
+    "0.1",
+    "--latent-reg-weight",
+    "0.001",
+    "--seed",
+    "24001",
+    "--steps",
+    "20",
+    "--guidance-scale",
+    "7.5",
+    "--image-guidance-scale",
+    "2.0",
+    "--arcface-checkpoint",
+    "/home/interns/Desktop/parth_cleanup/face4/models/arcface/iresnet100.pth"
+  ]
+}
