@@ -11,6 +11,7 @@ import torch.nn.functional as F
 from typing import Optional, Tuple, Dict, List
 import numpy as np
 from pathlib import Path
+import os
 import sys
 
 
@@ -162,15 +163,44 @@ class FaceRecognitionModel(TargetModel):
         """Load the exact pretrained ArcFace iResNet-100 used by FACE4."""
         if not model_path:
             raise ValueError("ArcFace requires an explicit iResNet-100 checkpoint path")
-        sibling_root = Path(__file__).resolve().parents[2] / "face4"
-        if not sibling_root.exists():
-            raise FileNotFoundError(f"Required sibling FACE4 repository is missing: {sibling_root}")
+        desktop_root = Path(__file__).resolve().parents[2]
+        requested_checkpoint = Path(model_path).expanduser()
+        root_candidates = [
+            Path(os.environ["FACE4_ROOT"]).expanduser()
+            if os.environ.get("FACE4_ROOT") else None,
+            desktop_root / "face4",
+            desktop_root / "parth_cleanup" / "face4",
+            requested_checkpoint.resolve().parents[2]
+            if len(requested_checkpoint.resolve().parents) >= 3 else None,
+        ]
+        root_candidates = [root.resolve() for root in root_candidates if root is not None]
+        sibling_root = next(
+            (root for root in root_candidates if (root / "face4" / "models" / "arcface.py").is_file()),
+            None,
+        )
+        if sibling_root is None:
+            checked = ", ".join(str(root) for root in root_candidates)
+            raise FileNotFoundError(
+                "Required FACE4 ArcFace implementation was not found. "
+                f"Checked: {checked}"
+            )
+
+        checkpoint = requested_checkpoint
+        if not checkpoint.is_file():
+            fallback = sibling_root / "models" / "arcface" / "iresnet100.pth"
+            if fallback.is_file():
+                checkpoint = fallback
+            else:
+                raise FileNotFoundError(
+                    f"ArcFace checkpoint not found at {requested_checkpoint} or {fallback}"
+                )
         if str(sibling_root) not in sys.path:
             sys.path.insert(0, str(sibling_root))
         from face4.models.arcface import ArcFaceIResNet100
 
+        print(f"Loading FACE4 ArcFace from {sibling_root} with checkpoint {checkpoint}")
         self.input_size = (112, 112)
-        return ArcFaceIResNet100(model_path, torch.device(self.device), fp16=False)
+        return ArcFaceIResNet100(str(checkpoint), torch.device(self.device), fp16=False)
     
     def _create_simple_model(self) -> nn.Module:
         """Create a simple face recognition model as fallback."""
