@@ -1,0 +1,78 @@
+/home/interns/.local/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py:205: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+/home/interns/Desktop/parth_cleanup/face4/face4/models/arcface.py:75: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  payload = torch.load(self.checkpoint_path, map_location="cpu")
+/home/interns/Desktop/parth_cleanup/face4/face4/models/iresnet.py:98: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=self.fp16):
+Loading InstructPix2Pix VAE from 'timbrooks/instruct-pix2pix' ...
+  ✓ InstructPix2Pix VAE loaded.
+Loading FACE4 ArcFace from /home/interns/Desktop/parth_cleanup/face4 with checkpoint /home/interns/Desktop/parth_cleanup/face4/models/arcface/iresnet100.pth
+[combined] 001/020 loss=0.26441 id_sim=0.94067 ssim=0.82396 0.58s
+[combined] 002/020 loss=-1.38451 id_sim=0.77563 ssim=0.82748 0.45s
+[combined] 003/020 loss=-2.35389 id_sim=0.67827 ssim=0.82875 0.68s
+[combined] 004/020 loss=-3.22528 id_sim=0.59073 ssim=0.82897 0.69s
+[combined] 005/020 loss=-4.06652 id_sim=0.50619 ssim=0.82798 0.71s
+[combined] 006/020 loss=-4.88115 id_sim=0.42423 ssim=0.82634 0.68s
+[combined] 007/020 loss=-5.63376 id_sim=0.34835 ssim=0.82440 0.65s
+[combined] 008/020 loss=-6.31676 id_sim=0.27931 ssim=0.82246 0.64s
+[combined] 009/020 loss=-6.89441 id_sim=0.22071 ssim=0.82065 0.64s
+[combined] 010/020 loss=-7.35978 id_sim=0.17330 ssim=0.81897 0.64s
+[combined] 011/020 loss=-7.80370 id_sim=0.12802 ssim=0.81727 0.66s
+[combined] 012/020 loss=-8.20581 id_sim=0.08694 ssim=0.81558 0.67s
+[combined] 013/020 loss=-8.57095 id_sim=0.04955 ssim=0.81404 0.66s
+[combined] 014/020 loss=-8.91148 id_sim=0.01464 ssim=0.81268 0.68s
+[combined] 015/020 loss=-9.25024 id_sim=-0.02004 ssim=0.81139 0.68s
+[combined] 016/020 loss=-9.57432 id_sim=-0.05320 ssim=0.81004 0.68s
+[combined] 017/020 loss=-9.89153 id_sim=-0.08562 ssim=0.80864 0.70s
+[combined] 018/020 loss=-10.21144 id_sim=-0.11824 ssim=0.80720 0.66s
+[combined] 019/020 loss=-10.50615 id_sim=-0.14830 ssim=0.80574 0.67s
+[combined] 020/020 loss=-10.78747 id_sim=-0.17701 ssim=0.80433 0.67s
+
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s][0;93m2026-07-20 20:49:25.539235158 [W:onnxruntime:Default, device_discovery.cc:164 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:89 ReadFileContents Failed to open file: "/sys/class/drm/card0/device/vendor"[m
+
+Loading pipeline components...:  33%|███▎      | 2/6 [00:00<00:00, 17.45it/s]
+Loading pipeline components...:  67%|██████▋   | 4/6 [00:01<00:00,  3.05it/s]
+Loading pipeline components...:  83%|████████▎ | 5/6 [00:05<00:01,  1.43s/it]
+
+Loading weights:   0%|          | 0/196 [00:00<?, ?it/s][A
+
+Loading weights:  93%|█████████▎| 182/196 [00:00<00:00, 1815.27it/s][A
+Loading weights: 100%|██████████| 196/196 [00:00<00:00, 1834.18it/s]
+
+Loading pipeline components...: 100%|██████████| 6/6 [00:05<00:00,  1.14s/it]
+Loading pipeline components...: 100%|██████████| 6/6 [00:05<00:00,  1.06it/s]
+Loading FACE4 ArcFace from /home/interns/Desktop/parth_cleanup/face4 with checkpoint /home/interns/Desktop/parth_cleanup/face4/models/arcface/iresnet100.pth
+{
+  "status": "complete",
+  "face_id": "image_2",
+  "prompt": "Add a black jacket",
+  "warp_type": "bspline+bezier+laplacian",
+  "warp_components": [
+    "bspline",
+    "bezier",
+    "laplacian"
+  ],
+  "modes": [
+    "combined"
+  ],
+  "mode_summaries": [
+    {
+      "mode": "combined",
+      "best_iter": 19,
+      "best_loss": -10.78747272491455,
+      "iterations": 20,
+      "mean_seconds_iter": 0.6525429784320295,
+      "peak_vram_gb": 6.716261863708496,
+      "replay_images": {
+        "vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image2_black_jacket/combined_bspline_bezier_laplacian/combined/vae_reconstruction.png",
+        "learned_delta_only": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image2_black_jacket/combined_bspline_bezier_laplacian/combined/learned_delta_only.png",
+        "learned_geometry_on_original": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image2_black_jacket/combined_bspline_bezier_laplacian/combined/learned_geometry_on_original.png",
+        "learned_geometry_on_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image2_black_jacket/combined_bspline_bezier_laplacian/combined/learned_geometry_on_reconstruction.png",
+        "learned_combined": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image2_black_jacket/combined_bspline_bezier_laplacian/combined/learned_combined.png",
+        "geometry_then_vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image2_black_jacket/combined_bspline_bezier_laplacian/combined/geometry_then_vae_reconstruction.png"
+      }
+    }
+  ],
+  "num_stage_edits": 9,
+  "output_root": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image2_black_jacket/combined_bspline_bezier_laplacian"
+}

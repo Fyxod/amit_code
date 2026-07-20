@@ -1,0 +1,49 @@
+{
+  "status": "complete",
+  "face_id": "image_2",
+  "prompt": "Add a black jacket",
+  "warp_type": "diffgeom",
+  "warp_components": [
+    "diffgeom"
+  ],
+  "modes": [
+    "geometry_only_original",
+    "geometry_only_reconstruction"
+  ],
+  "mode_summaries": [
+    {
+      "mode": "geometry_only_original",
+      "best_iter": 19,
+      "best_loss": -1.9318493604660034,
+      "iterations": 20,
+      "mean_seconds_iter": 0.22442095801234246,
+      "peak_vram_gb": 1.4856109619140625,
+      "replay_images": {
+        "vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image2_black_jacket/single_diffgeom/geometry_only_original/vae_reconstruction.png",
+        "learned_delta_only": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image2_black_jacket/single_diffgeom/geometry_only_original/learned_delta_only.png",
+        "learned_geometry_on_original": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image2_black_jacket/single_diffgeom/geometry_only_original/learned_geometry_on_original.png",
+        "learned_geometry_on_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image2_black_jacket/single_diffgeom/geometry_only_original/learned_geometry_on_reconstruction.png",
+        "learned_combined": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image2_black_jacket/single_diffgeom/geometry_only_original/learned_combined.png",
+        "geometry_then_vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image2_black_jacket/single_diffgeom/geometry_only_original/geometry_then_vae_reconstruction.png"
+      }
+    },
+    {
+      "mode": "geometry_only_reconstruction",
+      "best_iter": 19,
+      "best_loss": -1.0395079851150513,
+      "iterations": 20,
+      "mean_seconds_iter": 0.21586754471063613,
+      "peak_vram_gb": 1.4856109619140625,
+      "replay_images": {
+        "vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image2_black_jacket/single_diffgeom/geometry_only_reconstruction/vae_reconstruction.png",
+        "learned_delta_only": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image2_black_jacket/single_diffgeom/geometry_only_reconstruction/learned_delta_only.png",
+        "learned_geometry_on_original": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image2_black_jacket/single_diffgeom/geometry_only_reconstruction/learned_geometry_on_original.png",
+        "learned_geometry_on_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image2_black_jacket/single_diffgeom/geometry_only_reconstruction/learned_geometry_on_reconstruction.png",
+        "learned_combined": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image2_black_jacket/single_diffgeom/geometry_only_reconstruction/learned_combined.png",
+        "geometry_then_vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image2_black_jacket/single_diffgeom/geometry_only_reconstruction/geometry_then_vae_reconstruction.png"
+      }
+    }
+  ],
+  "num_stage_edits": 15,
+  "output_root": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image2_black_jacket/single_diffgeom"
+}

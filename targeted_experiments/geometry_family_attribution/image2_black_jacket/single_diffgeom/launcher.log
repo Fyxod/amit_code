@@ -1,0 +1,113 @@
+/home/interns/.local/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py:205: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+/home/interns/Desktop/parth_cleanup/face4/face4/models/arcface.py:75: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  payload = torch.load(self.checkpoint_path, map_location="cpu")
+/home/interns/Desktop/parth_cleanup/face4/face4/models/iresnet.py:98: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=self.fp16):
+Loading InstructPix2Pix VAE from 'timbrooks/instruct-pix2pix' ...
+  ✓ InstructPix2Pix VAE loaded.
+Loading FACE4 ArcFace from /home/interns/Desktop/parth_cleanup/face4 with checkpoint /home/interns/Desktop/parth_cleanup/face4/models/arcface/iresnet100.pth
+[geometry_only_original] 001/020 loss=-0.00000 id_sim=1.00000 ssim=1.00000 0.34s
+[geometry_only_original] 002/020 loss=-0.27210 id_sim=0.94955 ssim=0.95347 0.24s
+[geometry_only_original] 003/020 loss=-0.93112 id_sim=0.86070 ssim=0.90762 0.27s
+[geometry_only_original] 004/020 loss=-1.10203 id_sim=0.81392 ssim=0.84818 0.25s
+[geometry_only_original] 005/020 loss=-1.28038 id_sim=0.77948 ssim=0.81484 0.25s
+[geometry_only_original] 006/020 loss=-1.17203 id_sim=0.78069 ssim=0.79550 0.20s
+[geometry_only_original] 007/020 loss=-1.38946 id_sim=0.75832 ssim=0.79417 0.22s
+[geometry_only_original] 008/020 loss=-1.56670 id_sim=0.74215 ssim=0.79722 0.21s
+[geometry_only_original] 009/020 loss=-1.76711 id_sim=0.72411 ssim=0.80115 0.21s
+[geometry_only_original] 010/020 loss=-1.73162 id_sim=0.72665 ssim=0.79905 0.20s
+[geometry_only_original] 011/020 loss=-1.59118 id_sim=0.73672 ssim=0.79101 0.20s
+[geometry_only_original] 012/020 loss=-1.69737 id_sim=0.72365 ssim=0.78606 0.21s
+[geometry_only_original] 013/020 loss=-1.78975 id_sim=0.71357 ssim=0.78433 0.22s
+[geometry_only_original] 014/020 loss=-1.76841 id_sim=0.71670 ssim=0.78630 0.21s
+[geometry_only_original] 015/020 loss=-1.72079 id_sim=0.72238 ssim=0.78812 0.20s
+[geometry_only_original] 016/020 loss=-1.70448 id_sim=0.72418 ssim=0.78846 0.22s
+[geometry_only_original] 017/020 loss=-1.70744 id_sim=0.72479 ssim=0.79029 0.23s
+[geometry_only_original] 018/020 loss=-1.80383 id_sim=0.71752 ssim=0.79506 0.20s
+[geometry_only_original] 019/020 loss=-1.83894 id_sim=0.71744 ssim=0.80195 0.21s
+[geometry_only_original] 020/020 loss=-1.93185 id_sim=0.71095 ssim=0.80759 0.21s
+[geometry_only_reconstruction] 001/020 loss=0.26350 id_sim=0.94058 ssim=0.82395 0.25s
+[geometry_only_reconstruction] 002/020 loss=0.10390 id_sim=0.88466 ssim=0.80861 0.32s
+[geometry_only_reconstruction] 003/020 loss=-0.17946 id_sim=0.82788 ssim=0.77745 0.21s
+[geometry_only_reconstruction] 004/020 loss=-0.30753 id_sim=0.80686 ssim=0.76568 0.21s
+[geometry_only_reconstruction] 005/020 loss=-0.34331 id_sim=0.80697 ssim=0.76788 0.22s
+[geometry_only_reconstruction] 006/020 loss=-0.57841 id_sim=0.78231 ssim=0.76342 0.22s
+[geometry_only_reconstruction] 007/020 loss=-0.53623 id_sim=0.78220 ssim=0.75573 0.20s
+[geometry_only_reconstruction] 008/020 loss=-0.66878 id_sim=0.76436 ssim=0.74873 0.20s
+[geometry_only_reconstruction] 009/020 loss=-0.84089 id_sim=0.74141 ssim=0.74022 0.22s
+[geometry_only_reconstruction] 010/020 loss=-0.99717 id_sim=0.72034 ssim=0.73274 0.20s
+[geometry_only_reconstruction] 011/020 loss=-0.89687 id_sim=0.72443 ssim=0.72589 0.20s
+[geometry_only_reconstruction] 012/020 loss=-0.87271 id_sim=0.72419 ssim=0.72255 0.20s
+[geometry_only_reconstruction] 013/020 loss=-0.90660 id_sim=0.72057 ssim=0.72131 0.20s
+[geometry_only_reconstruction] 014/020 loss=-0.92686 id_sim=0.71961 ssim=0.72198 0.20s
+[geometry_only_reconstruction] 015/020 loss=-0.88239 id_sim=0.72428 ssim=0.72226 0.22s
+[geometry_only_reconstruction] 016/020 loss=-0.86398 id_sim=0.72484 ssim=0.72078 0.21s
+[geometry_only_reconstruction] 017/020 loss=-0.96180 id_sim=0.71293 ssim=0.71854 0.23s
+[geometry_only_reconstruction] 018/020 loss=-1.01864 id_sim=0.70470 ssim=0.71524 0.19s
+[geometry_only_reconstruction] 019/020 loss=-0.98432 id_sim=0.70636 ssim=0.71250 0.22s
+[geometry_only_reconstruction] 020/020 loss=-1.03951 id_sim=0.70124 ssim=0.71215 0.20s
+
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s][0;93m2026-07-20 20:27:13.653009654 [W:onnxruntime:Default, device_discovery.cc:164 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:89 ReadFileContents Failed to open file: "/sys/class/drm/card0/device/vendor"[m
+
+Loading pipeline components...:  17%|█▋        | 1/6 [00:00<00:01,  2.58it/s]
+Loading pipeline components...:  33%|███▎      | 2/6 [00:04<00:09,  2.43s/it]
+Loading pipeline components...:  83%|████████▎ | 5/6 [00:05<00:00,  1.05it/s]
+
+Loading weights:   0%|          | 0/196 [00:00<?, ?it/s][A
+
+Loading weights:  81%|████████  | 159/196 [00:00<00:00, 1579.12it/s][A
+Loading weights: 100%|██████████| 196/196 [00:00<00:00, 1629.66it/s]
+
+Loading pipeline components...: 100%|██████████| 6/6 [00:05<00:00,  1.25it/s]
+Loading pipeline components...: 100%|██████████| 6/6 [00:05<00:00,  1.05it/s]
+Loading FACE4 ArcFace from /home/interns/Desktop/parth_cleanup/face4 with checkpoint /home/interns/Desktop/parth_cleanup/face4/models/arcface/iresnet100.pth
+{
+  "status": "complete",
+  "face_id": "image_2",
+  "prompt": "Add a black jacket",
+  "warp_type": "diffgeom",
+  "warp_components": [
+    "diffgeom"
+  ],
+  "modes": [
+    "geometry_only_original",
+    "geometry_only_reconstruction"
+  ],
+  "mode_summaries": [
+    {
+      "mode": "geometry_only_original",
+      "best_iter": 19,
+      "best_loss": -1.9318493604660034,
+      "iterations": 20,
+      "mean_seconds_iter": 0.22442095801234246,
+      "peak_vram_gb": 1.4856109619140625,
+      "replay_images": {
+        "vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image2_black_jacket/single_diffgeom/geometry_only_original/vae_reconstruction.png",
+        "learned_delta_only": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image2_black_jacket/single_diffgeom/geometry_only_original/learned_delta_only.png",
+        "learned_geometry_on_original": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image2_black_jacket/single_diffgeom/geometry_only_original/learned_geometry_on_original.png",
+        "learned_geometry_on_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image2_black_jacket/single_diffgeom/geometry_only_original/learned_geometry_on_reconstruction.png",
+        "learned_combined": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image2_black_jacket/single_diffgeom/geometry_only_original/learned_combined.png",
+        "geometry_then_vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image2_black_jacket/single_diffgeom/geometry_only_original/geometry_then_vae_reconstruction.png"
+      }
+    },
+    {
+      "mode": "geometry_only_reconstruction",
+      "best_iter": 19,
+      "best_loss": -1.0395079851150513,
+      "iterations": 20,
+      "mean_seconds_iter": 0.21586754471063613,
+      "peak_vram_gb": 1.4856109619140625,
+      "replay_images": {
+        "vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image2_black_jacket/single_diffgeom/geometry_only_reconstruction/vae_reconstruction.png",
+        "learned_delta_only": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image2_black_jacket/single_diffgeom/geometry_only_reconstruction/learned_delta_only.png",
+        "learned_geometry_on_original": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image2_black_jacket/single_diffgeom/geometry_only_reconstruction/learned_geometry_on_original.png",
+        "learned_geometry_on_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image2_black_jacket/single_diffgeom/geometry_only_reconstruction/learned_geometry_on_reconstruction.png",
+        "learned_combined": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image2_black_jacket/single_diffgeom/geometry_only_reconstruction/learned_combined.png",
+        "geometry_then_vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image2_black_jacket/single_diffgeom/geometry_only_reconstruction/geometry_then_vae_reconstruction.png"
+      }
+    }
+  ],
+  "num_stage_edits": 15,
+  "output_root": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image2_black_jacket/single_diffgeom"
+}
