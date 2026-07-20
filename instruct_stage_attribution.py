@@ -47,6 +47,7 @@ from instruct import InstructBackend, InstructSettings
 from models import FaceRecognitionModel
 from utils import load_image, save_image
 from vae_latent_adversarial import (
+    WARP_TYPES,
     VAELatentOptimiser,
     create_all_warps,
     create_warp,
@@ -193,11 +194,24 @@ def geometry_modules(
     if warp_type == "all":
         warps = create_all_warps(image_size, grid_size, device, scale)
         return warps, list(warps)
+    keys = [key.strip() for key in warp_type.replace(",", "+").split("+") if key.strip()]
+    if not keys:
+        raise ValueError("At least one warp type is required")
+    unknown = [key for key in keys if key not in WARP_TYPES]
+    if unknown:
+        raise ValueError(f"Unknown warp type(s): {', '.join(unknown)}")
+    if len(set(keys)) != len(keys):
+        raise ValueError(f"Duplicate warp type in combination: {warp_type}")
+    if len(keys) > 1:
+        return {
+            key: create_warp(key, image_size, grid_size, scale).to(device)
+            for key in keys
+        }, keys
     return create_warp(warp_type, image_size, grid_size, scale).to(device), [warp_type]
 
 
 def apply_geometry(image: torch.Tensor, warps: Any, warp_type: str, keys: list[str]) -> torch.Tensor:
-    if warp_type == "all":
+    if isinstance(warps, dict):
         output = image
         for key in keys:
             output = warps[key](output)
@@ -207,7 +221,7 @@ def apply_geometry(image: torch.Tensor, warps: Any, warp_type: str, keys: list[s
 
 def geometry_parameters(warps: Any, warp_type: str, keys: list[str]) -> list[nn.Parameter]:
     params: list[nn.Parameter] = []
-    if warp_type == "all":
+    if isinstance(warps, dict):
         for key in keys:
             params.extend([p for p in warps[key].parameters() if p.requires_grad])
     else:
@@ -216,13 +230,13 @@ def geometry_parameters(warps: Any, warp_type: str, keys: list[str]) -> list[nn.
 
 
 def geometry_state(warps: Any, warp_type: str, keys: list[str]) -> dict[str, Any]:
-    if warp_type == "all":
+    if isinstance(warps, dict):
         return {key: copy.deepcopy(warps[key].state_dict()) for key in keys}
     return {warp_type: copy.deepcopy(warps.state_dict())}
 
 
 def load_geometry_state(warps: Any, warp_type: str, keys: list[str], state: dict[str, Any]) -> None:
-    if warp_type == "all":
+    if isinstance(warps, dict):
         for key in keys:
             warps[key].load_state_dict(state[key])
     else:
@@ -705,6 +719,11 @@ def main() -> None:
         "output_root": str(output_root),
         "device_resolved": device,
         "pipeline_order": "geometry(decode(encode(original) + delta_z))",
+        "warp_components": (
+            list(WARP_TYPES)
+            if args.warp_type == "all"
+            else [key.strip() for key in args.warp_type.replace(",", "+").split("+") if key.strip()]
+        ),
     }
     json_dump(output_root / "config_resolved.json", config)
     tensor = load_image(str(input_path), size=image_size, device=device).unsqueeze(0)
@@ -805,6 +824,11 @@ def main() -> None:
         "face_id": args.face_id,
         "prompt": args.prompt,
         "warp_type": args.warp_type,
+        "warp_components": (
+            list(WARP_TYPES)
+            if args.warp_type == "all"
+            else [key.strip() for key in args.warp_type.replace(",", "+").split("+") if key.strip()]
+        ),
         "modes": args.modes,
         "mode_summaries": mode_summaries,
         "num_stage_edits": len(edit_result["rows"]),
