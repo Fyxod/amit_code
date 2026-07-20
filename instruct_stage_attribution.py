@@ -28,6 +28,7 @@ import argparse
 import copy
 import csv
 import gc
+import hashlib
 import json
 import math
 import os
@@ -152,6 +153,16 @@ def pair_metrics_pil(a: Image.Image, b: Image.Image) -> dict[str, float]:
         np.asarray(a.convert("RGB"), dtype=np.float32) / 255.0,
         np.asarray(b.convert("RGB"), dtype=np.float32) / 255.0,
     )
+
+
+def image_pixel_hash(image: Image.Image) -> str:
+    """Hash decoded RGB pixels so deterministic duplicate edits can be reused."""
+
+    rgb = image.convert("RGB")
+    digest = hashlib.sha256()
+    digest.update(f"{rgb.width}x{rgb.height}:RGB".encode("ascii"))
+    digest.update(np.asarray(rgb, dtype=np.uint8).tobytes())
+    return digest.hexdigest()
 
 
 def arcface_similarity(model: nn.Module, a: torch.Tensor, b: torch.Tensor) -> float:
@@ -449,6 +460,8 @@ def generate_stage_edits(
     backend = InstructBackend(torch.device(device), settings)
     stage_paths = [path for path in root.rglob("*.png") if path.name in {
         "vae_reconstruction.png",
+        "neutral_geometry_on_original.png",
+        "neutral_geometry_on_reconstruction.png",
         "learned_delta_only.png",
         "learned_geometry_on_original.png",
         "learned_geometry_on_reconstruction.png",
@@ -460,23 +473,31 @@ def generate_stage_edits(
     if not valid_image(clean_edit_path):
         atomic_save_pil(backend.generate_edit(original_image, prompt, seed), clean_edit_path)
     clean_edit = Image.open(clean_edit_path).convert("RGB")
+    edit_cache: dict[str, Path] = {
+        image_pixel_hash(original_image): clean_edit_path,
+    }
     rows: list[dict[str, Any]] = []
     for stage_path in sorted(stage_paths):
         relative = stage_path.relative_to(root)
         mode_name = relative.parts[0] if len(relative.parts) > 1 else "baseline"
         edit_path = stage_path.parent / f"{stage_path.stem}_edit.png"
+        stage_image = Image.open(stage_path).convert("RGB")
+        stage_hash = image_pixel_hash(stage_image)
+        reused_from = edit_cache.get(stage_hash)
         if not valid_image(edit_path):
-            atomic_save_pil(
-                backend.generate_edit(Image.open(stage_path).convert("RGB"), prompt, seed),
-                edit_path,
-            )
-        input_metrics = pair_metrics_pil(original_image, Image.open(stage_path).convert("RGB"))
+            if reused_from is not None and valid_image(reused_from):
+                atomic_save_pil(Image.open(reused_from).convert("RGB"), edit_path)
+            else:
+                atomic_save_pil(backend.generate_edit(stage_image, prompt, seed), edit_path)
+        edit_cache.setdefault(stage_hash, edit_path)
+        input_metrics = pair_metrics_pil(original_image, stage_image)
         output_metrics = pair_metrics_pil(clean_edit, Image.open(edit_path).convert("RGB"))
         rows.append({
             "mode": mode_name,
             "stage": stage_path.stem,
             "stage_path": str(stage_path),
             "edit_path": str(edit_path),
+            "edit_reused_from": str(reused_from) if reused_from is not None else "",
             **{f"input_{key}": value for key, value in input_metrics.items()},
             **{f"output_{key}": value for key, value in output_metrics.items()},
         })
@@ -555,8 +576,42 @@ def add_arcface_audit(
         ("order_effect", "learned_combined", "geometry_then_vae_reconstruction"),
     )
     incremental_rows: list[dict[str, Any]] = []
-    modes = sorted({row["mode"] for row in rows if row["mode"] != "baseline"})
+    baseline_rows = {row["stage"]: row for row in rows if row["mode"] == "baseline"}
+    baseline_pairs = (
+        ("reconstruction_effect", "clean_edit", "vae_reconstruction"),
+        ("neutral_geometry_resampling_on_original", "clean_edit", "neutral_geometry_on_original"),
+        (
+            "neutral_geometry_resampling_after_reconstruction",
+            "vae_reconstruction",
+            "neutral_geometry_on_reconstruction",
+        ),
+    )
     clean_edit_path = str(root / "clean_edit.png")
+    for comparison, left_name, right_name in baseline_pairs:
+        left_path = clean_edit_path if left_name == "clean_edit" else baseline_rows.get(left_name, {}).get("edit_path")
+        right_path = baseline_rows.get(right_name, {}).get("edit_path")
+        if not left_path or not right_path:
+            continue
+        visual = pair_metrics_pil(
+            Image.open(left_path).convert("RGB"),
+            Image.open(right_path).convert("RGB"),
+        )
+        incremental_rows.append({
+            "mode": "baseline_control",
+            "comparison": comparison,
+            "left_stage": left_name,
+            "right_stage": right_name,
+            "left_edit_path": left_path,
+            "right_edit_path": right_path,
+            "edit_ssim": visual["ssim"],
+            "edit_psnr": visual["psnr"],
+            "edit_mse": visual["mse"],
+            "edit_l2": visual["l2"],
+            "arcface_edit_cosine_similarity": arcface_similarity(
+                model, tensor_for(left_path), tensor_for(right_path),
+            ),
+        })
+    modes = sorted({row["mode"] for row in rows if row["mode"] != "baseline"})
     for mode in modes:
         stage_rows = {row["stage"]: row for row in rows if row["mode"] == mode}
         for comparison, left_name, right_name in pair_definitions:
@@ -661,6 +716,26 @@ def main() -> None:
         z_orig = vae.encode(tensor)
         reconstruction = vae.decode(z_orig)
     atomic_save_tensor(reconstruction[0], output_root / "vae_reconstruction.png")
+
+    # A zero-parameter geometry module can still alter pixels through the
+    # interpolation kernel used by grid_sample.  Save that resampling floor
+    # explicitly so it is never mistaken for a learned geometry effect.
+    neutral_warps, neutral_keys = geometry_modules(
+        args.warp_type, image_size, tuple(args.grid_size), device,
+        args.imperceptibility_scale,
+    )
+    set_geometry_mask(neutral_warps, args.warp_type, image_size)
+    with torch.no_grad():
+        neutral_original = apply_geometry(tensor, neutral_warps, args.warp_type, neutral_keys)
+        neutral_reconstruction = apply_geometry(
+            reconstruction, neutral_warps, args.warp_type, neutral_keys,
+        )
+    atomic_save_tensor(neutral_original[0], output_root / "neutral_geometry_on_original.png")
+    atomic_save_tensor(
+        neutral_reconstruction[0],
+        output_root / "neutral_geometry_on_reconstruction.png",
+    )
+    del neutral_warps, neutral_original, neutral_reconstruction
 
     mode_summaries: list[dict[str, Any]] = []
     for mode in args.modes:
