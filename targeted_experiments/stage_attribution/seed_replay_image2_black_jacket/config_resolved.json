@@ -1,0 +1,23 @@
+{
+  "case_root": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image2_black_jacket_lens_30",
+  "output_root": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/seed_replay_image2_black_jacket",
+  "prompt": "Add a black jacket",
+  "seeds": [
+    1234,
+    24001,
+    34007
+  ],
+  "steps": 20,
+  "guidance_scale": 7.5,
+  "image_guidance_scale": 2.0,
+  "original_path": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image2_black_jacket_lens_30/original.png",
+  "stages": {
+    "original": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image2_black_jacket_lens_30/original.png",
+    "vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image2_black_jacket_lens_30/vae_reconstruction.png",
+    "neutral_geometry_on_original": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image2_black_jacket_lens_30/neutral_geometry_on_original.png",
+    "delta_only": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image2_black_jacket_lens_30/delta_only/learned_delta_only.png",
+    "geometry_only_original": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image2_black_jacket_lens_30/geometry_only_original/learned_geometry_on_original.png",
+    "geometry_only_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image2_black_jacket_lens_30/geometry_only_reconstruction/learned_geometry_on_reconstruction.png",
+    "combined": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image2_black_jacket_lens_30/combined/learned_combined.png"
+  }
+}

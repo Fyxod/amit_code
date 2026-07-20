@@ -1,0 +1,7 @@
+{
+  "status": "complete",
+  "num_seeds": 3,
+  "num_stages": 7,
+  "num_rows": 21,
+  "output_root": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/seed_replay_image2_black_jacket"
+}
