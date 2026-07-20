@@ -94,18 +94,14 @@ class ThinPlateSpline(nn.Module):
             torch.from_numpy(control_points)
         )
         
-        # Add corner points for boundary constraints
-        corners = np.array([
-            [-1, -1], [1, -1], [-1, 1], [1, 1]
-        ], dtype=np.float32)
-        
-        self.register_buffer(
-            'corner_points',
-            torch.from_numpy(corners)
-        )
-        
-        # All points (control + corners)
-        all_points = np.vstack([control_points, corners])
+        # The regular control grid already contains all four image corners.
+        # Appending the same corners again produces duplicate TPS constraints,
+        # makes the solve ill-conditioned, and caused a zero-displacement TPS
+        # to be a severe warp.  Keep the existing boundary controls only.
+        corners = np.empty((0, 2), dtype=np.float32)
+        self.register_buffer('corner_points', torch.from_numpy(corners))
+
+        all_points = control_points
         self.num_all_points = len(all_points)
         
         self.register_buffer(
@@ -127,10 +123,11 @@ class ThinPlateSpline(nn.Module):
                 torch.zeros(self.num_control_points, 2)
             )
         
-        # Corner displacements are fixed to zero (boundary constraint)
+        # Extra corner displacements are empty because the grid's own corner
+        # controls already provide the boundary constraint.
         self.register_buffer(
             'corner_displacement',
-            torch.zeros(4, 2)
+            torch.zeros(len(self.corner_points), 2)
         )
     
     def _compute_tps_coefficients(self):
@@ -155,8 +152,10 @@ class ThinPlateSpline(nn.Module):
         P[:, 1] = points[:, 0]  # x
         P[:, 2] = points[:, 1]  # y
         
-        # Build full matrix with regularization to avoid singularity
-        reg = max(self.regularization, 1e-5)  # Ensure minimum regularization
+        # With unique control points the TPS system is nonsingular.  Injecting
+        # a hidden minimum regularizer changes even the nominal identity map,
+        # so honor the configured value (zero by default).
+        reg = max(self.regularization, 0.0)
         K = U + reg * torch.eye(n, device=points.device, dtype=points.dtype)
         
         # Upper part: [K | P]
@@ -266,14 +265,20 @@ class ThinPlateSpline(nn.Module):
         batch_size, channels, h, w = x.shape
         device = x.device
         
-        # Get displaced control points
+        # Interpolate the displacement field rather than fitting absolute
+        # coordinates.  TPS is linear, so this is the same transformation in
+        # exact arithmetic, while guaranteeing that zero control displacement
+        # produces an exact identity sampling grid.
         displaced_points = self.get_displaced_points()
+        control_displacements = displaced_points - self.all_points
         
         # Compute TPS transformation coefficients (fast matrix multiply)
-        coeffs = self._solve_tps(displaced_points)
+        coeffs = self._solve_tps(control_displacements)
         
         # Create sampling grid using precomputed values (fast)
-        grid = self._create_sampling_grid_fast(coeffs, h, w, device)
+        displacement_grid = self._create_sampling_grid_fast(coeffs, h, w, device)
+        identity_grid = self.grid_flat.view(h, w, 2).unsqueeze(0)
+        grid = identity_grid + displacement_grid
         
         # Apply grid sample
         output = F.grid_sample(
@@ -285,14 +290,14 @@ class ThinPlateSpline(nn.Module):
         
         return output
     
-    def _solve_tps(self, target_points: torch.Tensor) -> torch.Tensor:
+    def _solve_tps(self, control_values: torch.Tensor) -> torch.Tensor:
         """
         Solve TPS system to get transformation coefficients (fast).
         
         Uses precomputed L_inverse for fast matrix multiplication.
         
         Args:
-            target_points: Target positions for all control points (N, 2)
+            control_values: Displacement at each control point (N, 2)
             
         Returns:
             TPS coefficients for x and y transformations
@@ -301,11 +306,11 @@ class ThinPlateSpline(nn.Module):
         n = self.num_all_points
         
         # Target positions (with zeros for the affine constraints)
-        rhs_x = torch.zeros(n + 3, device=target_points.device, dtype=target_points.dtype)
-        rhs_y = torch.zeros(n + 3, device=target_points.device, dtype=target_points.dtype)
+        rhs_x = torch.zeros(n + 3, device=control_values.device, dtype=control_values.dtype)
+        rhs_y = torch.zeros(n + 3, device=control_values.device, dtype=control_values.dtype)
         
-        rhs_x[:n] = target_points[:, 0]
-        rhs_y[:n] = target_points[:, 1]
+        rhs_x[:n] = control_values[:, 0]
+        rhs_y[:n] = control_values[:, 1]
         
         # Solve the system using precomputed inverse (fast!)
         coeffs_x = torch.matmul(self.L_inverse, rhs_x)

@@ -147,8 +147,12 @@ class PolarWarp(nn.Module):
         # Convert to normalised grid [-1, 1]
         cy = (H - 1) / 2.0
         cx = (W - 1) / 2.0
-        grid_x = (new_dx + cx) / (W / 2.0) - 1.0
-        grid_y = (new_dy + cy) / (H / 2.0) - 1.0
+        # ``grid_sample(..., align_corners=True)`` maps pixel coordinate 0 to
+        # -1 and pixel coordinate (size - 1) to +1.  Dividing by ``size / 2``
+        # shifts every nominally neutral sample and made an all-zero PolarWarp
+        # visibly non-identity.  Use the exact align-corners normalization.
+        grid_x = 2.0 * (new_dx + cx) / max(W - 1, 1) - 1.0
+        grid_y = 2.0 * (new_dy + cy) / max(H - 1, 1) - 1.0
 
         sampling_grid = torch.stack([grid_x, grid_y], dim=-1)  # (H, W, 2)
         sampling_grid = sampling_grid.unsqueeze(0).expand(B, -1, -1, -1)
