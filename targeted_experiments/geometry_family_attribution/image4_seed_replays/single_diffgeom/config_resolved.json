@@ -1,0 +1,21 @@
+{
+  "case_root": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image4_red_scarf/single_diffgeom",
+  "output_root": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image4_seed_replays/single_diffgeom",
+  "prompt": "Add a red scarf",
+  "seeds": [
+    1234,
+    24001,
+    34007
+  ],
+  "steps": 20,
+  "guidance_scale": 7.5,
+  "image_guidance_scale": 2.0,
+  "original_path": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image4_red_scarf/single_diffgeom/original.png",
+  "stages": {
+    "original": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image4_red_scarf/single_diffgeom/original.png",
+    "vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image4_red_scarf/single_diffgeom/vae_reconstruction.png",
+    "neutral_geometry_on_original": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image4_red_scarf/single_diffgeom/neutral_geometry_on_original.png",
+    "geometry_only_original": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image4_red_scarf/single_diffgeom/geometry_only_original/learned_geometry_on_original.png",
+    "geometry_only_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image4_red_scarf/single_diffgeom/geometry_only_reconstruction/learned_geometry_on_reconstruction.png"
+  }
+}
