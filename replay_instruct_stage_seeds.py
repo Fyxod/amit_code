@@ -67,13 +67,19 @@ def main() -> None:
         if args.image_guidance_scale is not None
         else float(config.get("image_guidance_scale", 1.5))
     )
-    original_path = Path(config["input"])
+    # Replay against the exact normalized image used by the attribution run,
+    # not the potentially lower-resolution source asset recorded in config.
+    original_path = case_root / "original.png"
     if not original_path.exists():
-        original_path = case_root / "original.png"
+        raise FileNotFoundError(f"Missing normalized baseline image: {original_path}")
     stages = {"original": original_path}
     for name, relative in STAGE_PATHS.items():
         path = case_root / relative
         if path.exists():
+            if Image.open(path).size != Image.open(original_path).size:
+                raise RuntimeError(
+                    f"Stage image size mismatch: {path} vs {original_path}"
+                )
             stages[name] = path
     if len(stages) < 2:
         raise RuntimeError(f"No attribution stage images found under {case_root}")

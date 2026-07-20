@@ -482,6 +482,11 @@ def generate_stage_edits(
         mode_name = relative.parts[0] if len(relative.parts) > 1 else "baseline"
         edit_path = stage_path.parent / f"{stage_path.stem}_edit.png"
         stage_image = Image.open(stage_path).convert("RGB")
+        if stage_image.size != original_image.size:
+            raise RuntimeError(
+                f"Stage image size {stage_image.size} does not match the clean "
+                f"baseline size {original_image.size}: {stage_path}"
+            )
         stage_hash = image_pixel_hash(stage_image)
         reused_from = edit_cache.get(stage_hash)
         if not valid_image(edit_path):
@@ -775,7 +780,11 @@ def main() -> None:
     if not args.skip_edits:
         edit_result = generate_stage_edits(
             root=output_root,
-            original_path=input_path,
+            # Use the exact normalized tensor image that entered optimization.
+            # The source asset can have a different resolution (for example,
+            # 256x256), which would make the clean edit incomparable with the
+            # 512x512 stage edits.
+            original_path=output_root / "original.png",
             prompt=args.prompt,
             seed=args.seed,
             steps=args.steps,
@@ -784,7 +793,12 @@ def main() -> None:
             device=device,
         )
         if not args.skip_arcface_audit:
-            add_arcface_audit(output_root, input_path, args.arcface_checkpoint, device)
+            add_arcface_audit(
+                output_root,
+                output_root / "original.png",
+                args.arcface_checkpoint,
+                device,
+            )
 
     summary = {
         "status": "complete",
