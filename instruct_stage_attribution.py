@@ -84,6 +84,37 @@ def tensor_to_pil(tensor: torch.Tensor) -> Image.Image:
     return Image.fromarray(array, mode="RGB")
 
 
+def temporary_image_path(path: Path) -> Path:
+    return path.with_name(f".{path.stem}.{os.getpid()}.tmp{path.suffix}")
+
+
+def atomic_save_pil(image: Image.Image, path: Path, **save_kwargs: Any) -> None:
+    """Write a complete image before atomically exposing the final path."""
+
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = temporary_image_path(path)
+    image.save(temporary, **save_kwargs)
+    os.replace(temporary, path)
+
+
+def atomic_save_tensor(tensor: torch.Tensor, path: Path) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = temporary_image_path(path)
+    save_image(tensor, str(temporary))
+    os.replace(temporary, path)
+
+
+def valid_image(path: Path) -> bool:
+    if not path.exists() or path.stat().st_size == 0:
+        return False
+    try:
+        with Image.open(path) as image:
+            image.verify()
+        return True
+    except (OSError, ValueError):
+        return False
+
+
 def pil_to_tensor(image: Image.Image, device: str = "cpu") -> torch.Tensor:
     array = np.asarray(image.convert("RGB"), dtype=np.float32) / 255.0
     return torch.from_numpy(array).permute(2, 0, 1).unsqueeze(0).to(device)
@@ -355,7 +386,7 @@ def run_mode(
         output_dir / "stage_state.pt",
     )
     for name, tensor in replay.items():
-        save_image(tensor[0], str(output_dir / f"{name}.png"))
+        atomic_save_tensor(tensor[0], output_dir / f"{name}.png")
     save_history(output_dir / "history.csv", history)
     summary = {
         "mode": mode,
@@ -386,7 +417,7 @@ def make_strip(paths: list[tuple[str, Path]], output: Path, title: str) -> None:
             draw.rectangle((x + 10, title_h + label_h + 10, x + tile_w - 10, title_h + label_h + tile_h - 10), outline="red", width=3)
             draw.text((x + 70, title_h + label_h + 100), "MISSING", fill="red")
     output.parent.mkdir(parents=True, exist_ok=True)
-    canvas.save(output, quality=95)
+    atomic_save_pil(canvas, output, quality=95)
 
 
 def unload_cuda(*objects: Any) -> None:
@@ -426,16 +457,19 @@ def generate_stage_edits(
     }]
     clean_edit_path = root / "clean_edit.png"
     original_image = Image.open(original_path).convert("RGB")
-    if not clean_edit_path.exists():
-        backend.generate_edit(original_image, prompt, seed).save(clean_edit_path)
+    if not valid_image(clean_edit_path):
+        atomic_save_pil(backend.generate_edit(original_image, prompt, seed), clean_edit_path)
     clean_edit = Image.open(clean_edit_path).convert("RGB")
     rows: list[dict[str, Any]] = []
     for stage_path in sorted(stage_paths):
         relative = stage_path.relative_to(root)
         mode_name = relative.parts[0] if len(relative.parts) > 1 else "baseline"
         edit_path = stage_path.parent / f"{stage_path.stem}_edit.png"
-        if not edit_path.exists():
-            backend.generate_edit(Image.open(stage_path).convert("RGB"), prompt, seed).save(edit_path)
+        if not valid_image(edit_path):
+            atomic_save_pil(
+                backend.generate_edit(Image.open(stage_path).convert("RGB"), prompt, seed),
+                edit_path,
+            )
         input_metrics = pair_metrics_pil(original_image, Image.open(stage_path).convert("RGB"))
         output_metrics = pair_metrics_pil(clean_edit, Image.open(edit_path).convert("RGB"))
         rows.append({
@@ -614,7 +648,7 @@ def main() -> None:
     }
     json_dump(output_root / "config_resolved.json", config)
     tensor = load_image(str(input_path), size=image_size, device=device).unsqueeze(0)
-    save_image(tensor[0], str(output_root / "original.png"))
+    atomic_save_tensor(tensor[0], output_root / "original.png")
 
     vae = VAELatentOptimiser(args.model_id, args.taesd_path, device)
     for parameter in vae.parameters():
@@ -626,7 +660,7 @@ def main() -> None:
     with torch.no_grad():
         z_orig = vae.encode(tensor)
         reconstruction = vae.decode(z_orig)
-    save_image(reconstruction[0], str(output_root / "vae_reconstruction.png"))
+    atomic_save_tensor(reconstruction[0], output_root / "vae_reconstruction.png")
 
     mode_summaries: list[dict[str, Any]] = []
     for mode in args.modes:
