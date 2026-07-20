@@ -1,0 +1,86 @@
+{
+  "image_size": 512,
+  "grid_size": 8,
+  "mean_abs_tolerance": 0.0001,
+  "all_neutral": true,
+  "warps": [
+    {
+      "warp_type": "bspline",
+      "mean_abs_delta": 2.441081960569136e-06,
+      "max_abs_delta": 5.7894736528396606e-05,
+      "neutral": true
+    },
+    {
+      "warp_type": "polar",
+      "mean_abs_delta": 2.204888460255461e-06,
+      "max_abs_delta": 8.296966552734375e-05,
+      "neutral": true
+    },
+    {
+      "warp_type": "bezier",
+      "mean_abs_delta": 2.441081960569136e-06,
+      "max_abs_delta": 5.7894736528396606e-05,
+      "neutral": true
+    },
+    {
+      "warp_type": "lens",
+      "mean_abs_delta": 2.441081960569136e-06,
+      "max_abs_delta": 5.7894736528396606e-05,
+      "neutral": true
+    },
+    {
+      "warp_type": "mobius",
+      "mean_abs_delta": 3.8131108794914326e-06,
+      "max_abs_delta": 5.9545040130615234e-05,
+      "neutral": true
+    },
+    {
+      "warp_type": "laplacian",
+      "mean_abs_delta": 2.441081960569136e-06,
+      "max_abs_delta": 5.7894736528396606e-05,
+      "neutral": true
+    },
+    {
+      "warp_type": "geodesic",
+      "mean_abs_delta": 2.441081960569136e-06,
+      "max_abs_delta": 5.7894736528396606e-05,
+      "neutral": true
+    },
+    {
+      "warp_type": "diffgeom",
+      "mean_abs_delta": 2.441081960569136e-06,
+      "max_abs_delta": 5.7894736528396606e-05,
+      "neutral": true
+    },
+    {
+      "warp_type": "delaunay",
+      "mean_abs_delta": 6.345824772324704e-07,
+      "max_abs_delta": 4.585832357406616e-05,
+      "neutral": true
+    },
+    {
+      "warp_type": "tps",
+      "mean_abs_delta": 2.441081960569136e-06,
+      "max_abs_delta": 5.7894736528396606e-05,
+      "neutral": true
+    },
+    {
+      "warp_type": "rolling",
+      "mean_abs_delta": 2.441081960569136e-06,
+      "max_abs_delta": 5.7894736528396606e-05,
+      "neutral": true
+    },
+    {
+      "warp_type": "fft",
+      "mean_abs_delta": 8.711570131936242e-08,
+      "max_abs_delta": 5.364418029785156e-07,
+      "neutral": true
+    },
+    {
+      "warp_type": "homography",
+      "mean_abs_delta": 2.441081960569136e-06,
+      "max_abs_delta": 5.7894736528396606e-05,
+      "neutral": true
+    }
+  ]
+}
