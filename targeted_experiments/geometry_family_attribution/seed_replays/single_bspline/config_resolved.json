@@ -1,0 +1,21 @@
+{
+  "case_root": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image2_black_jacket/single_bspline",
+  "output_root": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/seed_replays/single_bspline",
+  "prompt": "Add a black jacket",
+  "seeds": [
+    1234,
+    24001,
+    34007
+  ],
+  "steps": 20,
+  "guidance_scale": 7.5,
+  "image_guidance_scale": 2.0,
+  "original_path": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image2_black_jacket/single_bspline/original.png",
+  "stages": {
+    "original": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image2_black_jacket/single_bspline/original.png",
+    "vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image2_black_jacket/single_bspline/vae_reconstruction.png",
+    "neutral_geometry_on_original": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image2_black_jacket/single_bspline/neutral_geometry_on_original.png",
+    "geometry_only_original": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image2_black_jacket/single_bspline/geometry_only_original/learned_geometry_on_original.png",
+    "geometry_only_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image2_black_jacket/single_bspline/geometry_only_reconstruction/learned_geometry_on_reconstruction.png"
+  }
+}

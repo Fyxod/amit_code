@@ -1,0 +1,7 @@
+{
+  "status": "complete",
+  "num_seeds": 3,
+  "num_stages": 5,
+  "num_rows": 15,
+  "output_root": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/seed_replays/single_diffgeom"
+}
