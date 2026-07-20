@@ -1,0 +1,80 @@
+{
+  "status": "complete",
+  "face_id": "image_1",
+  "prompt": "Add a blue medical mask",
+  "warp_type": "bspline",
+  "modes": [
+    "delta_only",
+    "geometry_only_original",
+    "geometry_only_reconstruction",
+    "combined"
+  ],
+  "mode_summaries": [
+    {
+      "mode": "delta_only",
+      "best_iter": 9,
+      "best_loss": -4.998489856719971,
+      "iterations": 10,
+      "mean_seconds_iter": 0.6053572544828058,
+      "peak_vram_gb": 6.492767810821533,
+      "replay_images": {
+        "vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/pilot3_image1_blue_mask_bspline_10/delta_only/vae_reconstruction.png",
+        "learned_delta_only": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/pilot3_image1_blue_mask_bspline_10/delta_only/learned_delta_only.png",
+        "learned_geometry_on_original": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/pilot3_image1_blue_mask_bspline_10/delta_only/learned_geometry_on_original.png",
+        "learned_geometry_on_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/pilot3_image1_blue_mask_bspline_10/delta_only/learned_geometry_on_reconstruction.png",
+        "learned_combined": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/pilot3_image1_blue_mask_bspline_10/delta_only/learned_combined.png",
+        "geometry_then_vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/pilot3_image1_blue_mask_bspline_10/delta_only/geometry_then_vae_reconstruction.png"
+      }
+    },
+    {
+      "mode": "geometry_only_original",
+      "best_iter": 9,
+      "best_loss": -0.0007491464493796229,
+      "iterations": 10,
+      "mean_seconds_iter": 0.2478413527831435,
+      "peak_vram_gb": 0.8713417053222656,
+      "replay_images": {
+        "vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/pilot3_image1_blue_mask_bspline_10/geometry_only_original/vae_reconstruction.png",
+        "learned_delta_only": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/pilot3_image1_blue_mask_bspline_10/geometry_only_original/learned_delta_only.png",
+        "learned_geometry_on_original": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/pilot3_image1_blue_mask_bspline_10/geometry_only_original/learned_geometry_on_original.png",
+        "learned_geometry_on_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/pilot3_image1_blue_mask_bspline_10/geometry_only_original/learned_geometry_on_reconstruction.png",
+        "learned_combined": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/pilot3_image1_blue_mask_bspline_10/geometry_only_original/learned_combined.png",
+        "geometry_then_vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/pilot3_image1_blue_mask_bspline_10/geometry_only_original/geometry_then_vae_reconstruction.png"
+      }
+    },
+    {
+      "mode": "geometry_only_reconstruction",
+      "best_iter": 9,
+      "best_loss": 0.19098584353923798,
+      "iterations": 10,
+      "mean_seconds_iter": 0.23247394300997257,
+      "peak_vram_gb": 0.8700599670410156,
+      "replay_images": {
+        "vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/pilot3_image1_blue_mask_bspline_10/geometry_only_reconstruction/vae_reconstruction.png",
+        "learned_delta_only": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/pilot3_image1_blue_mask_bspline_10/geometry_only_reconstruction/learned_delta_only.png",
+        "learned_geometry_on_original": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/pilot3_image1_blue_mask_bspline_10/geometry_only_reconstruction/learned_geometry_on_original.png",
+        "learned_geometry_on_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/pilot3_image1_blue_mask_bspline_10/geometry_only_reconstruction/learned_geometry_on_reconstruction.png",
+        "learned_combined": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/pilot3_image1_blue_mask_bspline_10/geometry_only_reconstruction/learned_combined.png",
+        "geometry_then_vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/pilot3_image1_blue_mask_bspline_10/geometry_only_reconstruction/geometry_then_vae_reconstruction.png"
+      }
+    },
+    {
+      "mode": "combined",
+      "best_iter": 9,
+      "best_loss": -5.016942977905273,
+      "iterations": 10,
+      "mean_seconds_iter": 0.5984542841091752,
+      "peak_vram_gb": 6.495698928833008,
+      "replay_images": {
+        "vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/pilot3_image1_blue_mask_bspline_10/combined/vae_reconstruction.png",
+        "learned_delta_only": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/pilot3_image1_blue_mask_bspline_10/combined/learned_delta_only.png",
+        "learned_geometry_on_original": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/pilot3_image1_blue_mask_bspline_10/combined/learned_geometry_on_original.png",
+        "learned_geometry_on_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/pilot3_image1_blue_mask_bspline_10/combined/learned_geometry_on_reconstruction.png",
+        "learned_combined": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/pilot3_image1_blue_mask_bspline_10/combined/learned_combined.png",
+        "geometry_then_vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/pilot3_image1_blue_mask_bspline_10/combined/geometry_then_vae_reconstruction.png"
+      }
+    }
+  ],
+  "num_stage_edits": 27,
+  "output_root": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/pilot3_image1_blue_mask_bspline_10"
+}
