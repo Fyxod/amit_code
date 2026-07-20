@@ -1,0 +1,145 @@
+{
+  "phase": "all",
+  "input": "targeted_experiments/stage_attribution/image4_red_scarf_polar_25_corrected/original.png",
+  "prompt": "Add a red scarf",
+  "iterations": 20,
+  "seed": 24001,
+  "runs": [
+    {
+      "id": "single_bspline",
+      "warp": "bspline",
+      "modes": [
+        "geometry_only_original",
+        "geometry_only_reconstruction"
+      ]
+    },
+    {
+      "id": "single_bezier",
+      "warp": "bezier",
+      "modes": [
+        "geometry_only_original",
+        "geometry_only_reconstruction"
+      ]
+    },
+    {
+      "id": "single_mobius",
+      "warp": "mobius",
+      "modes": [
+        "geometry_only_original",
+        "geometry_only_reconstruction"
+      ]
+    },
+    {
+      "id": "single_laplacian",
+      "warp": "laplacian",
+      "modes": [
+        "geometry_only_original",
+        "geometry_only_reconstruction"
+      ]
+    },
+    {
+      "id": "single_geodesic",
+      "warp": "geodesic",
+      "modes": [
+        "geometry_only_original",
+        "geometry_only_reconstruction"
+      ]
+    },
+    {
+      "id": "single_diffgeom",
+      "warp": "diffgeom",
+      "modes": [
+        "geometry_only_original",
+        "geometry_only_reconstruction"
+      ]
+    },
+    {
+      "id": "single_delaunay",
+      "warp": "delaunay",
+      "modes": [
+        "geometry_only_original",
+        "geometry_only_reconstruction"
+      ]
+    },
+    {
+      "id": "single_rolling",
+      "warp": "rolling",
+      "modes": [
+        "geometry_only_original",
+        "geometry_only_reconstruction"
+      ]
+    },
+    {
+      "id": "single_fft",
+      "warp": "fft",
+      "modes": [
+        "geometry_only_original",
+        "geometry_only_reconstruction"
+      ]
+    },
+    {
+      "id": "single_homography",
+      "warp": "homography",
+      "modes": [
+        "geometry_only_original",
+        "geometry_only_reconstruction"
+      ]
+    },
+    {
+      "id": "combined_bspline",
+      "warp": "bspline",
+      "modes": [
+        "combined"
+      ]
+    },
+    {
+      "id": "combined_bspline_delaunay",
+      "warp": "bspline+delaunay",
+      "modes": [
+        "combined"
+      ]
+    },
+    {
+      "id": "combined_bspline_rolling",
+      "warp": "bspline+rolling",
+      "modes": [
+        "combined"
+      ]
+    },
+    {
+      "id": "combined_bspline_lens",
+      "warp": "bspline+lens",
+      "modes": [
+        "combined"
+      ]
+    },
+    {
+      "id": "combined_bspline_polar",
+      "warp": "bspline+polar",
+      "modes": [
+        "combined"
+      ]
+    },
+    {
+      "id": "combined_bspline_tps",
+      "warp": "bspline+tps",
+      "modes": [
+        "combined"
+      ]
+    },
+    {
+      "id": "combined_bspline_bezier_laplacian",
+      "warp": "bspline+bezier+laplacian",
+      "modes": [
+        "combined"
+      ]
+    },
+    {
+      "id": "combined_all",
+      "warp": "all",
+      "modes": [
+        "combined"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+/home/interns/.local/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py:205: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+/home/interns/Desktop/parth_cleanup/face4/face4/models/arcface.py:75: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  payload = torch.load(self.checkpoint_path, map_location="cpu")
+/home/interns/Desktop/parth_cleanup/face4/face4/models/iresnet.py:98: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=self.fp16):
+Loading InstructPix2Pix VAE from 'timbrooks/instruct-pix2pix' ...
+  ✓ InstructPix2Pix VAE loaded.
+Loading FACE4 ArcFace from /home/interns/Desktop/parth_cleanup/face4 with checkpoint /home/interns/Desktop/parth_cleanup/face4/models/arcface/iresnet100.pth
+[combined] 001/020 loss=0.18596 id_sim=0.94203 ssim=0.84190 0.55s
+[combined] 002/020 loss=-1.97938 id_sim=0.72563 ssim=0.84387 0.37s
+[combined] 003/020 loss=-3.53292 id_sim=0.57009 ssim=0.84395 0.66s
+[combined] 004/020 loss=-4.58473 id_sim=0.46459 ssim=0.84363 0.63s
+[combined] 005/020 loss=-5.52132 id_sim=0.37049 ssim=0.84307 0.65s
+[combined] 006/020 loss=-6.59766 id_sim=0.26239 ssim=0.84223 0.62s
+[combined] 007/020 loss=-7.52509 id_sim=0.16916 ssim=0.84127 0.64s
+[combined] 008/020 loss=-7.94449 id_sim=0.12669 ssim=0.84045 0.65s
+[combined] 009/020 loss=-8.42122 id_sim=0.07848 ssim=0.83979 0.66s
+[combined] 010/020 loss=-8.85521 id_sim=0.03454 ssim=0.83915 0.63s
+[combined] 011/020 loss=-9.21452 id_sim=-0.00193 ssim=0.83855 0.63s
+[combined] 012/020 loss=-9.58228 id_sim=-0.03922 ssim=0.83794 0.64s
+[combined] 013/020 loss=-9.95227 id_sim=-0.07674 ssim=0.83728 0.61s
+[combined] 014/020 loss=-10.32981 id_sim=-0.11499 ssim=0.83659 0.64s
+[combined] 015/020 loss=-10.73166 id_sim=-0.15566 ssim=0.83587 0.64s
+[combined] 016/020 loss=-11.09983 id_sim=-0.19294 ssim=0.83512 0.63s
+[combined] 017/020 loss=-11.44322 id_sim=-0.22774 ssim=0.83435 0.63s
+[combined] 018/020 loss=-11.72892 id_sim=-0.25673 ssim=0.83356 0.62s
+[combined] 019/020 loss=-11.99327 id_sim=-0.28357 ssim=0.83278 0.61s
+[combined] 020/020 loss=-12.26397 id_sim=-0.31100 ssim=0.83202 0.63s
+
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s][0;93m2026-07-20 22:42:54.914406043 [W:onnxruntime:Default, device_discovery.cc:164 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:89 ReadFileContents Failed to open file: "/sys/class/drm/card0/device/vendor"[m
+
+Loading pipeline components...:  33%|███▎      | 2/6 [00:00<00:00,  5.46it/s]
+Loading pipeline components...:  50%|█████     | 3/6 [00:03<00:04,  1.48s/it]
+Loading pipeline components...:  67%|██████▋   | 4/6 [00:04<00:02,  1.25s/it]
+
+Loading weights:   0%|          | 0/196 [00:00<?, ?it/s][A
+
+Loading weights:  80%|███████▉  | 156/196 [00:00<00:00, 1514.28it/s][A
+Loading weights: 100%|██████████| 196/196 [00:00<00:00, 1609.24it/s]
+
+Loading pipeline components...: 100%|██████████| 6/6 [00:04<00:00,  1.42it/s]
+Loading pipeline components...: 100%|██████████| 6/6 [00:04<00:00,  1.22it/s]
+Loading FACE4 ArcFace from /home/interns/Desktop/parth_cleanup/face4 with checkpoint /home/interns/Desktop/parth_cleanup/face4/models/arcface/iresnet100.pth
+{
+  "status": "complete",
+  "face_id": "image_4",
+  "prompt": "Add a red scarf",
+  "warp_type": "bspline+tps",
+  "warp_components": [
+    "bspline",
+    "tps"
+  ],
+  "modes": [
+    "combined"
+  ],
+  "mode_summaries": [
+    {
+      "mode": "combined",
+      "best_iter": 19,
+      "best_loss": -12.26396656036377,
+      "iterations": 20,
+      "mean_seconds_iter": 0.616686059255153,
+      "peak_vram_gb": 6.875463485717773,
+      "replay_images": {
+        "vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image4_red_scarf/combined_bspline_tps/combined/vae_reconstruction.png",
+        "learned_delta_only": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image4_red_scarf/combined_bspline_tps/combined/learned_delta_only.png",
+        "learned_geometry_on_original": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image4_red_scarf/combined_bspline_tps/combined/learned_geometry_on_original.png",
+        "learned_geometry_on_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image4_red_scarf/combined_bspline_tps/combined/learned_geometry_on_reconstruction.png",
+        "learned_combined": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image4_red_scarf/combined_bspline_tps/combined/learned_combined.png",
+        "geometry_then_vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image4_red_scarf/combined_bspline_tps/combined/geometry_then_vae_reconstruction.png"
+      }
+    }
+  ],
+  "num_stage_edits": 9,
+  "output_root": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image4_red_scarf/combined_bspline_tps"
+}

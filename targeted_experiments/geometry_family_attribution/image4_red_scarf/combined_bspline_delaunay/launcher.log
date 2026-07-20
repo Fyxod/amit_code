@@ -1,0 +1,77 @@
+/home/interns/.local/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py:205: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+/home/interns/Desktop/parth_cleanup/face4/face4/models/arcface.py:75: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  payload = torch.load(self.checkpoint_path, map_location="cpu")
+/home/interns/Desktop/parth_cleanup/face4/face4/models/iresnet.py:98: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=self.fp16):
+Loading InstructPix2Pix VAE from 'timbrooks/instruct-pix2pix' ...
+  ✓ InstructPix2Pix VAE loaded.
+Loading FACE4 ArcFace from /home/interns/Desktop/parth_cleanup/face4 with checkpoint /home/interns/Desktop/parth_cleanup/face4/models/arcface/iresnet100.pth
+[combined] 001/020 loss=0.18653 id_sim=0.94209 ssim=0.84190 0.54s
+[combined] 002/020 loss=-1.95357 id_sim=0.72816 ssim=0.84372 0.39s
+[combined] 003/020 loss=-3.53716 id_sim=0.56957 ssim=0.84425 0.63s
+[combined] 004/020 loss=-4.60277 id_sim=0.46262 ssim=0.84388 0.65s
+[combined] 005/020 loss=-5.50776 id_sim=0.37166 ssim=0.84359 0.64s
+[combined] 006/020 loss=-6.42342 id_sim=0.27958 ssim=0.84299 0.65s
+[combined] 007/020 loss=-7.40640 id_sim=0.18073 ssim=0.84226 0.64s
+[combined] 008/020 loss=-7.91772 id_sim=0.12901 ssim=0.84162 0.63s
+[combined] 009/020 loss=-8.27845 id_sim=0.09235 ssim=0.84113 0.64s
+[combined] 010/020 loss=-8.69547 id_sim=0.05008 ssim=0.84069 0.63s
+[combined] 011/020 loss=-9.10692 id_sim=0.00838 ssim=0.84023 0.63s
+[combined] 012/020 loss=-9.46333 id_sim=-0.02779 ssim=0.83976 0.65s
+[combined] 013/020 loss=-9.79714 id_sim=-0.06167 ssim=0.83926 0.65s
+[combined] 014/020 loss=-10.11800 id_sim=-0.09424 ssim=0.83870 0.65s
+[combined] 015/020 loss=-10.49840 id_sim=-0.13276 ssim=0.83807 0.65s
+[combined] 016/020 loss=-10.86845 id_sim=-0.17024 ssim=0.83730 0.64s
+[combined] 017/020 loss=-11.20880 id_sim=-0.20472 ssim=0.83639 0.64s
+[combined] 018/020 loss=-11.57849 id_sim=-0.24211 ssim=0.83548 0.68s
+[combined] 019/020 loss=-11.91749 id_sim=-0.27642 ssim=0.83459 0.65s
+[combined] 020/020 loss=-12.20568 id_sim=-0.30564 ssim=0.83372 0.65s
+
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s][0;93m2026-07-20 22:35:56.943930123 [W:onnxruntime:Default, device_discovery.cc:164 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:89 ReadFileContents Failed to open file: "/sys/class/drm/card0/device/vendor"[m
+
+Loading pipeline components...:  17%|█▋        | 1/6 [00:00<00:04,  1.15it/s]
+Loading pipeline components...:  33%|███▎      | 2/6 [00:04<00:09,  2.44s/it]
+Loading pipeline components...:  50%|█████     | 3/6 [00:04<00:04,  1.44s/it]
+
+Loading weights:   0%|          | 0/196 [00:00<?, ?it/s][A
+
+Loading weights:  76%|███████▌  | 149/196 [00:00<00:00, 1489.00it/s][A
+Loading weights: 100%|██████████| 196/196 [00:00<00:00, 1610.41it/s]
+
+Loading pipeline components...:  67%|██████▋   | 4/6 [00:05<00:02,  1.04s/it]
+Loading pipeline components...: 100%|██████████| 6/6 [00:05<00:00,  1.18it/s]
+Loading FACE4 ArcFace from /home/interns/Desktop/parth_cleanup/face4 with checkpoint /home/interns/Desktop/parth_cleanup/face4/models/arcface/iresnet100.pth
+{
+  "status": "complete",
+  "face_id": "image_4",
+  "prompt": "Add a red scarf",
+  "warp_type": "bspline+delaunay",
+  "warp_components": [
+    "bspline",
+    "delaunay"
+  ],
+  "modes": [
+    "combined"
+  ],
+  "mode_summaries": [
+    {
+      "mode": "combined",
+      "best_iter": 19,
+      "best_loss": -12.205680847167969,
+      "iterations": 20,
+      "mean_seconds_iter": 0.6260338658466935,
+      "peak_vram_gb": 6.522196292877197,
+      "replay_images": {
+        "vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image4_red_scarf/combined_bspline_delaunay/combined/vae_reconstruction.png",
+        "learned_delta_only": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image4_red_scarf/combined_bspline_delaunay/combined/learned_delta_only.png",
+        "learned_geometry_on_original": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image4_red_scarf/combined_bspline_delaunay/combined/learned_geometry_on_original.png",
+        "learned_geometry_on_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image4_red_scarf/combined_bspline_delaunay/combined/learned_geometry_on_reconstruction.png",
+        "learned_combined": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image4_red_scarf/combined_bspline_delaunay/combined/learned_combined.png",
+        "geometry_then_vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image4_red_scarf/combined_bspline_delaunay/combined/geometry_then_vae_reconstruction.png"
+      }
+    }
+  ],
+  "num_stage_edits": 9,
+  "output_root": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image4_red_scarf/combined_bspline_delaunay"
+}

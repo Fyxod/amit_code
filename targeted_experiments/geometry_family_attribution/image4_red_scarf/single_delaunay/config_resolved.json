@@ -1,0 +1,42 @@
+{
+  "input": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image4_red_scarf_polar_25_corrected/original.png",
+  "output_root": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_family_attribution/image4_red_scarf/single_delaunay",
+  "prompt": "Add a red scarf",
+  "face_id": "image_4",
+  "warp_type": "delaunay",
+  "modes": [
+    "geometry_only_original",
+    "geometry_only_reconstruction"
+  ],
+  "iterations": 20,
+  "lr": 0.01,
+  "identity_weight": 10.0,
+  "ssim_weight": 5.0,
+  "pixel_weight": 0.1,
+  "latent_reg_weight": 0.001,
+  "grad_clip": 1.0,
+  "imperceptibility_scale": 1.0,
+  "grid_size": [
+    8,
+    8
+  ],
+  "image_size": [
+    512,
+    512
+  ],
+  "seed": 24001,
+  "steps": 20,
+  "guidance_scale": 7.5,
+  "image_guidance_scale": 2.0,
+  "arcface_checkpoint": "/home/interns/Desktop/parth_cleanup/face4/models/arcface/iresnet100.pth",
+  "model_id": "timbrooks/instruct-pix2pix",
+  "taesd_path": "taesd",
+  "device": "cuda",
+  "skip_edits": false,
+  "skip_arcface_audit": false,
+  "device_resolved": "cuda",
+  "pipeline_order": "geometry(decode(encode(original) + delta_z))",
+  "warp_components": [
+    "delaunay"
+  ]
+}

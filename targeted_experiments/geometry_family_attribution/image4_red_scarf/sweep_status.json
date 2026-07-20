@@ -1,0 +1,25 @@
+{
+  "completed_this_invocation": [
+    "single_bspline",
+    "single_bezier",
+    "single_mobius",
+    "single_laplacian",
+    "single_geodesic",
+    "single_diffgeom",
+    "single_delaunay",
+    "single_rolling",
+    "single_fft",
+    "single_homography",
+    "combined_bspline",
+    "combined_bspline_delaunay",
+    "combined_bspline_rolling",
+    "combined_bspline_lens",
+    "combined_bspline_polar",
+    "combined_bspline_tps",
+    "combined_bspline_bezier_laplacian",
+    "combined_all"
+  ],
+  "skipped": [],
+  "failed": [],
+  "remaining": []
+}
