@@ -1,0 +1,2 @@
+iter,mode,loss,arcface_identity_distance,arcface_identity_similarity,ssim_preservation_loss,pixel_preservation_loss,latent_regularisation,input_ssim,input_psnr,input_mse,seconds_iter,seconds_elapsed,peak_vram_gb
+0,delta_only,0.26362234354019165,0.05941152572631836,0.9405884742736816,0.17153024673461914,0.0008636002312414348,0.0,0.8239538073539734,30.636872207772186,0.0008636002894490957,0.5169719476252794,0.5171130038797855,6.301804542541504
