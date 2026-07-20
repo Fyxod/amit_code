@@ -38,6 +38,14 @@ STAGE_PATHS = {
         "geometry_only_reconstruction/learned_geometry_on_reconstruction.png"
     ),
     "combined": "combined/learned_combined.png",
+    # Combined-only sweeps still save exact component replays inside their
+    # combined mode directory. Include those so seed controls can distinguish
+    # the latent contribution from the geometry increment.
+    "joint_delta_only": "combined/learned_delta_only.png",
+    "joint_geometry_on_original": "combined/learned_geometry_on_original.png",
+    "joint_geometry_on_reconstruction": (
+        "combined/learned_geometry_on_reconstruction.png"
+    ),
 }
 
 
