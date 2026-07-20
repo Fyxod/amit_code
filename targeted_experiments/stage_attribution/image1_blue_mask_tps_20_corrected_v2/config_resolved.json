@@ -1,0 +1,41 @@
+{
+  "input": "/home/interns/Desktop/amit_code/parth_save/image_1_blue_medical_mask_igs1p5_seed1234/original.png",
+  "output_root": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image1_blue_mask_tps_20_corrected_v2",
+  "prompt": "Add a blue medical mask",
+  "face_id": "image_1",
+  "warp_type": "tps",
+  "modes": [
+    "delta_only",
+    "geometry_only_original",
+    "geometry_only_reconstruction",
+    "combined"
+  ],
+  "iterations": 20,
+  "lr": 0.01,
+  "identity_weight": 10.0,
+  "ssim_weight": 5.0,
+  "pixel_weight": 0.1,
+  "latent_reg_weight": 0.001,
+  "grad_clip": 1.0,
+  "imperceptibility_scale": 1.0,
+  "grid_size": [
+    8,
+    8
+  ],
+  "image_size": [
+    512,
+    512
+  ],
+  "seed": 1234,
+  "steps": 20,
+  "guidance_scale": 7.5,
+  "image_guidance_scale": 1.5,
+  "arcface_checkpoint": "/home/interns/Desktop/parth_cleanup/face4/models/arcface/iresnet100.pth",
+  "model_id": "timbrooks/instruct-pix2pix",
+  "taesd_path": "taesd",
+  "device": "cuda",
+  "skip_edits": false,
+  "skip_arcface_audit": false,
+  "device_resolved": "cuda",
+  "pipeline_order": "geometry(decode(encode(original) + delta_z))"
+}

@@ -1,0 +1,80 @@
+{
+  "status": "complete",
+  "face_id": "image_1",
+  "prompt": "Add a blue medical mask",
+  "warp_type": "tps",
+  "modes": [
+    "delta_only",
+    "geometry_only_original",
+    "geometry_only_reconstruction",
+    "combined"
+  ],
+  "mode_summaries": [
+    {
+      "mode": "delta_only",
+      "best_iter": 19,
+      "best_loss": -10.810218811035156,
+      "iterations": 20,
+      "mean_seconds_iter": 0.5769793793559075,
+      "peak_vram_gb": 6.686003684997559,
+      "replay_images": {
+        "vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image1_blue_mask_tps_20_corrected_v2/delta_only/vae_reconstruction.png",
+        "learned_delta_only": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image1_blue_mask_tps_20_corrected_v2/delta_only/learned_delta_only.png",
+        "learned_geometry_on_original": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image1_blue_mask_tps_20_corrected_v2/delta_only/learned_geometry_on_original.png",
+        "learned_geometry_on_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image1_blue_mask_tps_20_corrected_v2/delta_only/learned_geometry_on_reconstruction.png",
+        "learned_combined": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image1_blue_mask_tps_20_corrected_v2/delta_only/learned_combined.png",
+        "geometry_then_vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image1_blue_mask_tps_20_corrected_v2/delta_only/geometry_then_vae_reconstruction.png"
+      }
+    },
+    {
+      "mode": "geometry_only_original",
+      "best_iter": 19,
+      "best_loss": -0.015106812119483948,
+      "iterations": 20,
+      "mean_seconds_iter": 0.23873050641268492,
+      "peak_vram_gb": 1.1253538131713867,
+      "replay_images": {
+        "vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image1_blue_mask_tps_20_corrected_v2/geometry_only_original/vae_reconstruction.png",
+        "learned_delta_only": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image1_blue_mask_tps_20_corrected_v2/geometry_only_original/learned_delta_only.png",
+        "learned_geometry_on_original": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image1_blue_mask_tps_20_corrected_v2/geometry_only_original/learned_geometry_on_original.png",
+        "learned_geometry_on_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image1_blue_mask_tps_20_corrected_v2/geometry_only_original/learned_geometry_on_reconstruction.png",
+        "learned_combined": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image1_blue_mask_tps_20_corrected_v2/geometry_only_original/learned_combined.png",
+        "geometry_then_vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image1_blue_mask_tps_20_corrected_v2/geometry_only_original/geometry_then_vae_reconstruction.png"
+      }
+    },
+    {
+      "mode": "geometry_only_reconstruction",
+      "best_iter": 19,
+      "best_loss": 0.16277296841144562,
+      "iterations": 20,
+      "mean_seconds_iter": 0.22427793527022005,
+      "peak_vram_gb": 1.1252927780151367,
+      "replay_images": {
+        "vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image1_blue_mask_tps_20_corrected_v2/geometry_only_reconstruction/vae_reconstruction.png",
+        "learned_delta_only": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image1_blue_mask_tps_20_corrected_v2/geometry_only_reconstruction/learned_delta_only.png",
+        "learned_geometry_on_original": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image1_blue_mask_tps_20_corrected_v2/geometry_only_reconstruction/learned_geometry_on_original.png",
+        "learned_geometry_on_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image1_blue_mask_tps_20_corrected_v2/geometry_only_reconstruction/learned_geometry_on_reconstruction.png",
+        "learned_combined": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image1_blue_mask_tps_20_corrected_v2/geometry_only_reconstruction/learned_combined.png",
+        "geometry_then_vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image1_blue_mask_tps_20_corrected_v2/geometry_only_reconstruction/geometry_then_vae_reconstruction.png"
+      }
+    },
+    {
+      "mode": "combined",
+      "best_iter": 19,
+      "best_loss": -10.822054862976074,
+      "iterations": 20,
+      "mean_seconds_iter": 0.5755505976267159,
+      "peak_vram_gb": 6.726107120513916,
+      "replay_images": {
+        "vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image1_blue_mask_tps_20_corrected_v2/combined/vae_reconstruction.png",
+        "learned_delta_only": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image1_blue_mask_tps_20_corrected_v2/combined/learned_delta_only.png",
+        "learned_geometry_on_original": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image1_blue_mask_tps_20_corrected_v2/combined/learned_geometry_on_original.png",
+        "learned_geometry_on_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image1_blue_mask_tps_20_corrected_v2/combined/learned_geometry_on_reconstruction.png",
+        "learned_combined": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image1_blue_mask_tps_20_corrected_v2/combined/learned_combined.png",
+        "geometry_then_vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image1_blue_mask_tps_20_corrected_v2/combined/geometry_then_vae_reconstruction.png"
+      }
+    }
+  ],
+  "num_stage_edits": 27,
+  "output_root": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image1_blue_mask_tps_20_corrected_v2"
+}

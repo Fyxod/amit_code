@@ -1,0 +1,16 @@
+{
+  "mode": "geometry_only_original",
+  "best_iter": 19,
+  "best_loss": -0.015106812119483948,
+  "iterations": 20,
+  "mean_seconds_iter": 0.23873050641268492,
+  "peak_vram_gb": 1.1253538131713867,
+  "replay_images": {
+    "vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image1_blue_mask_tps_20_corrected_v2/geometry_only_original/vae_reconstruction.png",
+    "learned_delta_only": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image1_blue_mask_tps_20_corrected_v2/geometry_only_original/learned_delta_only.png",
+    "learned_geometry_on_original": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image1_blue_mask_tps_20_corrected_v2/geometry_only_original/learned_geometry_on_original.png",
+    "learned_geometry_on_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image1_blue_mask_tps_20_corrected_v2/geometry_only_original/learned_geometry_on_reconstruction.png",
+    "learned_combined": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image1_blue_mask_tps_20_corrected_v2/geometry_only_original/learned_combined.png",
+    "geometry_then_vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/stage_attribution/image1_blue_mask_tps_20_corrected_v2/geometry_only_original/geometry_then_vae_reconstruction.png"
+  }
+}
