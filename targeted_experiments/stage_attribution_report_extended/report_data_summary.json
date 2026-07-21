@@ -1,0 +1,14 @@
+{
+  "base_report": "C:\\Users\\parth\\Desktop\\experiment\\amit_code\\targeted_experiments\\stage_attribution_report\\instruct_pipeline_stage_attribution_report.pdf",
+  "appendix": "C:\\Users\\parth\\Desktop\\experiment\\amit_code\\targeted_experiments\\stage_attribution_report_extended\\geometry_family_attribution_appendix.pdf",
+  "extended_report": "C:\\Users\\parth\\Desktop\\experiment\\amit_code\\targeted_experiments\\stage_attribution_report_extended\\instruct_pipeline_stage_attribution_report_extended.pdf",
+  "family_stage_rows": 104,
+  "family_incremental_rows": 336,
+  "depth_stage_rows": 44,
+  "depth_incremental_rows": 104,
+  "long_seed_replay_rows": 30,
+  "base_pages": 25,
+  "appendix_pages": 16,
+  "extended_pages": 41,
+  "conclusion": "Latent delta-z remains dominant; geometry-after-VAE has a separate seed-sensitive interaction."
+}
