@@ -1,0 +1,7 @@
+{
+  "status": "complete",
+  "num_seeds": 3,
+  "num_stages": 9,
+  "num_rows": 27,
+  "output_root": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_depth_strength_controls/seed_replays_100iter/image2_black_jacket__bspline_iter100_scale1"
+}

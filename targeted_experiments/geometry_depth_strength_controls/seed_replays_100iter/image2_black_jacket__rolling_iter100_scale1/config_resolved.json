@@ -1,0 +1,21 @@
+{
+  "case_root": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_depth_strength_controls/image2_black_jacket__rolling_iter100_scale1",
+  "output_root": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_depth_strength_controls/seed_replays_100iter/image2_black_jacket__rolling_iter100_scale1",
+  "prompt": "Add a black jacket",
+  "seeds": [
+    1234,
+    24001,
+    34007
+  ],
+  "steps": 20,
+  "guidance_scale": 7.5,
+  "image_guidance_scale": 2.0,
+  "original_path": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_depth_strength_controls/image2_black_jacket__rolling_iter100_scale1/original.png",
+  "stages": {
+    "original": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_depth_strength_controls/image2_black_jacket__rolling_iter100_scale1/original.png",
+    "vae_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_depth_strength_controls/image2_black_jacket__rolling_iter100_scale1/vae_reconstruction.png",
+    "neutral_geometry_on_original": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_depth_strength_controls/image2_black_jacket__rolling_iter100_scale1/neutral_geometry_on_original.png",
+    "geometry_only_original": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_depth_strength_controls/image2_black_jacket__rolling_iter100_scale1/geometry_only_original/learned_geometry_on_original.png",
+    "geometry_only_reconstruction": "/home/interns/Desktop/amit_code/targeted_experiments/geometry_depth_strength_controls/image2_black_jacket__rolling_iter100_scale1/geometry_only_reconstruction/learned_geometry_on_reconstruction.png"
+  }
+}
